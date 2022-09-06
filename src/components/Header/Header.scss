@@ -39,10 +39,13 @@ $breakpoint-desktop: 1280px;
 
     &__logo {
         width: 8.0369rem;
-        padding: 1.5rem 0;
+    }
+
+    &__logo-link {
+        margin: 1.5rem 0;
 
         @include tablet {
-            padding: 1.5rem 0 1rem 0;
+            margin: 1.5rem 0 1rem 0;
         }
     }
 
@@ -50,6 +53,7 @@ $breakpoint-desktop: 1280px;
         display: flex;
         flex-direction: row;
         width: 100%;
+        list-style: none;
 
         @include tablet {
             width: auto;
