@@ -1,0 +1,22 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+
+
+.footer{ 
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &-container {
+        background-color:#F7F8F9;
+        color: #5C667E;
+        font-weight: light;
+        text-align: center;
+        padding: 1rem;
+        font-size: .6875rem;
+        line-height: 1rem;
+        @include tablet {
+            font-size: .75rem;
+        }
+    }
+};
