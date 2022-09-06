@@ -1,0 +1,8 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory {
+    &-container {
+        text-align: center;
+    }
+}

@@ -1,12 +1,14 @@
 import Footer from "./components/Footer/Footer"
 import './App.scss';
 import Header from './components/Header/Header';
+import InventoryList from './components/InventoryList/InventoryList';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <InventoryList/>
       <Routes>
         <Route path="/warehouses" element=""/>
         <Route path="/warehouses/:warehouseId" element=""/>
