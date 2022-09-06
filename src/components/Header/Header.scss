@@ -1,3 +1,16 @@
 .header {
     background-color: #232940;
+    height: 12.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__logo {
+        width: 8.0369rem;
+        padding: 1.5rem 0;
+    }
+
+    &__nav-item {
+        color: #FFFFFF; 
+    }
 }
