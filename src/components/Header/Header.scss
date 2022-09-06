@@ -1,0 +1,90 @@
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;
+
+@mixin tablet {
+	@media (min-width: $breakpoint-tablet) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $breakpoint-desktop) {
+		@content;
+	}
+}
+
+.header {
+    background-color: #232940;
+    height: 12.5rem;
+
+    @include tablet {
+        height: 11.625rem;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 1rem;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0 2rem;
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+    }
+
+    &__logo {
+        width: 8.0369rem;
+    }
+
+    &__logo-link {
+        margin: 1.5rem 0;
+
+        @include tablet {
+            margin: 1.5rem 0 1rem 0;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        list-style: none;
+
+        @include tablet {
+            width: auto;
+        }
+    }
+
+    &__nav-item {
+        color: #FFFFFF; 
+        padding: .5625rem 0;
+        width: 100%;
+        text-align: center;
+
+        @include tablet {
+            margin: 1.5rem 1rem;
+            height: 2.375rem;
+            padding: .5rem 1rem;
+            width: auto;
+        }
+
+        &:last-child {
+            margin-left: 1rem;
+
+            @include tablet {
+                margin-right: 0;
+                padding-right: 0;
+            }
+        }
+
+        &:active {
+            background-color: #13182C;
+            border-radius: 5rem;
+        }
+    }
+}
