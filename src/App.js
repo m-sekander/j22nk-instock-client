@@ -1,10 +1,22 @@
 import Footer from "./components/Footer/Footer"
+import './App.scss';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <Routes>
+        <Route path="/warehouses" element=""/>
+        <Route path="/warehouses/:warehouseId" element=""/>
+        <Route path="/warehouses/:warehouseId/edit" element=""/>
+        <Route path="/warehouses/add" element=""/>
+        <Route path="/inventories" element=""/>
+        <Route path="/inventories/:inventoryId" element=""/>
+        <Route path="/inventories/:inventoryId/edit" element=""/>
+        <Route path="/inventories/add" element=""/>
+      </Routes>
       <Footer/>
-    </div>  
+    </BrowserRouter>
   );
 }
 
