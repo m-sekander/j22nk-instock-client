@@ -54,6 +54,8 @@ $breakpoint-desktop: 1280px;
         flex-direction: row;
         width: 100%;
         list-style: none;
+        margin: 0;
+        padding: 0;
 
         @include tablet {
             width: auto;
@@ -61,7 +63,6 @@ $breakpoint-desktop: 1280px;
     }
 
     &__nav-item {
-        color: #FFFFFF; 
         padding: .5625rem 0;
         width: 100%;
         text-align: center;
@@ -86,5 +87,10 @@ $breakpoint-desktop: 1280px;
             background-color: #13182C;
             border-radius: 5rem;
         }
+    }
+
+    &__nav-item-link {
+        color: #FFFFFF;
+        text-decoration: none; 
     }
 }
