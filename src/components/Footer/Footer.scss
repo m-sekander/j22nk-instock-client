@@ -1,5 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
 
 
 
@@ -8,8 +9,8 @@
     padding-right: 1rem;
 
     &-container {
-        background-color:#F7F8F9;
-        color: #5C667E;
+        background-color:$background-page;
+        color: $secondary-table-header;
         font-weight: light;
         text-align: center;
         padding: 1rem;
