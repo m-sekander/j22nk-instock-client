@@ -2,11 +2,13 @@ import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import './App.scss';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import WarehouseList from "./components/WarehouseList/WarehouseList";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <WarehouseList />
       <Routes>
         <Route path="/warehouses" element=""/>
         <Route path="/warehouses/:warehouseId" element=""/>
