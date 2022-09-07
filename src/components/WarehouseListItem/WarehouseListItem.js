@@ -21,7 +21,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <span className="warehouse__label">Address</span>
                     <span className="warehouse__address warehouse__info">{address}, {city}, {country}</span>
                 </div>
-                <img className="warehouse__delete" src={deleteIcon} alt="Delete button" />
+                <Link to=""><img className="warehouse__delete" src={deleteIcon} alt="Delete button" /></Link>
             </div>
             <div className="warehouse__right">
                 <div className="warehouse__container">
@@ -33,8 +33,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <span className="warehouse__contact-phone warehouse__info">{contactPhone}</span>
                     <span className="warehouse__contact-email warehouse__info">{contactEmail}</span>
                 </div>
-                <img className="warehouse__edit" src={editIcon} alt="Edit button" />
-
+                <Link to=""><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
             </div>
         </li>
     );
