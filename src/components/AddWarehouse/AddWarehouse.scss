@@ -1,5 +1,44 @@
+@use "../../styles/partials/colors" as *;
+
 .add-warehouse {
+    margin: -3.5rem 0.8rem 1rem;
+    box-shadow: 0px 2px 3px $secondary-outline;
+    background-color: $primary-global;
+    border-radius: 3px;
+
     &__title-container {
         display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding-top: 0.7rem;
+    }
+
+    &__link {
+        margin-left: 1rem;
+    }
+
+    &__icon {
+        width: 1.25rem;
+        vertical-align: bottom;
+    }
+
+    &__input-container {
+        border-top: 1px solid $secondary-outline;
+        padding: 0 1.25rem 0.75rem;
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: 0.7rem;
+    }
+
+    &__input {
+        width: 100%;
+        font-family: "TitilliumWeb", sans-serif;
+        font-size: 0.7rem;
+        padding: 0.35rem 0.8rem;
+        border: 1px solid $secondary-outline;
+        border-radius: 20px;
+        margin: 0.15rem 0 0.5rem;
     }
 }
