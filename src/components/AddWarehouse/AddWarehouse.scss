@@ -3,19 +3,30 @@
 @use "../../styles/partials/mixins" as *;
 
 .add-warehouse {
-    margin: -3.5rem 0.8rem 1rem;
-    box-shadow: 0px 2px 3px $secondary-outline;
-    background-color: $primary-global;
-    border-radius: 3px;
 
     @include tablet {
-        margin: -6.5rem 2rem 1rem;
+        min-height: 54rem; 
     }
 
     @include desktop {
-        @include contain(64rem);
-        margin-left: auto;
-        margin-right: auto;
+        min-height: 48rem;
+    }
+
+    &__main-container {
+        margin: -3.5rem 0.8rem 1rem;
+        box-shadow: 0px 2px 3px $secondary-outline;
+        background-color: $primary-global;
+        border-radius: 3px;
+
+        @include tablet {
+            margin: -6.5rem 2rem 1rem;
+        }
+
+        @include desktop {
+            @include contain(64rem);
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     &__title-container {
@@ -37,9 +48,6 @@
         @include tablet {
             width: 1.5rem;
         }
-    }
-
-    &__form {
     }
 
     &__inputs-container {
