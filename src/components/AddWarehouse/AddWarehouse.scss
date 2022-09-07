@@ -1,5 +1,6 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
 
 .add-warehouse {
     margin: -3.5rem 0.8rem 1rem;
@@ -9,6 +10,12 @@
 
     @include tablet {
         margin: -6.5rem 2rem 1rem;
+    }
+
+    @include desktop {
+        @include contain(64rem);
+        margin-left: auto;
+        margin-right: auto;
     }
 
     &__title-container {
@@ -33,6 +40,9 @@
     }
 
     &__form {
+    }
+
+    &__inputs-container {
         display: flex;
         flex-direction: column;
 
@@ -44,6 +54,7 @@
     &__input-container {
         border-top: 1px solid $secondary-outline;
         padding: 0 1.25rem 0.75rem;
+        width: 100%;
 
         @include tablet {
             padding: 0 2rem 0.5rem;
@@ -79,10 +90,40 @@
         border-radius: 20px;
         margin: 0.15rem 0;
 
+        &:focus {
+            outline: none;
+            border: 1px solid $primary-element;
+
+            &::placeholder {
+                color: transparent;
+            }
+        }
+
         @include tablet {
             font-size: 0.9rem;
             padding: 0.5rem 1rem;
             margin: 0.25rem 0;
+        }
+    }
+
+    &__button-container {
+        background-color: $background-page;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0.75rem 1.25rem;
+        gap: 1rem;
+
+        @include tablet {
+            padding: 1rem 2rem;
+        }
+    }
+
+    &__button {
+        width: 100%;
+
+        @include tablet {
+            width: auto;
         }
     }
 }
