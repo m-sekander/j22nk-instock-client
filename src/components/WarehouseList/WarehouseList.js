@@ -2,6 +2,7 @@ import "./WarehouseList.scss"
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
+import CTA from "../Button/CTA";
 
 function WarehouseList() {
     const [warehouses, setWarehouseList] = useState([]);
@@ -26,7 +27,7 @@ function WarehouseList() {
                 <h1 className="warehouse-list__title">Warehouses</h1>
                 <form className="warehouse-list__form">
                     <input className="warehouse-list__search" type="text" placeholder="Search..."></input>
-                    <button className="warehouse-list__button">+ Add New Warehouse</button>
+                    <CTA text="+ Add New Warehouse" isButton={false} link="/warehouses/add" type="primary"/>
                 </form>
             </div>
             <ul className="warehouse-list__warehouses">
