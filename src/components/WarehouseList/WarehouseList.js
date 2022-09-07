@@ -1,16 +1,19 @@
 import "./WarehouseList.scss"
+import axios from 'axios';
 
 function WarehouseList() {
     return (
         <section className="warehouse-list">
             <div className="warehouse-list__header">
-                <h2 className="warehouse-list__title">Warehouses</h2>
+                <h1 className="warehouse-list__title">Warehouses</h1>
                 <form className="warehouse-list__form">
-                    <input type="text" placeholder="Search"></input>
-                    <button>+ Add New Warehouse</button>
+                    <input className="warehouse-list__search" type="text" placeholder="Search..."></input>
+                    <button className="warehouse-list__button">+ Add New Warehouse</button>
                 </form>
             </div>
-            {/* map out warehouses */}
+            <ul className="warehouse-list__warehouses">
+                
+            </ul>
         </section>
     );
 }
