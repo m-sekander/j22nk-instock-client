@@ -10,7 +10,7 @@ function AddWarehouse() {
                 </a>
                 <h1 className="add-warehouse__title">Add New Warehouse</h1>
             </div>
-            <form>
+            <form className="add-warehouse__form">
                 <div className="add-warehouse__input-container">
                     <h2 className="add-warehouse__sub-title">Warehouse Details</h2>
                     <label className="add-warehouse__label">
@@ -30,7 +30,7 @@ function AddWarehouse() {
                         <input className="add-warehouse__input" placeholder="Country" name="country"></input>
                     </label>
                 </div>
-                <div className="add-warehouse__input-container">
+                <div className="add-warehouse__input-container add-warehouse__input-container--with-divider">
                     <h2 className="add-warehouse__sub-title">Contact Details</h2>
                     <label className="add-warehouse__label">
                         Contact Name
