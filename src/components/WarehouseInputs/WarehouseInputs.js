@@ -1,25 +1,17 @@
 import "./WarehouseInputs.scss";
 
-function WarehouseInputs() {
+function WarehouseInputs({title, inputFields}) {
     return (
         <div className="warehouse-inputs">
-            <h2>Warehouse Details</h2>
-            <label className="warehouse-inputs__label">
-                Warehouse Name
-                <input className="warehouse-inputs__input" placeholder="Warehouse Name" name="warehouseName"></input>
-            </label>
-            <label className="warehouse-inputs__label">
-                Street Address
-                <input className="warehouse-inputs__input" placeholder="Street Address" name="address"></input>
-            </label>
-            <label className="warehouse-inputs__label">
-                City
-                <input className="warehouse-inputs__input" placeholder="City" name="city"></input>
-            </label>
-            <label className="warehouse-inputs__label">
-                Country
-                <input className="warehouse-inputs__input" placeholder="Country" name="country"></input>
-            </label>
+            <h2>{title}</h2>
+            {inputFields.map((inputField) => {
+                return (
+                    <label className="warehouse-inputs__label">
+                        {inputField}
+                        <input className="warehouse-inputs__input" placeholder={inputField} name="warehouseName"></input>
+                    </label>
+                );
+            })}
         </div>
     );
 }

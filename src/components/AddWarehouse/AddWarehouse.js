@@ -3,6 +3,9 @@ import arrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import WarehouseInputs from "../WarehouseInputs/WarehouseInputs";
 
 function AddWarehouse() {
+    const warehouseInputFields = ["Warehouse Name", "Street Address", "City", "Country"];
+    const contactInputFields = ["Contact Name", "Position", "Phone Number", "Email"];
+
     return (
         <>
             <div className="add-warehouse__title-container">
@@ -13,26 +16,8 @@ function AddWarehouse() {
             </div>
             <form className="add-warehouse__form">
                 <div className="add-warehouse__inputs-container">
-                    <WarehouseInputs />
-                    <div className="add-warehouse__input-container add-warehouse__input-container--with-divider">
-                        <h2 className="add-warehouse__sub-title">Contact Details</h2>
-                        <label className="add-warehouse__label">
-                            Contact Name
-                            <input className="add-warehouse__input" placeholder="Contact Name" name="contactName"></input>
-                        </label>
-                        <label className="add-warehouse__label">
-                            Position
-                            <input className="add-warehouse__input" placeholder="Position" name="position"></input>
-                        </label>
-                        <label className="add-warehouse__label">
-                            Phone Number
-                            <input className="add-warehouse__input" placeholder="Phone Number" name="phone"></input>
-                        </label>
-                        <label className="add-warehouse__label">
-                            Email
-                            <input className="add-warehouse__input" placeholder="Email" name="email"></input>
-                        </label>
-                    </div>
+                    <WarehouseInputs title="Warehouse Details" inputFields={warehouseInputFields} />
+                    <WarehouseInputs title="Contact Details" inputFields={contactInputFields} />
                 </div>
                 <div className="add-warehouse__button-container">
                     <button className="add-warehouse__button">Cancel</button>
