@@ -1,0 +1,15 @@
+
+
+.cta {
+    width: 100%;
+    border-radius: 20px;
+    height: 2.25rem;
+    // @include tablet {
+    //     height: 2.375rem;
+    //     padding: 0 2.25rem;
+    // }
+
+    &__icon {
+        margin-right: .25rem;
+    }
+}
