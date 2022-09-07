@@ -8,7 +8,9 @@
     text-align: center;
     border-radius: 20px;
     height: 2.25rem;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: inherit;
     cursor: pointer;
     @include link-reset;
@@ -20,10 +22,6 @@
 
     &:hover {
         background-color: $background-cta-hover;
-    }
-    
-    &__link {
-        padding-top: .4375rem;
     }
 
     &.primary {
