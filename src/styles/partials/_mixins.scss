@@ -3,3 +3,13 @@
 @mixin contain($max-width) {
     max-width: $max-width;
 }
+
+@mixin ul-reset() {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@mixin link-reset() {
+    text-decoration: none;
+    color: inherit;
+}
