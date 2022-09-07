@@ -1,6 +1,8 @@
 import "./AddWarehouse.scss";
 import arrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import WarehouseInputs from "../WarehouseInputs/WarehouseInputs";
+import CTA from "../Button/CTA";
+import {Link} from "react-router-dom";
 
 function AddWarehouse() {
     const warehouseInputFields = ["Warehouse Name", "Street Address", "City", "Country"];
@@ -9,9 +11,9 @@ function AddWarehouse() {
     return (
         <>
             <div className="add-warehouse__title-container">
-                <a href="#" className="add-warehouse__link">
+                <Link to="/warehouses" className="add-warehouse__link">
                     <img className="add-warehouse__icon" src={arrowBack} alt="back icon"></img>
-                </a>
+                </Link>
                 <h1 className="add-warehouse__title">Add New Warehouse</h1>
             </div>
             <form className="add-warehouse__form">
@@ -20,8 +22,8 @@ function AddWarehouse() {
                     <WarehouseInputs title="Contact Details" inputFields={contactInputFields} />
                 </div>
                 <div className="add-warehouse__button-container">
-                    <button className="add-warehouse__button">Cancel</button>
-                    <button className="add-warehouse__button add-warehouse__button--cta">+ Add Warehouse</button>
+                    <CTA text="Cancel" link="/warehouses" type="secondary" />
+                    <CTA text="+ Add Warehouse" isButton={true} />
                 </div>
             </form>
         </>
