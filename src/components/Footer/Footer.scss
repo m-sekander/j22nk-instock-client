@@ -1,0 +1,23 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+
+
+.footer{ 
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &-container {
+        background-color:$background-page;
+        color: $secondary-table-header;
+        font-weight: light;
+        text-align: center;
+        padding: 1rem;
+        font-size: .6875rem;
+        line-height: 1rem;
+        @include tablet {
+            font-size: .75rem;
+        }
+    }
+};
