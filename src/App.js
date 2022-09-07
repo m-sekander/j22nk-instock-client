@@ -1,6 +1,6 @@
+import './App.scss';
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
-import './App.scss';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PageMain from "./components/PageMain/PageMain";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
