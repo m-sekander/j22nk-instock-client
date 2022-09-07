@@ -1,8 +1,9 @@
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
-import AddWarehouse from "./components/AddWarehouse/AddWarehouse"
 import './App.scss';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import PageMain from "./components/PageMain/PageMain";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/warehouses" element=""/>
         <Route path="/warehouses/:warehouseId" element=""/>
         <Route path="/warehouses/:warehouseId/edit" element=""/>
-        <Route path="/warehouses/add" element={<AddWarehouse />}/>
+        <Route path="/warehouses/add" element={<PageMain content={<AddWarehouse />}/>}/>
         <Route path="/inventories" element=""/>
         <Route path="/inventories/:inventoryId" element=""/>
         <Route path="/inventories/:inventoryId/edit" element=""/>
