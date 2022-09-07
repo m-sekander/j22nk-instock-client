@@ -1,6 +1,7 @@
 import "./InventoryList.scss";
 import axios from "axios";
 import InventoryItem from "../InventoryItem/InventoryItem";
+import Button from "../Button/CTA";
 import { useEffect, useState } from "react";
 
 function InventoryList() {
@@ -20,7 +21,7 @@ function InventoryList() {
     <main className="inventory-container">
       <h1>Inventory</h1>
       <input type="text" placeholder="Search..." />
-      <button>+Add New Item</button>
+      <Button text={"+ Add New Item"} link="/inventories/add"/>
       {inventoryList.map((inventory)=> <InventoryItem key={inventory.id} item={inventory}/>)}
     </main>
   );

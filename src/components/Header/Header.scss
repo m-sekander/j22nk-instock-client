@@ -1,20 +1,8 @@
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1280px;
-
-@mixin tablet {
-	@media (min-width: $breakpoint-tablet) {
-		@content;
-	}
-}
-
-@mixin desktop {
-	@media (min-width: $breakpoint-desktop) {
-		@content;
-	}
-}
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles//partials/colors" as *;
 
 .header {
-    background-color: #232940;
+    background-color: $background-nav-header;
     height: 12.5rem;
 
     @include tablet {
@@ -54,6 +42,8 @@ $breakpoint-desktop: 1280px;
         flex-direction: row;
         width: 100%;
         list-style: none;
+        margin: 0;
+        padding: 0;
 
         @include tablet {
             width: auto;
@@ -61,30 +51,29 @@ $breakpoint-desktop: 1280px;
     }
 
     &__nav-item {
-        color: #FFFFFF; 
         padding: .5625rem 0;
         width: 100%;
         text-align: center;
+        color: $primary-global;
 
         @include tablet {
             margin: 1.5rem 1rem;
             height: 2.375rem;
-            padding: .5rem 1rem;
+            padding: .35rem 1rem;
             width: auto;
         }
 
         &:last-child {
             margin-left: 1rem;
-
-            @include tablet {
-                margin-right: 0;
-                padding-right: 0;
-            }
         }
 
         &:active {
-            background-color: #13182C;
+            background-color: $primary-text;
             border-radius: 5rem;
         }
+    }
+
+    &__nav-item-link {
+        text-decoration: none; 
     }
 }

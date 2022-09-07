@@ -1,15 +1,15 @@
 @use "./breakpoints" as *;
 
-
-
-@mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-        @content;
-    }
+@mixin contain($max-width) {
+    max-width: $max-width;
 }
 
-@mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-        @content;
-    }
+@mixin ul-reset() {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@mixin link-reset() {
+    text-decoration: none;
+    color: inherit;
 }
