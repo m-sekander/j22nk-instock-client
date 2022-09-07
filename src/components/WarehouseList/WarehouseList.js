@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 import CTA from "../Button/CTA";
+import sortIcon from "../../assets/images/icons/sort-24px.svg";
 
 function WarehouseList() {
     const [warehouses, setWarehouseList] = useState([]);
@@ -29,6 +30,28 @@ function WarehouseList() {
                     <input className="warehouse-list__search" type="text" placeholder="Search..."></input>
                     <CTA text="+ Add New Warehouse" isButton={false} link="/warehouses/add" type="primary"/>
                 </form>
+            </div>
+            {/* TABLET DESKTOP STYLES */}
+            <div className="warehouse-list__label-strip">
+                <div className="warehouse-list__label-container">
+                    <h4 className="warehouse-list__label-item">Warehouse</h4>
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-list__label-container">
+                    <h4 className="warehouse-list__label-item">Address</h4>
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-list__label-container">
+                    <h4 className="warehouse-list__label-item">Contact Name</h4>
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-list__label-container">
+                    <h4 className="warehouse-list__label-item">Contact Information</h4>
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-list__label-container">
+                    <h4 className="warehouse-list__label-item">Actions</h4>
+                </div>
             </div>
             <ul className="warehouse-list__warehouses">
                 {warehouses.map(warehouse => (

@@ -36,9 +36,6 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                 <Link to=""><img className="warehouse__edit-mobile" src={editIcon} alt="Edit button" /></Link>
             </div>
 
-{/* TABLET DESKTOP STYLES */}
-
-
 
             <div className="warehouse__buttons-tablet">
                 <Link to="" className="warehouse__delete-link"><img className="warehouse__delete" src={deleteIcon} alt="Delete button" /></Link>

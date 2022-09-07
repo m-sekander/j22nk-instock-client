@@ -4,6 +4,7 @@
 .warehouse-list {
     display: flex;
     flex-direction: column;
+    background-color: $primary-global;
 
     &__header {
         margin: 0 1.5rem;
@@ -79,8 +80,36 @@
         }
     }
 
+    &__label-strip {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: $background-table-header;
+            padding: 0 2rem;
+        }
+    }
+
+    &__label-item {
+        color: $secondary-table-header;
+    }
+
+    &__label-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__label-icon {
+        @include tablet {
+            height: .75rem;
+            width: .75rem;
+        }
+    }
+
     &__warehouses {
         padding: 0;
-        
     }
 }
