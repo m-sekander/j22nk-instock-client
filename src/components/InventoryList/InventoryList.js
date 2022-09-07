@@ -20,7 +20,8 @@ function InventoryList() {
     <main className="inventory-container">
       <h1>Inventory</h1>
       <input type="text" placeholder="Search..." />
-      {inventoryList.map((inventory)=> <InventoryItem item={inventory}/>)}
+      <button>+Add New Item</button>
+      {inventoryList.map((inventory)=> <InventoryItem key={inventory.id} item={inventory}/>)}
     </main>
   );
 }
