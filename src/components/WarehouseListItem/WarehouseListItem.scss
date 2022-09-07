@@ -3,6 +3,7 @@
 
 .warehouse {
     display: flex;
+    flex-wrap: wrap;
     padding: 1rem 1.5rem 1.5rem 1.5rem;
     border-bottom: 1px solid $secondary-outline;
     gap: 1rem;
@@ -26,47 +27,26 @@
     }
 
     &__info {
-        // font-size: 13px;
         margin: 0;
         color: $primary-text;
     }
 
-    &__left {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        position: relative;
-
-        @include tablet {
-            flex-direction: row;
-            width: 35%;
-            justify-content: space-between;
-            align-items: center;
-        }
-    }
-
-    &__right {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        position: relative;
-
-        @include tablet {
-            flex-direction: row;
-            width: 40%;
-            justify-content: space-between;
-            padding-left: 1rem;
-            align-items: center;
-        }
-    }
-
     &__container {
         display: flex;
+        width: 45%;
         flex-direction: column;
         padding: 0 0 1rem 0;
 
         @include tablet {
             padding: 0;
+            width: 20%;
+
+            &:last-child {
+                width: 10%;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
         }
     }
 
@@ -90,41 +70,17 @@
         }
     }
 
-    &__delete-mobile {
-        width: 1.5rem;
-
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__delete-link-mobile {
-        width: 1.5rem;
-        height: 1.5rem;
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__edit-mobile {
-        width: 1.5rem;
-        position: absolute; 
-        bottom: 0;
-        right: 0;
-
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__buttons-tablet {
-        display: none;
+    &__buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
 
         @include tablet {
             display: flex;
             align-items: center;
             width: auto;
             gap: 1rem;
+            padding-left: 2rem;
         }
     }
 

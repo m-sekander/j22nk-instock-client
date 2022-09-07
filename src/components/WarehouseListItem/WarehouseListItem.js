@@ -7,37 +7,29 @@ import { Link } from "react-router-dom";
 function WarehouseListItem({ id, name, address, city, country, contactName, contactPhone, contactEmail}) {
     return (
         <li className="warehouse">
-            <div className="warehouse__left">
-                <div className="warehouse__container">
-                    <h4 className="warehouse__label">Warehouse</h4>
-                    <Link to="" className="warehouse__link">
-                        <p className="warehouse__name warehouse__info">
-                            {name}
-                            <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
-                        </p>
-                    </Link>
-                </div>
-                <div className="warehouse__container">
-                    <h4 className="warehouse__label">Address</h4>
-                    <p className="warehouse__address warehouse__info">{address}, {city}, {country}</p>
-                </div>
-                <Link to="" className="warehouse__delete-link-mobile"><img className="warehouse__delete-mobile" src={deleteIcon} alt="Delete button" /></Link>
+            <div className="warehouse__container">
+                <h4 className="warehouse__label">Warehouse</h4>
+                <Link to="" className="warehouse__link">
+                    <p className="warehouse__name warehouse__info">
+                        {name}
+                        <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
+                    </p>
+                </Link>
             </div>
-            <div className="warehouse__right">
-                <div className="warehouse__container warehouse__name-container">
-                    <h4 className="warehouse__label">Contact Name</h4>
-                    <p className="warehouse__contact-name warehouse__info">{contactName}</p>
-                </div>
-                <div className="warehouse__container">
-                    <h4 className="warehouse__label">Contact Information</h4>
-                    <p className="warehouse__contact-phone warehouse__info">{contactPhone}</p>
-                    <p className="warehouse__contact-email warehouse__info">{contactEmail}</p>
-                </div>
-                <Link to=""><img className="warehouse__edit-mobile" src={editIcon} alt="Edit button" /></Link>
+            <div className="warehouse__container warehouse__name-container">
+                <h4 className="warehouse__label">Contact Name</h4>
+                <p className="warehouse__contact-name warehouse__info">{contactName}</p>
             </div>
-
-
-            <div className="warehouse__buttons-tablet">
+            <div className="warehouse__container">
+                <h4 className="warehouse__label">Address</h4>
+                <p className="warehouse__address warehouse__info">{address}, {city}, {country}</p>
+            </div>
+            <div className="warehouse__container">
+                <h4 className="warehouse__label">Contact Information</h4>
+                <p className="warehouse__contact-phone warehouse__info">{contactPhone}</p>
+                <p className="warehouse__contact-email warehouse__info">{contactEmail}</p>
+            </div>
+            <div className="warehouse__container">
                 <Link to="" className="warehouse__delete-link"><img className="warehouse__delete" src={deleteIcon} alt="Delete button" /></Link>
                 <Link to="" className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
             </div>
