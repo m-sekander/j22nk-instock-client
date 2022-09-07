@@ -1,0 +1,62 @@
+@use "../../styles/partials/breakpoints"as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse {
+    display: flex;
+    padding: 1rem 0 1.5rem 0;
+    border-bottom: 1px solid $secondary-outline;
+
+    &__label {
+        font-size: 11px;
+        color: $secondary-table-header;
+    }
+
+    &__info {
+        font-size: 13px;
+        color: $primary-text;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        position: relative;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 1rem 0;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__name {
+        display: flex;
+        align-items: center;
+        color: $primary-element;
+    }
+
+    &__chevron {
+        width: 1.25rem;
+    }
+
+    &__delete {
+        width: 1.5rem;
+    }
+
+    &__edit {
+        width: 1.5rem;
+        position: absolute; 
+        bottom: 0;
+        right: 0;
+    }
+}
