@@ -28,10 +28,11 @@ function WarehouseList() {
                 <h1 className="warehouse-list__title">Warehouses</h1>
                 <form className="warehouse-list__form">
                     <input className="warehouse-list__search" type="text" placeholder="Search..."></input>
-                    <CTA text="+ Add New Warehouse" isButton={false} link="/warehouses/add" type="primary"/>
+                    <div className="warehouse-list__button">
+                        <CTA text="+ Add New Warehouse" link="/warehouses/add"/>
+                    </div>
                 </form>
             </div>
-            {/* TABLET DESKTOP STYLES */}
             <div className="warehouse-list__label-strip">
                 <div className="warehouse-list__label-container">
                     <h4 className="warehouse-list__label-item">Warehouse</h4>
