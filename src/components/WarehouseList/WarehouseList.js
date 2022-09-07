@@ -1,7 +1,25 @@
 import "./WarehouseList.scss"
 import axios from 'axios';
+import { useState, useEffect } from "react";
+import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 
 function WarehouseList() {
+    const [warehouses, setWarehouseList] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:8080/warehouses")
+            .then(response => {
+                console.log(response.data)
+                setWarehouseList(response.data)
+            })
+    }, []);
+
+    if (!warehouses) {
+        return <span>Loading...</span>
+    }
+
+
     return (
         <section className="warehouse-list">
             <div className="warehouse-list__header">
@@ -12,7 +30,19 @@ function WarehouseList() {
                 </form>
             </div>
             <ul className="warehouse-list__warehouses">
-                
+                {warehouses.map(warehouse => (
+                    <WarehouseListItem
+                        key={warehouse.id}
+                        id={warehouse.id}
+                        name={warehouse.name}
+                        address={warehouse.address}
+                        city={warehouse.city}
+                        country={warehouse.country}
+                        contactName={warehouse.contact.name}
+                        contactPhone={warehouse.contact.phone}
+                        contactEmail={warehouse.contact.email}
+                    />
+                ))}
             </ul>
         </section>
     );
