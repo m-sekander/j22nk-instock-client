@@ -21,10 +21,10 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <span className="warehouse__label">Address</span>
                     <span className="warehouse__address warehouse__info">{address}, {city}, {country}</span>
                 </div>
-                <Link to=""><img className="warehouse__delete" src={deleteIcon} alt="Delete button" /></Link>
+                <Link to="" className="warehouse__delete-link-mobile"><img className="warehouse__delete-mobile" src={deleteIcon} alt="Delete button" /></Link>
             </div>
             <div className="warehouse__right">
-                <div className="warehouse__container">
+                <div className="warehouse__container warehouse__name-container">
                     <span className="warehouse__label">Contact Name</span>
                     <span className="warehouse__contact-name warehouse__info">{contactName}</span>
                 </div>
@@ -33,7 +33,16 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <span className="warehouse__contact-phone warehouse__info">{contactPhone}</span>
                     <span className="warehouse__contact-email warehouse__info">{contactEmail}</span>
                 </div>
-                <Link to=""><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
+                <Link to=""><img className="warehouse__edit-mobile" src={editIcon} alt="Edit button" /></Link>
+            </div>
+
+{/* TABLET DESKTOP STYLES */}
+
+
+
+            <div className="warehouse__buttons-tablet">
+                <Link to="" className="warehouse__delete-link"><img className="warehouse__delete" src={deleteIcon} alt="Delete button" /></Link>
+                <Link to="" className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
             </div>
         </li>
     );
