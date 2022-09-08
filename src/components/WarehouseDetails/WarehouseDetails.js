@@ -7,37 +7,37 @@ import CTA from "../Button/CTA";
 function WarehouseDetails() {
     
     return (
-        <section className="warehouse">
-            <div className="warehouse__header">
-                <div className="warehouse__left">
-                    <Link className="warehouse__back" to="/warehouses">
+        <section className="warehouse-details">
+            <div className="warehouse-details__header">
+                <div className="warehouse-details__left">
+                    <Link className="warehouse-details__back" to="/warehouses">
                         <img className="" src={backArrow} alt="Back arrow icon"/>
                     </Link>
-                    <h1 className="warehouse__name">Washington</h1>
+                    <h1 className="warehouse-details__name">Washington</h1>
                 </div>
-                <div className="warehouse__edit-mobile">
+                <div className="warehouse-details__edit-mobile">
                     <CTA icon={editIcon} link="/warehouses/:warehouseId/edit"/>
                 </div>
-                <div className="warehouse__edit-tablet-desktop">
+                <div className="warehouse-details__edit-tablet-desktop">
                     <CTA icon={editIcon} text="Edit" link="/warehouses/:warehouseId/edit"/>
                 </div>
             </div>
-            <div className="warehouse__content">
-                <div className="warehouse__details">
-                    <div className="warehouse__address-container">
-                        <h4 className="warehouse__label">Warehouse Address</h4>
-                        <p className="warehouse__info">33 Pearl St SW, Washington, USA</p>
+            <div className="warehouse-details__content">
+                <div className="warehouse-details__details">
+                    <div className="warehouse-details__address-container">
+                        <h4 className="warehouse-details__label">Warehouse Address:</h4>
+                        <p className="warehouse-details__info">33 Pearl St SW, Washington, USA</p>
                     </div>
-                    <div className="warehouse__contact-container">
-                        <div className="warehouse__contact-name-container">
-                            <h4 className="warehouse__label">Contact Name</h4>
-                            <p className="warehouse__info">Graeme Lyon</p>
-                            <p className="warehouse__info">Warehouse Manager</p>
+                    <div className="warehouse-details__contact-container">
+                        <div className="warehouse-details__contact-name-container">
+                            <h4 className="warehouse-details__label">Contact Name:</h4>
+                            <p className="warehouse-details__info">Graeme Lyon</p>
+                            <p className="warehouse-details__info">Warehouse Manager</p>
                         </div>
-                        <div className="warehouse__contact-info-container">
-                            <h4 className="warehouse__label">Contact Information</h4>  
-                            <p className="warehouse__info">+1 (647) 504-0911</p>
-                            <p className="warehouse__info">glyon@instock.com</p>
+                        <div className="warehouse-details__contact-info-container">
+                            <h4 className="warehouse-details__label">Contact Information:</h4>  
+                            <p className="warehouse-details__info">+1 (647) 504-0911</p>
+                            <p className="warehouse-details__info">glyon@instock.com</p>
                         </div>
                     </div>
                 </div>
