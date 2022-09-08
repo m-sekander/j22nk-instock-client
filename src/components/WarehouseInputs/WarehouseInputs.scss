@@ -55,4 +55,26 @@
             margin: 0.25rem 0;
         }
     }
+
+    &__error {
+        color: $support-no-stock-label;
+        font-weight: 400;
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+        margin: 0;
+
+        @include tablet {
+            font-size: 0.75rem;
+            line-height: 1rem;
+        }
+    }
+
+    &__error-icon {
+        width: 0.8rem;
+        vertical-align: bottom;
+
+        @include tablet {
+            width: 1rem;
+        }
+    }
 }
