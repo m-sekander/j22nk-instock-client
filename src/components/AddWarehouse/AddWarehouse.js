@@ -13,6 +13,7 @@ function AddWarehouse() {
 
     const navigate = useNavigate();
 
+    // Arrays to pass down to WarehouseInputs components
     const warehouseInputFields = ["Warehouse Name", "Street Address", "City", "Country"];
     const contactInputFields = ["Contact Name", "Position", "Phone Number", "Email"];
     const warehouseErrorMessages = errorMessages.slice(0, 4);
@@ -37,7 +38,7 @@ function AddWarehouse() {
         }
         
         axios.post("http://localhost:8080/warehouses", newWarehouse)
-            .then((response) => {
+            .then(() => {
                 setIsSuccessful(true);
                 setTimeout(() => navigate("/warehouses"), 1500);
     
