@@ -1,10 +1,11 @@
 import "./AddWarehouse.scss";
 import arrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import WarehouseInputs from "../WarehouseInputs/WarehouseInputs";
-import CTA from "../Button/CTA";
+import CTA from "../CTA/CTA";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
+
 
 function AddWarehouse() {
     // Set up error messages array of 8 and fill initial values to ""

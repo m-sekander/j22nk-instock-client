@@ -22,6 +22,7 @@
         flex-direction: column;
         justify-content: space-between;
         position: relative;
+        border-radius: 3px;
         @include tablet {
             position: fixed;
             top: 25%;
