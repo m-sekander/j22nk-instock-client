@@ -35,7 +35,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <p className="warehouse__contact-email warehouse__info">{contactEmail}</p>
                 </div>
                 <div className="warehouse__container">
-                    <Link to="" className="warehouse__delete-link"><img className="warehouse__delete" src={deleteIcon} alt="Delete button" onClick={() => setDeleteActive(true)} /></Link>
+                    <img className="warehouse__delete" src={deleteIcon} alt="Delete button" onClick={() => setDeleteActive(true)} />
                     <Link to="" className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
                 </div>
             </li>
