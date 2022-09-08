@@ -38,6 +38,13 @@
         }
     }
 
+    &__modal {
+        border: 1px solid green;
+        border-radius: 4px;
+        background-color: lightgreen;
+        padding: 2rem;
+    }
+
     &__button-container {
         background-color: $background-page;
         display: flex;

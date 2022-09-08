@@ -50,6 +50,8 @@
     
     &__icon {
         margin-right: .25rem;
+        filter: brightness(0%)invert(100%);
+        width: 20px;
     }
 
     &__text {

@@ -2,7 +2,7 @@ import "./WarehouseList.scss"
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
-import CTA from "../Button/CTA";
+import CTA from "../CTA/CTA";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
 
 function WarehouseList() {
