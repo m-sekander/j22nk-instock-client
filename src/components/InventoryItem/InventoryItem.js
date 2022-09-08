@@ -40,7 +40,7 @@ function InventoryItem({ item }) {
       </div>
       <div style={{display: "flex" , justifyContent: "space-between"}}>
         <img src={deleteIcon} alt="Delete icon" />
-        <img src={editIcon} alt="Edit icon" /> 
+        <Link to="/inventories/:inventoryId/edit"><img src={editIcon} alt="Edit icon" /></Link>
       </div>
     </div> 
   );
