@@ -116,7 +116,6 @@ function WarehouseDetails() {
                     <WarehouseInventoryItem 
                         key={inventoryItem.id}
                         id={inventoryItem.id}
-                        warehouseId={inventoryItem.warehouseID}
                         itemName={inventoryItem.itemName}
                         category={inventoryItem.category}
                         status={inventoryItem.status}

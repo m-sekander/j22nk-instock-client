@@ -4,7 +4,7 @@ import editIcon from "../../assets/images/icons/edit-24px.svg";
 import chevronIcon from "../../assets/images/icons/chevron_right-24px.svg";
 import { Link } from 'react-router-dom';
 
-function WarehouseInventoryItem({ id, warehouseId, itemName, category, status, quantity }) {
+function WarehouseInventoryItem({ id, itemName, category, status, quantity }) {
     return (
         <li className="inventory-list-item">
             <div className="inventory-list-item__container">
