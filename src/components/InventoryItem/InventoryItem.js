@@ -4,10 +4,10 @@ function InventoryItem({ item }) {
 
     const getStatusClass = () => {
         if (item.status === "IN STOCK") {
-            return "InventoryItem__greenstatus";
+            return "inventory__item-greenstatus";
         }
         if (item.status === "OUTSTOCK") {
-            return "InventoryItem__redstatus";
+            return "inventory__item-redstatus";
         }    
 
     }
@@ -15,7 +15,9 @@ function InventoryItem({ item }) {
     <div>
       <div style={{display: "flex"}}>
         <div>
+          <h4>Inventory Item</h4>
           <h4>{item.itemName}</h4>
+          <h4>Category</h4>
           <h4>{item.category}</h4>
         </div>
         <div>
@@ -28,7 +30,7 @@ function InventoryItem({ item }) {
         <button>X</button>
         <button>O</button>
       </div>
-    </div>
+    </div> 
   );
 }
 
