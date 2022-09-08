@@ -18,12 +18,18 @@ function InventoryList() {
       });
   }, []);
   return (
-    <main className="inventory-container">
-      <h1>Inventory</h1>
-      <input type="text" placeholder="Search..." />
-      <Button text={"+ Add New Item"} link="/inventories/add"/>
-      {inventoryList.map((inventory)=> <InventoryItem key={inventory.id} item={inventory}/>)}
-    </main>
+    <section className="inventory-list">
+      <div className="inventory-list__header">
+        <h1 className="inventory-list__title">Inventory</h1>
+        <form className="inventory-list__form"> 
+        <input className="inventory-list__search" type="text" placeholder="Search..." />
+        <div className="inventory-list__button"> 
+        <Button text={"+ Add New Item"} link="/inventories/add"/>
+        </div>
+        </form>
+        {inventoryList.map((inventory)=> <InventoryItem key={inventory.id} item={inventory}/>)}
+    </div>
+    </section>
   );
 }
 
