@@ -5,6 +5,7 @@ import editIcon from "../../assets/images/icons/edit-24px.svg";
 import CTA from "../Button/CTA";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import WarehouseInventoryItem from "../WarehouseInventoryItem/WarehouseInventoryItem";
 
 function WarehouseDetails() {
     const { warehouseId } = useParams();
@@ -85,6 +86,7 @@ function WarehouseDetails() {
                     </div>
                 </div>
             </div>
+            <WarehouseInventoryItem inventory={warehouseInventory}/>
         </section>
     );
 }
