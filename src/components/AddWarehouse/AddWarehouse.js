@@ -2,10 +2,14 @@ import "./AddWarehouse.scss";
 import arrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import WarehouseInputs from "../WarehouseInputs/WarehouseInputs";
 import CTA from "../Button/CTA";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import {useState} from "react";
 
 function AddWarehouse() {
+    const [isSuccessful, setIsSuccessful] = useState(false);
+    const navigate = useNavigate();
+
     const warehouseInputFields = ["Warehouse Name", "Street Address", "City", "Country"];
     const contactInputFields = ["Contact Name", "Position", "Phone Number", "Email"];
 
@@ -29,11 +33,20 @@ function AddWarehouse() {
         
         axios.post("http://localhost:8080/warehouses", newWarehouse)
             .then((response) => {
-                console.log(response.data);
+                setIsSuccessful(true);
+                setTimeout(() => navigate("/warehouses"), 1500);
             })
             .catch((error) => {
                 console.log(error.response.data);
             })
+    
+        // Clear all fields after submitting
+        warehouseInputFieldNames.forEach((fieldName) => {
+            event.target[fieldName].value = "";
+        })
+        contactInputFieldNames.forEach((fieldName) => {
+            event.target[fieldName].value = "";
+        })
     }
 
     return (
@@ -48,6 +61,11 @@ function AddWarehouse() {
                 <div className="add-warehouse__inputs-container">
                     <WarehouseInputs title="Warehouse Details" inputFields={warehouseInputFields} fieldNames={warehouseInputFieldNames}/>
                     <WarehouseInputs title="Contact Details" inputFields={contactInputFields} fieldNames={contactInputFieldNames}/>
+                    {isSuccessful 
+                        && <div className="add-warehouse__modal">
+                                Warehouse is successfully added.
+                           </div>
+                    }
                 </div>
                 <div className="add-warehouse__button-container">
                     <CTA text="Cancel" link="/warehouses" type="secondary" />
