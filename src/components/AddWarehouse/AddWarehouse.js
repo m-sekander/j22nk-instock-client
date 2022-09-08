@@ -73,7 +73,8 @@ function AddWarehouse() {
                         title="Contact Details" 
                         inputFields={contactInputFields} 
                         fieldNames={contactInputFieldNames}
-                        errorMessages={contactErrorMessages}/>
+                        errorMessages={contactErrorMessages}
+                        className={"warehouse-inputs--with-divider"}/>
                 </div>
                 {isSuccessful 
                     && <div className="add-warehouse__modal">

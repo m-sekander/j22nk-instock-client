@@ -1,9 +1,9 @@
 import "./WarehouseInputs.scss";
 import errorIcon from "../../assets/images/icons/error-24px.svg"
 
-function WarehouseInputs({title, inputFields, fieldNames, errorMessages}) {
+function WarehouseInputs({title, inputFields, fieldNames, errorMessages, className}) {
     return (
-        <div className="warehouse-inputs">
+        <div className={"warehouse-inputs " + className}>
             <h2>{title}</h2>
             {inputFields.map((inputField, index) => {
                 return (
