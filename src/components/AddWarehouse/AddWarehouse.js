@@ -8,6 +8,14 @@ function AddWarehouse() {
     const warehouseInputFields = ["Warehouse Name", "Street Address", "City", "Country"];
     const contactInputFields = ["Contact Name", "Position", "Phone Number", "Email"];
 
+    const warehouseInputFieldNames = ["warehouseName", "address", "city", "country"];
+    const contactInputFieldNames = ["contactName", "position", "phoneNumber", "email"];
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target);
+    }
+
     return (
         <>
             <div className="add-warehouse__title-container">
@@ -16,10 +24,10 @@ function AddWarehouse() {
                 </Link>
                 <h1 className="add-warehouse__title">Add New Warehouse</h1>
             </div>
-            <form className="add-warehouse__form">
+            <form className="add-warehouse__form" onSubmit={handleSubmit}>
                 <div className="add-warehouse__inputs-container">
-                    <WarehouseInputs title="Warehouse Details" inputFields={warehouseInputFields} />
-                    <WarehouseInputs title="Contact Details" inputFields={contactInputFields} />
+                    <WarehouseInputs title="Warehouse Details" inputFields={warehouseInputFields} fieldNames={warehouseInputFieldNames}/>
+                    <WarehouseInputs title="Contact Details" inputFields={contactInputFields} fieldNames={contactInputFieldNames}/>
                 </div>
                 <div className="add-warehouse__button-container">
                     <CTA text="Cancel" link="/warehouses" type="secondary" />

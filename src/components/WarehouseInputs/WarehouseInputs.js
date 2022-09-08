@@ -1,6 +1,6 @@
 import "./WarehouseInputs.scss";
 
-function WarehouseInputs({title, inputFields}) {
+function WarehouseInputs({title, inputFields, fieldNames}) {
     return (
         <div className="warehouse-inputs">
             <h2>{title}</h2>
@@ -8,7 +8,11 @@ function WarehouseInputs({title, inputFields}) {
                 return (
                     <label key={index} className="warehouse-inputs__label">
                         {inputField}
-                        <input className="warehouse-inputs__input" placeholder={inputField} name="warehouseName"></input>
+                        <input 
+                            className="warehouse-inputs__input" 
+                            placeholder={inputField} 
+                            name={fieldNames[index]}
+                            ></input>
                     </label>
                 );
             })}
