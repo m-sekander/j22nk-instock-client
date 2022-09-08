@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/warehouses" element={<WarehouseList />}/>
+        <Route path="/warehouses" element={<PageMain content={<WarehouseList />}/>}/>
         <Route path="/warehouses/:warehouseId" element=""/>
         <Route path="/warehouses/:warehouseId/edit" element=""/>
         <Route path="/warehouses/add" element={<PageMain content={<AddWarehouse />}/>}/>
