@@ -3,17 +3,37 @@ import arrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import WarehouseInputs from "../WarehouseInputs/WarehouseInputs";
 import CTA from "../Button/CTA";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 function AddWarehouse() {
     const warehouseInputFields = ["Warehouse Name", "Street Address", "City", "Country"];
     const contactInputFields = ["Contact Name", "Position", "Phone Number", "Email"];
 
     const warehouseInputFieldNames = ["warehouseName", "address", "city", "country"];
-    const contactInputFieldNames = ["contactName", "position", "phoneNumber", "email"];
+    const contactInputFieldNames = ["contactName", "position", "phone", "email"];
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target);
+        const newWarehouse = {
+            name: event.target.warehouseName.value,
+            address: event.target.address.value,
+            city: event.target.city.value,
+            country: event.target.country.value,
+            contact: {
+                name: event.target.contactName.value,
+                position: event.target.position.value,
+                phone: event.target.phone.value,
+                email: event.target.email.value
+            }
+        }
+        
+        axios.post("http://localhost:8080/warehouses", newWarehouse)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error.response.data);
+            })
     }
 
     return (
