@@ -1,7 +1,7 @@
 import "./InventoryList.scss";
 import axios from "axios";
 import InventoryItem from "../InventoryItem/InventoryItem";
-import Button from "../Button/CTA";
+import Button from "../CTA/CTA";
 import { useEffect, useState } from "react";
 
 function InventoryList() {
