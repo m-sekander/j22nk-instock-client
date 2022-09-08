@@ -7,14 +7,13 @@ import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import PageMain from "../PageMain/PageMain";
 
 function WarehouseList() {
-    const [warehouses, setWarehouseList] = useState([]);
+    const [warehouses, setWarehousesList] = useState([]);
 
     useEffect(() => {
         axios
             .get("http://localhost:8080/warehouses")
             .then(response => {
-                console.log(response.data)
-                setWarehouseList(response.data)
+                setWarehousesList(response.data)
             })
     }, []);
 
