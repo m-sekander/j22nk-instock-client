@@ -1,5 +1,6 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
 
 .warehouse-details {
     display: flex;
@@ -97,7 +98,7 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
-        padding: 2.5rem 1.5rem 1rem 1.5rem;
+        padding: 2.25rem 1.5rem 1rem 1.5rem;
 
         @include tablet {
             padding: 0 0 0 2.5rem;
@@ -112,5 +113,8 @@
         }
     }
 
+    &__inventory-list {
+        @include ul-reset;
+    }
 
 }

@@ -86,7 +86,19 @@ function WarehouseDetails() {
                     </div>
                 </div>
             </div>
-            <WarehouseInventoryItem inventory={warehouseInventory}/>
+            <ul className="warehouse-details__inventory-list">
+                {warehouseInventory.map(inventoryItem => (
+                    <WarehouseInventoryItem 
+                        key={inventoryItem.id}
+                        id={inventoryItem.id}
+                        warehouseId={inventoryItem.warehouseID}
+                        itemName={inventoryItem.itemName}
+                        category={inventoryItem.category}
+                        status={inventoryItem.status}
+                        quantity={inventoryItem.quantity}
+                        />
+                ))}
+            </ul>
         </section>
     );
 }
