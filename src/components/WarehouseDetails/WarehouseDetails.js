@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
 import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
+import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import CTA from "../Button/CTA";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -47,6 +48,10 @@ function WarehouseDetails() {
     if (!warehouseDetails) {
         return <span>Loading...</span>
     }
+
+    if (!warehouseInventory) {
+        return <span>Loading...</span>
+    }
     
     return (
         <section className="warehouse-details">
@@ -68,9 +73,8 @@ function WarehouseDetails() {
                 <div className="warehouse-details__details">
                     <div className="warehouse-details__address-container">
                         <h4 className="warehouse-details__label">Warehouse Address:</h4>
-                        <p className="warehouse-details__info">
-                            {warehouseDetails.address}, {warehouseDetails.city}, {warehouseDetails.country}
-                        </p>
+                        <p className="warehouse-details__info">{warehouseDetails.address},</p>
+                        <p className="warehouse-details__info">{warehouseDetails.city}, {warehouseDetails.country}</p>
                     </div>
                     <div className="warehouse-details__contact-container">
                         <div className="warehouse-details__contact-name-container">
@@ -84,6 +88,27 @@ function WarehouseDetails() {
                             <p className="warehouse-details__info">{warehouseDetails.contact.email}</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="warehouse-details__label-strip">
+                <div className="warehouse-details__label-container">
+                    <h4 className="warehouse-details__label-item">Inventory Item</h4>
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-details__label-container">
+                    <h4 className="warehouse-details__label-item">Category</h4>
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-details__label-container warehouse-details__label-status">
+                    <h4 className="warehouse-details__label-item">Status</h4>
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-details__label-container">
+                    <h4 className="warehouse-details__label-item">Quantity</h4>
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                </div>
+                <div className="warehouse-details__label-container">
+                    <h4 className="warehouse-details__label-item">Actions</h4>
                 </div>
             </div>
             <ul className="warehouse-details__inventory-list">

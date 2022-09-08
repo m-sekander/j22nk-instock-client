@@ -53,6 +53,54 @@
         }
     }
 
+    &__label-strip {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: $background-table-header;
+            padding: 0 2rem;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
+    }
+
+    &__label-item {
+        color: $secondary-table-header;
+        text-transform: uppercase;
+    }
+
+    &__label-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            width: 20%;
+
+            &:last-child {
+                width: 10%;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__label-status {
+        @include tablet {
+            width: 25%;
+        }
+    }
+
+    &__label-icon {
+        @include tablet {
+            height: .75rem;
+            width: .75rem;
+        }
+    }
+
     &__content {
         display: flex;
         flex-direction: column;
@@ -90,7 +138,7 @@
         }
 
         @include desktop {
-            margin-left: 2.5rem;
+            margin: 1.5rem 8rem 1rem 2.5rem;
         }
     }
 
@@ -113,8 +161,17 @@
         }
     }
 
+    &__contact-name-container {
+        width: 50%;
+    }
+
+    &__contact-info-container {
+        width: 50%;
+    }
+
     &__inventory-list {
         @include ul-reset;
+        margin: 0;
     }
 
 }
