@@ -24,11 +24,11 @@ function InventoryList() {
         <form className="inventory-list__form"> 
         <input className="inventory-list__search" type="text" placeholder="Search..." />
         <div className="inventory-list__button"> 
-        <Button text={"+ Add New Item"} link="/inventories/add"/>
+          <Button text={"+ Add New Item"} link="/inventories/add"/>
         </div>
         </form>
+      </div>
         {inventoryList.map((inventory)=> <InventoryItem key={inventory.id} item={inventory}/>)}
-    </div>
     </section>
   );
 }
