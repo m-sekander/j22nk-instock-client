@@ -14,8 +14,12 @@
         border-top: 1px solid $secondary-outline;
     }
 
+    &:last-child {
+        border-bottom: none;
+    }
+
     @include tablet {
-        padding: 1rem 2rem 1.5rem 2rem; 
+        padding: 1.5rem 2rem 1.5rem 2rem; 
 
         &:first-child {
             border-top: none;

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 import CTA from "../Button/CTA";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
-import PageMain from "../PageMain/PageMain";
 
 function WarehouseList() {
     const [warehouses, setWarehousesList] = useState([]);
