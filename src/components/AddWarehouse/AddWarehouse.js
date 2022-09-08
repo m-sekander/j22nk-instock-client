@@ -74,12 +74,12 @@ function AddWarehouse() {
                         inputFields={contactInputFields} 
                         fieldNames={contactInputFieldNames}
                         errorMessages={contactErrorMessages}/>
-                    {isSuccessful 
-                        && <div className="add-warehouse__modal">
-                                Warehouse is successfully added.
-                           </div>
-                    }
                 </div>
+                {isSuccessful 
+                    && <div className="add-warehouse__modal">
+                            Warehouse is successfully added.
+                        </div>
+                }
                 <div className="add-warehouse__button-container">
                     <CTA text="Cancel" link="/warehouses" type="secondary" />
                     <CTA text="+ Add Warehouse" isButton={true} />
