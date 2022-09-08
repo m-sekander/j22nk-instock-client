@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Modal.scss'
 import closeIcon from '../../assets/images/icons/close-24px.svg'
-import CTA from '../Button/CTA'
+import CTA from '../CTA/CTA'
 
 function Modal({isWarehouse, name, id}) {
     return (
@@ -19,9 +19,9 @@ function Modal({isWarehouse, name, id}) {
                     }
                 </div>
                 <div className="modal__bottom">
-                    <CTA text="Cancel" link={"/warehouses"} type="secondary"></CTA>
+                    <CTA text="Cancel" link={"/warehouses"} type="secondary" />
                     <div className="modal__spacing"></div>
-                    <CTA text="Delete" isButton={true} type="delete"></CTA>
+                    <CTA text="Delete" isButton={true} type="delete" />
                 </div>
             </div>
         </div>
