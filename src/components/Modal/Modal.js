@@ -10,22 +10,33 @@ function Modal({isWarehouse, name, id, setDeleteActive}) {
         setDeleteActive(false);
     }
 
+    const page = isWarehouse ? "warehouses" : "inventories";
     
     function handleDelete() {
-        axios.delete(`http://localhost:8080/warehouses/${id}`)
-        .then((response) => {
-            console.log("For devs:", response)
-        }).catch((error) => {
-            console.log("For devs:", error)
-        });
-        setDeleteActive(false);
+        if (isWarehouse) {
+            axios.delete(`http://localhost:8080/${page}/${id}`)
+            .then((response) => {
+                console.log("For devs:", response)
+            }).catch((error) => {
+                console.log("For devs:", error)
+            });
+            setDeleteActive(false);
+        } else {
+            axios.delete(`http://localhost:8080/${page}/${id}`)
+            .then((response) => {
+                console.log("For devs:", response)
+            }).catch((error) => {
+                console.log("For devs:", error)
+            });
+            setDeleteActive(false);
+        }
     }
 
     return (
         <div className="modal">
             <div className="modal__container">
                 <div className="modal__top">
-                    <Link className="modal__close" to="/warehouses"><img className="modal__close" src={closeIcon} alt="close icon" onClick={handleReturn} /></Link>
+                    <Link className="modal__close" to={`/${page}`}><img className="modal__close" src={closeIcon} alt="close icon" onClick={handleReturn} /></Link>
                     {isWarehouse 
                         ?<h1 className="modal__title">Delete {name} warehouse?</h1>
                         :<h1 className="modal__title">Delete {name} inventory item?</h1>
@@ -36,7 +47,7 @@ function Modal({isWarehouse, name, id, setDeleteActive}) {
                     }
                 </div>
                 <div className="modal__bottom">
-                    <CTA text="Cancel" link={"/warehouses"} type="secondary" onClick={handleReturn} />
+                    <CTA text="Cancel" link={`/${page}`} type="secondary" onClick={handleReturn} />
                     <div className="modal__spacing"></div>
                     <CTA text="Delete" isButton={true} type="delete" onClick={handleDelete} />
                 </div>
