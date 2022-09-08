@@ -1,0 +1,120 @@
+@use "../../styles/partials/breakpoints"as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse-list {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-global;
+
+    &__header {
+        margin: 0 1.5rem;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 2rem; 
+        } 
+
+        @include desktop {
+            margin: 0 2.5rem;
+        }
+    }
+
+    &__title {
+        margin: 2rem 0 1rem 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+
+    &__search {
+        background-image: url("../../assets/images/icons/search-24px.svg");
+        background-repeat: no-repeat;
+        background-position: calc(100% - 1rem) 50%;
+        margin: 0 0 1rem 0;
+        padding: 0 2.5rem 0 1rem;
+        height: 2.25rem;
+        border-radius: 1.5625rem;
+        border: 1px solid $secondary-outline;
+        color: $primary-text;
+        word-wrap: break-word;
+
+        &::placeholder {
+            color: $secondary-placeholder-text;
+        }
+
+        &:focus {
+            outline: 1px solid $primary-element;
+        }
+
+        @include tablet {
+            margin: 2rem 0 1.5rem 0;
+            height: 2.375rem;
+            width: 11.5625rem;
+        }
+
+        @include desktop {
+            width: 17.125rem;
+        }
+    }
+
+    &__button {
+        @include tablet {
+            margin: 2rem 0 1.5rem 0;
+        }
+    }
+
+    &__label-strip {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: $background-table-header;
+            padding: 0 2rem;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+    }
+
+    &__label-item {
+        color: $secondary-table-header;
+    }
+
+    &__label-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            width: 20%;
+
+            &:last-child {
+                width: 10%;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__label-icon {
+        @include tablet {
+            height: .75rem;
+            width: .75rem;
+        }
+    }
+
+    &__warehouses {
+        padding: 0;
+        margin-top: 1.5rem;
+
+        @include tablet {
+            margin: 0;
+        }
+    }
+}

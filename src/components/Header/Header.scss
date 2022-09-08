@@ -1,5 +1,6 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles//partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
 
 .header {
     background-color: $background-nav-header;
@@ -74,6 +75,6 @@
     }
 
     &__nav-item-link {
-        text-decoration: none; 
+        @include link-reset; 
     }
 }
