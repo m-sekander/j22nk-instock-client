@@ -1,4 +1,5 @@
 import "./WarehouseInputs.scss";
+import errorIcon from "../../assets/images/icons/error-24px.svg"
 
 function WarehouseInputs({title, inputFields, fieldNames, errorMessages}) {
     return (
@@ -15,7 +16,8 @@ function WarehouseInputs({title, inputFields, fieldNames, errorMessages}) {
                             ></input>
                         {errorMessages[index] &&
                             <p className="warehouse-inputs__error">
-                                {errorMessages[index]}
+                                <img className="warehouse-inputs__error-icon" src={errorIcon} alt="error icon"></img>
+                                {" " + errorMessages[index]}
                             </p>
                         }
                     </label>
