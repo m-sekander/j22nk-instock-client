@@ -11,7 +11,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <PageMain content={<WarehouseDetails />}/>
       <Routes>
         <Route path="/warehouses" element={<PageMain content={<WarehouseList />}/>}/>
         <Route path="/warehouses/:warehouseId" element={<PageMain content={<WarehouseDetails />}/>}/>

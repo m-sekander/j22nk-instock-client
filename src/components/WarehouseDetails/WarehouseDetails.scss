@@ -11,6 +11,14 @@
         width: 100%;
         justify-content: space-between;
         padding: 0 1.5rem 1.5rem 1.5rem;
+
+        @include tablet {
+            padding: 0 2rem 1.5rem 2rem;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem 1.5rem 2.5rem;
+        }
     }
 
     &__left {
@@ -76,8 +84,12 @@
 
         @include tablet {
             padding: 0 7rem 0 0;
-            margin: 1.5rem 1.5rem 1rem 1.5rem;
-            width: 35%;
+            margin: 1.5rem 0 1rem 2rem;
+            width: 15rem;
+        }
+
+        @include desktop {
+            margin-left: 2.5rem;
         }
     }
 
@@ -91,8 +103,12 @@
             padding: 0 0 0 2.5rem;
             margin: 1.5rem 1.5rem 1rem 0;
             justify-content: space-between;
-            width: 48%;
+            width: 21rem;
             border-left: 1px solid $secondary-outline;
+        }
+
+        @include desktop {
+            width: 28rem;
         }
     }
 
