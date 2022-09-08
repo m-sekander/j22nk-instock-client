@@ -28,7 +28,7 @@ function WarehouseInventoryItem({ id, warehouseId, itemName, category, status, q
             </div>
             <div className="inventory-list-item__container inventory-list-item__buttons">
                 <img className="inventory-list-item__delete" src={deleteIcon} alt="Delete button" />
-                <Link to={`/warehouses/${warehouseId}/edit`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
+                <Link to={`/inventories/${id}/edit`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
             </div>
         </li>
     );

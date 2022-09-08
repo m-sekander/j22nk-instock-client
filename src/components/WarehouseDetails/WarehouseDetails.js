@@ -66,7 +66,7 @@ function WarehouseDetails() {
                     <CTA icon={editIcon} link="/warehouses/:warehouseId/edit"/>
                 </div>
                 <div className="warehouse-details__edit-tablet-desktop">
-                    <CTA icon={editIcon} text="Edit" link="/warehouses/:warehouseId/edit"/>
+                    <CTA icon={editIcon} text="Edit" link={`/warehouses/${warehouseId}/edit`}/>
                 </div>
             </div>
             <div className="warehouse-details__content">
