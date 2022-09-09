@@ -1,0 +1,61 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
+
+.edit-warehouse {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        border-bottom: 1px solid $secondary-outline;
+    }
+
+    &__back-link {
+        display: flex;
+        @include link-reset;
+    }
+
+    &__title {
+        padding-left: .25rem;
+    }
+
+    &__back {
+        padding-left: 1.5rem;
+    }
+
+    &__warehouse-details {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid $secondary-outline;
+    }
+
+    &__contact-details {
+        padding-bottom: 1.5rem;
+    }
+
+    &__inner-container {
+        padding: 0 1.5rem;
+    }
+
+    &__input {
+        width: 100%;
+        height: 2.25rem;
+        padding: 0 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid $secondary-outline;
+
+        &:focus {
+            border: 1px solid $primary-element;
+        }
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        background-color: $background-cta;
+    }
+
+    &__button {
+        width: 8.6875rem;
+    }
+}
