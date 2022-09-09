@@ -36,15 +36,15 @@ function WarehouseList() {
                     <h4 className="warehouse-list__label-item">Warehouse</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>
-                <div className="warehouse-list__label-container">
+                <div className="warehouse-list__label-container warehouse-list__label-address">
                     <h4 className="warehouse-list__label-item">Address</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>
-                <div className="warehouse-list__label-container">
+                <div className="warehouse-list__label-container warehouse-list__label-contact-name">
                     <h4 className="warehouse-list__label-item">Contact Name</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>
-                <div className="warehouse-list__label-container">
+                <div className="warehouse-list__label-container warehouse-list__label-contact-info">
                     <h4 className="warehouse-list__label-item">Contact Information</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>

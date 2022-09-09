@@ -98,7 +98,7 @@
 
     &__item-link {
         @include link-reset;
-        display: flex;
+        display: inline-block;
     }
 
     &__status {
