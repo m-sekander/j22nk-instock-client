@@ -36,7 +36,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                 </div>
                 <div className="warehouse__container">
                     <img className="warehouse__delete" src={deleteIcon} alt="Delete button" onClick={() => setDeleteActive(true)} />
-                    <Link to={`/warehouses/${id}`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
+                    <Link to={`/warehouses/${id}/edit`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
                 </div>
             </li>
             {deleteActive && <Modal isWarehouse={true} name={name} id={id} setDeleteActive={setDeleteActive}/>}
