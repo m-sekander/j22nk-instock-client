@@ -7,10 +7,12 @@ function AddInventoryItem() {
     return (
         <div className="add-inventory">
             <div className="add-inventory__header">
-                <Link className="add-inventory__back-link" to="/inventories">
-                    <img className="add-inventory__back" src={backIcon} alt="Back icon" />
-                    <h1 className="add-inventory__title">Add New Inventory Item</h1>
-                </Link>
+                <div className="add-inventory__link-container">
+                    <Link className="add-inventory__back-link" to="/inventories">
+                        <img className="add-inventory__back" src={backIcon} alt="Back icon" />
+                    </Link>
+                </div>
+                <h1 className="add-inventory__title">Add New Inventory Item</h1>
             </div>
             <form className="add-inventory__form">
                 <div className="add-inventory__details">
@@ -59,7 +61,14 @@ function AddInventoryItem() {
                             </div>
                             <div>
                                 <h3 className="add-inventory__label">Warehouse</h3>
-                                <input className="add-inventory__input" type="text"></input>
+                                <select className="add-inventory__select">
+                                    {/* map out options here based on avaialble warehouses */}
+                                    <option value="" disable selected className="add-inventory__placeholder">Please Select</option>
+                                    <option value="apparel">Apparel</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="gear">Gear</option>
+                                    <option value="health">Health</option>
+                                </select>
                             </div>
                         </div>
                     </div>

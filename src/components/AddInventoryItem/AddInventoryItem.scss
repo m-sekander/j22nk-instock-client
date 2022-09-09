@@ -7,23 +7,23 @@
     flex-direction: column;
 
     &__header {
+        display: flex;
         border-bottom: 1px solid $secondary-outline;
     }
 
     &__back-link {
-        display: flex;
         @include link-reset;
     }
 
     &__title {
-        padding-left: .25rem;
+        padding: 0 1.5rem 0 .25rem;
     }
 
-    &__back {
-        padding-left: 1.5rem;
+    &__link-container  {
+        margin: 1.7rem 0 0 1.5rem;
 
         @include tablet {
-            padding-left: 2rem;
+            margin-left: 2rem;
         }
     }
 
