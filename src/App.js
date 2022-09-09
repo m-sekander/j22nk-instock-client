@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import PageMain from "./components/PageMain/PageMain";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+import EditInventory from './components/EditInventory/EditInventory';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Route path="/warehouses/add" element={<PageMain content={<AddWarehouse />}/>}/>
         <Route path="/inventories" element={<PageMain content={<InventoryList />}/>}/>
         <Route path="/inventories/:inventoryId" element=""/>
-        <Route path="/inventories/:inventoryId/edit" element=""/>
+        <Route path="/inventories/:inventoryId/edit" element={<PageMain content={<EditInventory />}/>}/>
         <Route path="/inventories/add" element=""/>
       </Routes>
       <Footer/>
