@@ -7,7 +7,7 @@ import WarehouseList from "./components/WarehouseList/WarehouseList";
 import PageMain from "./components/PageMain/PageMain";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
-import EditWarehouse from './components/EditWarehouse/EditWarehouse';
+import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem';
 
 
 function App() {
@@ -17,12 +17,12 @@ function App() {
       <Routes>
         <Route path="/warehouses" element={<PageMain content={<WarehouseList />}/>}/>
         <Route path="/warehouses/:warehouseId" element={<PageMain content={<WarehouseDetails />}/>}/>
-        <Route path="/warehouses/:warehouseId/edit" element={<PageMain content={<EditWarehouse />}/>}/>
+        <Route path="/warehouses/:warehouseId/edit" element=""/>
         <Route path="/warehouses/add" element={<PageMain content={<AddWarehouse />}/>}/>
         <Route path="/inventories" element={<PageMain content={<InventoryList />}/>}/>
         <Route path="/inventories/:inventoryId" element=""/>
         <Route path="/inventories/:inventoryId/edit" element=""/>
-        <Route path="/inventories/add" element=""/>
+        <Route path="/inventories/add" element={<PageMain content={<AddInventoryItem/>}/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
