@@ -15,7 +15,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                 <div className="warehouse__container warehouse__container-warehouse">
                     <h4 className="warehouse__label">Warehouse</h4>
                     <div>
-                        <Link to={"/warehouse/" + id} className="warehouse__link">
+                        <Link to={"/warehouses/" + id} className="warehouse__link">
                             <p className="warehouse__name warehouse__info">
                                 {name}
                                 <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
@@ -38,7 +38,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                 </div>
                 <div className="warehouse__container">
                     <img className="warehouse__delete" src={deleteIcon} alt="Delete button" onClick={() => setDeleteActive(true)} />
-                    <Link to="" className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
+                    <Link to={`/warehouses/${id}`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
                 </div>
             </li>
             {deleteActive && <Modal isWarehouse={true} name={name} id={id} setDeleteActive={setDeleteActive}/>}
