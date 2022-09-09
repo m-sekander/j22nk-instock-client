@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     background-color: $primary-global;
+    border-radius: 3px;
 
     &__header {
         margin: 0 1.5rem;
@@ -99,6 +100,19 @@
                 width: 10%;
                 justify-content: flex-end;
             }
+        }
+    }
+
+    &__label-address,
+    &__label-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__label-contact-info {
+        @include tablet {
+            width: 21%;
         }
     }
 

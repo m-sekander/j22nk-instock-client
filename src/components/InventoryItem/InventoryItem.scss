@@ -8,29 +8,90 @@
 
 .inventory {
     &__list {
+            flex-wrap: wrap;
+            display: flex;
+        @include tablet{
+            width: 66.7%
+        }
+    }
+}
+.inventory-list{
+    &__actions {
+        width: 100%;
         display: flex;
         justify-content: space-between;
     }
-}
 
-.inventory-list{
+    &__deleteicon{
+        position: relative;
+        top: 4px;
+        @include tablet{
+            margin-left: 1.125rem;
+            top: 2px;
+        }
+    }
+
+    &__action-label {
+        display: none;
+        @include tablet{
+            display: initial;
+        }
+    }
+
+    &__content {
+        &-warehouse{
+            width: 50%;
+            @include tablet {
+                width: 100%
+            }
+        }
+    }
+
     &-main {
         border-top: 1px solid $secondary-outline;
-        padding: .375rem 1.5rem 1rem;
-
+        padding: .375rem 1rem 1rem;
+            @include tablet {
+                display: flex;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                @include desktop{
+                    padding-left: 2.3125rem;
+                    padding-bottom: 0;
+                }
+            }
     }
 
-    &-qty {
-        padding-top: .2188rem;
-    }
 
     &__container {
-        &-left {
-            width: 45%;
+        width: 50%;
+        @include tablet {
+            width: 25%;
+            &:nth-child(1){
+                order:1;
+            }
+            &:nth-child(2){
+                order:3;
+            }
+            &:nth-child(3){
+                order:2;
+            }
+            &:nth-child(4){
+                order:4;
+            }
         }
 
-        &-right {
-            width: 45%;
+        &-warehouse {
+            display: flex;
+            justify-content: flex-end;
+
+            @include tablet{
+                min-width: 70px;
+            }
+            
+            @include desktop {
+                min-width: 70px;
+            }
+
         }
     }
 
@@ -39,6 +100,9 @@
         color: $secondary-table-header;
         margin-bottom: 0;
         margin-top: .7813rem;
+        @include tablet {
+            display: none;
+        }
 
         &-container {
             display: flex;
@@ -53,14 +117,32 @@
         }
         &-category {
             margin-top: .1875rem;
+            @include tablet {
+                padding-left: 2.375rem;
+            }
+            @include desktop {
+                padding-left: 2.375rem;
+            }
         }
 
         &-icon {
             padding-bottom: .3125rem;
+            display: flex;
+            justify-content: space-between;
+            @include tablet {
+                flex-direction: column;
+                margin-left: 4.375rem;
+            }
+            @include desktop {
+                margin-left: 7.1875rem;
+            }
         }
 
         &-qty {
             margin-top: .375rem;
+            @include tablet {
+                margin-left: 1.875rem
+            }
         }
 
         &-warehouse {
@@ -80,6 +162,12 @@
         padding-left: .5rem;
         padding-right: .5rem;
         border-radius: 1.25rem;
+        @include tablet{
+            margin-left: 2.25rem;
+        }
+        @include desktop{
+            margin-left: 2.1875rem;
+        }
     }
 
     &-redstatus {
@@ -92,13 +180,13 @@
         padding-left: .5rem;
         padding-right: .5rem;
         border-radius: 1.25rem;
+        @include tablet {
+            margin-left: 1.5rem;
+        }
+        @include desktop {
+            margin-left: 2.25rem;
+        }
     }
 }
 
 
-
-// .inventory-list {
-//             display: flex;
-//         justify-content: space-between;
-//         margin-right: 4.125rem
-// }

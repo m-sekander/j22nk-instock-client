@@ -16,7 +16,7 @@ function Header() {
                         </NavLink>
                     </li>
                     <li className="header__nav-item">
-                        <NavLink to="/inventory" className="header__nav-item-link">
+                        <NavLink to="/inventories" className="header__nav-item-link">
                             Inventory
                         </NavLink>
                     </li>
