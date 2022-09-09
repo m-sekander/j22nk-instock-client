@@ -91,8 +91,15 @@
         }
     }
 
+    // &__container-address {
+    //     @include tablet {
+    //         width: 20%;
+    //     }
+    // }
+
     &__link {
         text-decoration: none;
+        display: inline-block;
     }
 
     &__name {
@@ -105,9 +112,26 @@
         width: 1.25rem;
     }
 
+    &__container-address {
+        @include tablet {
+            width: 18%;
+        }
+    }
+    &__container-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__container-contact-info {
+        @include tablet {
+            width: 23%;
+        }
+    }
+
     &__address{
         @include tablet {
-            width: 6rem;
+            width: 7rem;
         }
     }
 
