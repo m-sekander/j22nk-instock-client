@@ -3,12 +3,10 @@
 @use "../../styles/partials/mixins" as *;
 
 .page-main {
-    @include tablet {
-        min-height: 54rem; 
-    }
+    min-height: calc(100vh - 12rem);
 
-    @include desktop {
-        min-height: 48rem;
+    @include tablet {
+        min-height: calc(100vh - 8.725rem);
     }
 
     &__container {
