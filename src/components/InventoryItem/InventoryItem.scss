@@ -8,30 +8,98 @@
 
 .inventory {
     &__list {
+        // display: flex;
+        // justify-content: space-between;
+            flex-wrap: wrap;
+            display: flex;
+        @include tablet{
+            width: 66.7%
+        }
+    }
+}
+.inventory-list{
+    &__actions {
+        width: 100%;
         display: flex;
         justify-content: space-between;
     }
-}
 
-.inventory-list{
+    &__deleteicon{
+        position: relative;
+        top: 4px;
+        @include tablet{
+            margin-left: 1.5rem;
+            top: 2px;
+        }
+    }
+
+    &__action-label {
+        display: none;
+        @include tablet{
+            display: initial;
+        }
+    }
+
+    &__content {
+        &-warehouse{
+            width: 50%;
+            @include tablet {
+                width: 100%
+            }
+        }
+    }
+
     &-main {
         border-top: 1px solid $secondary-outline;
         padding: .375rem 1.5rem 1rem;
-
+            @include tablet {
+                display: flex;
+            }
     }
 
-    &-qty {
-        padding-top: .2188rem;
-    }
+    // &-qty {
+    //     padding-top: .2188rem;
+    // }
 
     &__container {
-        &-left {
-            width: 45%;
+        width: 50%;
+        @include tablet {
+            width: 25%;
+            &:nth-child(1){
+                order:1;
+            }
+            &:nth-child(2){
+                order:3;
+            }
+            &:nth-child(3){
+                order:2;
+            }
+            &:nth-child(4){
+                order:4;
+            }
         }
 
-        &-right {
-            width: 45%;
+        &-warehouse {
+            // align-content: right;
+            display: flex;
+            justify-content: flex-end;
+
+            @include tablet{
+                min-width: 70px;
+            }
+            
+            @include desktop {
+                min-width: 70px;
+            }
+
         }
+        // &-left {
+        //     width: 45%;
+        // }
+
+        // &-right {
+        //     width: 45%;
+        // }
     }
 
 
@@ -39,6 +107,9 @@
         color: $secondary-table-header;
         margin-bottom: 0;
         margin-top: .7813rem;
+        @include tablet {
+            display: none;
+        }
 
         &-container {
             display: flex;
@@ -57,6 +128,13 @@
 
         &-icon {
             padding-bottom: .3125rem;
+            display: flex;
+            justify-content: space-between;
+            @include tablet {
+                flex-direction: column;
+                margin-left: 3.5rem;
+            }
+
         }
 
         &-qty {
@@ -96,9 +174,3 @@
 }
 
 
-
-// .inventory-list {
-//             display: flex;
-//         justify-content: space-between;
-//         margin-right: 4.125rem
-// }
