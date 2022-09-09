@@ -9,10 +9,14 @@ function WarehouseInventoryItem({ id, itemName, category, status, quantity }) {
         <li className="inventory-list-item">
             <div className="inventory-list-item__container">
                 <h4 className="inventory-list-item__label">Inventory Item</h4>
-                <Link className="inventory-list-item__item-link" to={`/inventories/${id}`}>
-                    <p className="inventory-list-item__info inventory-list-item__name">{itemName}</p>
-                    <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
-                </Link>
+                <div>
+                    <Link className="inventory-list-item__item-link" to={`/inventories/${id}`}>
+                        <p className="inventory-list-item__info inventory-list-item__name">
+                            {itemName}
+                            <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
+                        </p>
+                    </Link>
+                </div>
             </div>
             <div className="inventory-list-item__container inventory-list-item__status">
                 <h4 className="inventory-list-item__label">Status</h4>
