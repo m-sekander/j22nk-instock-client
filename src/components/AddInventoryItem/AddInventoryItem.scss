@@ -17,13 +17,17 @@
 
     &__title {
         padding: 0 1.5rem 0 .25rem;
+
+        @include tablet {
+            padding: 1rem 0 .25rem .5rem; 
+        }
     }
 
     &__link-container  {
         margin: 1.7rem 0 0 1.5rem;
 
         @include tablet {
-            margin-left: 2rem;
+            margin: 2.875rem 0 0 2rem; 
         }
     }
 
@@ -76,12 +80,13 @@
         }
     }
 
-    &__label {
-        margin-bottom: .25rem;
+    &__label-container {
+        margin-top: .5rem;
     }
 
     &__input {
         width: 100%;
+        margin-top: 0.25rem;
         height: 2.25rem;
         padding: 0 1rem;
         border-radius: 1.25rem;
@@ -93,6 +98,7 @@
     }
 
     &__text-area {
+        margin-top: 0.25rem;
         height: 7.5rem;
         border-radius: 1.25rem;
         border: 1px solid $secondary-outline;
@@ -104,22 +110,39 @@
 
     &__select {
         color: $secondary-placeholder-text;
+        margin-top: 0.25rem;
         font-family: inherit;
         width: 100%;
         height: 2.25rem;
         padding: 0 1rem;
         border-radius: 1.25rem;
         border: 1px solid $secondary-outline;
+        appearance: none;
+        background-image: url("../../assets/images/icons/arrow_drop_down-24px.svg");
+        background-repeat: no-repeat;
+        background-position: calc(100% - .75rem) 50%;
+    }
+
+    &__option {
+        color: $primary-text;
     }
 
     &__radio-buttons {
         display: flex;
         justify-content: space-between;
+
+        @include tablet {
+            justify-content: flex-start;
+        }
     }
 
     &__radio-container {
         display: flex;
         width: 8.6875rem;
+
+        @include tablet {
+            width: 7rem;
+        }
     }
 
     &__radio {
@@ -129,6 +152,13 @@
 
     &__stock {
         margin: 0 .5rem;
+    }
+
+    &__modal {
+        border: 1px solid green;
+        border-radius: 4px;
+        background-color: lightgreen;
+        padding: 2rem;
     }
 
     &__button-container {
