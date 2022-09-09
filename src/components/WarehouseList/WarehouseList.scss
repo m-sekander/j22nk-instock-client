@@ -103,6 +103,19 @@
         }
     }
 
+    &__label-address,
+    &__label-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__label-contact-info {
+        @include tablet {
+            width: 23%;
+        }
+    }
+
     &__label-icon {
         @include tablet {
             height: .75rem;
