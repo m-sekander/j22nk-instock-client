@@ -2,12 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 
-// .inventory {
-//     &-container {
-//         text-align: center;
-//     }
-// }
-
 .inventory-list {
     display: flex;
     flex-direction: column;
@@ -24,11 +18,12 @@
 
         @include desktop {
             margin: 0 2.5rem;
+            margin-right: 5.375rem;
         }
     }
 
     &__title {
-        margin: 1.5rem 0 1rem 0;
+        margin: 0 0 1rem 0;
     }
 
     &__form {
@@ -79,3 +74,128 @@
         }
     }
 };
+
+
+.inventorylist {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-global;
+    border-radius: 3px;
+
+    &__header {
+        margin: 0 1.5rem;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 2rem; 
+        } 
+
+        @include desktop {
+            margin: 0 2.5rem;
+        }
+    }
+
+    &__title {
+        margin: 2rem 0 1rem 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+
+    &__label-strip {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: $background-table-header;
+            padding: 0 1.5rem;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+        @include desktop{
+            padding-left: 2.25rem;
+            padding-right: 1.875rem;
+        }
+    }
+
+    &__label-item {
+        color: $secondary-table-header;
+        @include tablet {
+            padding-left: 0;
+        }
+    }
+
+    &__label-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            margin-right: .875rem;
+
+            &:last-child {
+                width: 10%;
+            }
+        }
+    }
+
+    &__label-address,
+    &__label-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__label-contact-info {
+        @include tablet {
+            width: 23%;
+        }
+    }
+
+    &__label-icon {
+        @include tablet {
+            height: .75rem;
+            width: .75rem;
+        }
+    }
+
+    &__warehouses {
+        padding: 0;
+        margin-top: 1.5rem;
+
+        @include tablet {
+            margin: 0;
+        }
+    }
+}
+
+.warehouse-icon {
+    margin-right: .75rem;
+}
+
+.warehouse-container {
+    @include tablet{
+        margin-right: 1rem;
+    }
+    @include desktop {
+        margin-right: 1.875rem;
+    }
+}
+
+.actions-container {
+    @include tablet{
+        padding-left: 1.25rem;
+    }
+    @include desktop {
+        padding-left: 0;
+    }
+}
