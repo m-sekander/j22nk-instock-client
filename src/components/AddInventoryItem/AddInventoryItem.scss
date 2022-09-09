@@ -33,6 +33,7 @@
 
         @include tablet {
             padding: 1.5rem 0;
+            flex-direction: row;
         }
     }
 
@@ -65,6 +66,14 @@
 
     &__inner-container {
         padding: 0 1.5rem;
+
+        @include tablet {
+            padding: 0 2rem;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
     }
 
     &__label {

@@ -57,7 +57,7 @@ function AddInventoryItem() {
                             </div>
                             <div>
                                 <h3 className="add-inventory__label">Quantity</h3>
-                                <input className="add-inventory__input" type="text"></input>
+                                <input className="add-inventory__input" type="text" placeholder="0"></input>
                             </div>
                             <div>
                                 <h3 className="add-inventory__label">Warehouse</h3>
