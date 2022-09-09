@@ -47,7 +47,6 @@ function InventoryItem({ item }) {
             <p className="inventory-list__label-warehouse">{item.warehouseName}</p>
           </div>
         </div>
-        {/* </div> */}
       <div className="inventory-list__label-icon">
         <h4 className="inventory-list__label inventory-list__action-label">ACTION</h4>
         <div className="inventory-list__actions">
