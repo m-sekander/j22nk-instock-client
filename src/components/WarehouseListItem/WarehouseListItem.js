@@ -14,16 +14,14 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
             <li className="warehouse">
                 <div className="warehouse__container warehouse__container-warehouse">
                     <h4 className="warehouse__label">Warehouse</h4>
-                    <div>
-                        <Link to={"/warehouses/" + id} className="warehouse__link">
-                            <p className="warehouse__name warehouse__info">
-                                {name}
-                                <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
-                            </p>
-                        </Link>
-                    </div>
+                    <Link to={"/warehouses/" + id} className="warehouse__link">
+                        <p className="warehouse__name warehouse__info">
+                            {name}
+                            <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
+                        </p>
+                    </Link>
                 </div>
-                <div className="warehouse__container warehouse__container-contact-name">
+                <div className="warehouse__container">
                     <h4 className="warehouse__label">Contact Name</h4>
                     <p className="warehouse__contact-name warehouse__info">{contactName}</p>
                 </div>
