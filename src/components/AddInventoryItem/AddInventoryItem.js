@@ -1,5 +1,6 @@
 import "./AddInventoryItem.scss";
 import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
+import errorIcon from "../../assets/images/icons/error-24px.svg";
 import CTA from "../CTA/CTA";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -90,10 +91,22 @@ function AddInventoryItem() {
                             <div className="add-inventory__warehouse-name">
                                 <label className="add-inventory__label" htmlFor="itemName">Item Name</label>
                                 <input className="add-inventory__input" name="itemName" type="text" placeholder="Item Name"></input>
+                                {errorMessages === true ? 
+                                <div className="add-inventory__error-message">
+                                    <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
+                                    <p className="add-inventory__error">This field is required</p>
+                                </div>
+                                : ""}
                             </div>
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="description">Description</label>
                                 <textarea className="add-inventory__text-area" name="description" placeholder="Please enter a brief item description..."></textarea>
+                                {errorMessages === true ? 
+                                <div className="add-inventory__error-message">
+                                    <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
+                                    <p className="add-inventory__error">This field is required</p>
+                                </div>
+                                : ""}
                             </div>
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="category">Category</label>
@@ -105,6 +118,12 @@ function AddInventoryItem() {
                                     <option className="add-inventory__option" value="Gear">Gear</option>
                                     <option className="add-inventory__option" value="Health">Health</option>
                                 </select>
+                                {errorMessages === true ? 
+                                <div className="add-inventory__error-message">
+                                    <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
+                                    <p className="add-inventory__error">This field is required</p>
+                                </div>
+                                : ""}
                             </div>
                         </div>
                     </div>
@@ -123,11 +142,23 @@ function AddInventoryItem() {
                                         <p className="add-inventory__stock">Out of stock</p>
                                     </div>
                                 </div>
+                                {errorMessages === true ? 
+                                <div className="add-inventory__error-message">
+                                    <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
+                                    <p className="add-inventory__error">This field is required</p>
+                                </div>
+                                : ""}
                             </div>
                             {quantity === true ? <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="quantity">Quantity</label>
                                 <input className="add-inventory__input" name="quantity" type="text" placeholder="0"></input>
                             </div> : ""}
+                            {errorMessages === true ? 
+                                <div className="add-inventory__error-message">
+                                    <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
+                                    <p className="add-inventory__error">This field is required</p>
+                                </div>
+                                : ""}
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="warehouseName">Warehouse</label>
                                 <select className="add-inventory__select" name="warehouseName">
@@ -136,6 +167,12 @@ function AddInventoryItem() {
                                         <option className="add-inventory__option" value={warehouse.name} key={warehouse.name}>{warehouse.name}</option>
                                     ))}
                                 </select>
+                                {errorMessages === true ? 
+                                <div className="add-inventory__error-message">
+                                    <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
+                                    <p className="add-inventory__error">This field is required</p>
+                                </div>
+                                : ""}
                             </div>
                         </div>
                     </div>
@@ -147,7 +184,7 @@ function AddInventoryItem() {
                 }
                 <div className="add-inventory__button-container">
                     <div className="add-inventory__button">
-                        <CTA link="/warehouses" text="Cancel" type="secondary"/>
+                        <CTA link="/inventories" text="Cancel" type="secondary"/>
                     </div>
                     <div className="add-inventory__button">
                         <CTA isButton="true" text="+ Add Item"/>

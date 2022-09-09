@@ -154,6 +154,21 @@
         margin: 0 .5rem;
     }
 
+    &__error-message {
+        display: flex;
+    }
+
+    &__error-icon {
+        width: 1rem;
+    }
+
+    &__error {
+        color: $support-no-stock-label;
+        margin: .25rem .125rem;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
     &__modal {
         border: 1px solid green;
         border-radius: 4px;
