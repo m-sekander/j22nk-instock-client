@@ -14,7 +14,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
             <li className="warehouse">
                 <div className="warehouse__container">
                     <h4 className="warehouse__label">Warehouse</h4>
-                    <Link to={"/warehouse/" + id} className="warehouse__link">
+                    <Link to={"/warehouses/" + id} className="warehouse__link">
                         <p className="warehouse__name warehouse__info">
                             {name}
                             <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>

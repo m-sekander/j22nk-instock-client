@@ -3,7 +3,7 @@ import "./WarehouseDetails.scss";
 import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
-import CTA from "../Button/CTA";
+import CTA from "../CTA/CTA";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseInventoryItem from "../WarehouseInventoryItem/WarehouseInventoryItem";
