@@ -29,7 +29,7 @@
     }
 
     &__title {
-        margin: 2rem 0 1rem 0;
+        margin: 0 0 1rem 0;
     }
 
     &__form {
@@ -80,3 +80,110 @@
         }
     }
 };
+
+
+.inventorylist {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-global;
+    border-radius: 3px;
+
+    &__header {
+        margin: 0 1.5rem;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 2rem; 
+        } 
+
+        @include desktop {
+            margin: 0 2.5rem;
+        }
+    }
+
+    &__title {
+        margin: 2rem 0 1rem 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+
+// aca
+    &__label-strip {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: $background-table-header;
+            padding: 0 1.5rem;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+    }
+
+    &__label-item {
+        color: $secondary-table-header;
+        @include tablet {
+            // padding-left: .875rem;
+            padding-left: 0;
+        }
+    }
+
+    &__label-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            // width: 16.6%;
+            text-transform: uppercase;
+            margin-right: .875rem;
+
+            &:last-child {
+                width: 10%;
+                // justify-content: flex-end;
+            }
+        }
+    }
+
+    &__label-address,
+    &__label-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__label-contact-info {
+        @include tablet {
+            width: 23%;
+        }
+    }
+
+    &__label-icon {
+        @include tablet {
+            height: .75rem;
+            width: .75rem;
+        }
+    }
+
+    &__warehouses {
+        padding: 0;
+        margin-top: 1.5rem;
+
+        @include tablet {
+            margin: 0;
+        }
+    }
+}
+
+.warehouse-icon {
+    margin-right: .75rem;
+}

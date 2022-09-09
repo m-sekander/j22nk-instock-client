@@ -21,7 +21,6 @@ function InventoryItem({ item }) {
   return (
     <div className="inventory-list-main">
       <div className="inventory__list">
-        {/* <div className="inventory-list__container-left"> */}
         <div className="inventory-list__container">
           <h4 className="inventory-list__label">INVENTORY ITEM</h4>
           <div className="inventory-list__label-container">
@@ -37,8 +36,6 @@ function InventoryItem({ item }) {
           <h4 className="inventory-list__label">CATEGORY</h4>
           <p className="inventory-list__label-category">{item.category}</p>
         </div>
-        {/* </div> */}
-        {/* <div className="inventory-list__container-right"> */}
           <div className="inventory-list-qty inventory-list__container">
             <h4 className="inventory-list__label">QTY</h4>
             <p className="inventory-list__label-qty">{item.quantity}</p>

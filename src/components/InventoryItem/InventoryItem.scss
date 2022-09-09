@@ -28,7 +28,7 @@
         position: relative;
         top: 4px;
         @include tablet{
-            margin-left: 1.5rem;
+            margin-left: 1.125rem;
             top: 2px;
         }
     }
@@ -124,6 +124,9 @@
         }
         &-category {
             margin-top: .1875rem;
+            @include tablet {
+                padding-left: 2.375rem;
+            }
         }
 
         &-icon {
@@ -139,6 +142,9 @@
 
         &-qty {
             margin-top: .375rem;
+            @include tablet {
+                margin-left: 1.875rem
+            }
         }
 
         &-warehouse {
@@ -158,6 +164,9 @@
         padding-left: .5rem;
         padding-right: .5rem;
         border-radius: 1.25rem;
+        @include tablet {
+            margin-left: 2.25rem;
+        }
     }
 
     &-redstatus {
@@ -170,6 +179,9 @@
         padding-left: .5rem;
         padding-right: .5rem;
         border-radius: 1.25rem;
+        @include tablet {
+            margin-left: 1.5rem;
+        }
     }
 }
 
