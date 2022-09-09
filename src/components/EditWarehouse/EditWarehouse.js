@@ -46,6 +46,24 @@ function EditWarehouse() {
                 email: event.target.email.value
             }
         }
+
+        axios.put("http://localhost:8080/warehouses/" + warehouseId, editedWarehouse)
+            .then(() => {
+                setIsSuccessful(true);
+                setTimeout(() => navigate("/warehouses"), 1500);
+    
+                // Clear all fields after submitting
+                warehouseInputFieldNames.forEach((fieldName) => {
+                    event.target[fieldName].value = "";
+                })
+                contactInputFieldNames.forEach((fieldName) => {
+                    event.target[fieldName].value = "";
+                })
+                setErrorMessages(new Array(8).fill(""));
+            })
+            .catch((error) => {
+                setErrorMessages(error.response.data);
+            })
     }
 
     useEffect(()=>{
