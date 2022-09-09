@@ -21,15 +21,45 @@
 
     &__back {
         padding-left: 1.5rem;
+
+        @include tablet {
+            padding-left: 2rem;
+        }
+    }
+
+    &__details {
+        display: flex;
+
+        @include tablet {
+            padding: 1.5rem 0;
+        }
     }
 
     &__warehouse-details {
         padding-bottom: 1.5rem;
         border-bottom: 1px solid $secondary-outline;
+
+        @include tablet {
+            width: 50%;
+            border-bottom: none;
+            border-right: 1px solid $secondary-outline;
+            padding-bottom:.5rem;
+        }
+    }
+
+    &__warehouse-details-title {
+        @include tablet {
+            margin-top: 0;
+        }
     }
 
     &__contact-details {
         padding-bottom: 1.5rem;
+
+        @include tablet {
+            width: 50%;
+            padding-bottom:.5rem;
+        }
     }
 
     &__inner-container {
@@ -53,9 +83,23 @@
         justify-content: space-between;
         padding: 1rem 1.5rem;
         background-color: $background-cta;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
     }
 
     &__button {
         width: 8.6875rem;
+
+        @include tablet {
+            width: 4.5rem;
+
+            &:last-child {
+                display: flex;
+                justify-content: flex-end;
+                margin-left: .5rem;
+            }
+        }
     }
 }

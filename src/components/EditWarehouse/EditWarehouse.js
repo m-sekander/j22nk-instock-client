@@ -13,45 +13,47 @@ function EditWarehouse() {
                 </Link>
             </div>
             <form className="edit-warehouse__form">
-                <div className="edit-warehouse__warehouse-details">
-                    <div className="edit-warehouse__inner-container">
-                        <h2 className="edit-warehouse__warehouse-details-title">Warehouse Details</h2>
-                        <div className="edit-warehouse__warehouse-name">
-                            <h3 className="edit-warehouse__label">Warehouse Name</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
-                        </div>
-                        <div>
-                            <h3 className="edit-warehouse__label">Street Address</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
-                        </div>
-                        <div>
-                            <h3 className="edit-warehouse__label">City</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
-                        </div>
-                        <div>
-                            <h3 className="edit-warehouse__label">Country</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
+                <div className="edit-warehouse__details">
+                    <div className="edit-warehouse__warehouse-details">
+                        <div className="edit-warehouse__inner-container">
+                            <h2 className="edit-warehouse__warehouse-details-title">Warehouse Details</h2>
+                            <div className="edit-warehouse__warehouse-name">
+                                <h3 className="edit-warehouse__label">Warehouse Name</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
+                            <div>
+                                <h3 className="edit-warehouse__label">Street Address</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
+                            <div>
+                                <h3 className="edit-warehouse__label">City</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
+                            <div>
+                                <h3 className="edit-warehouse__label">Country</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="edit-warehouse__contact-details">
-                    <div className="edit-warehouse__inner-container">
-                        <h2 className="edit-warehouse__warehouse-details-title">Contact Details</h2>
-                        <div>
-                            <h3 className="edit-warehouse__label">Contact Name</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
-                        </div>
-                        <div>
-                            <h3 className="edit-warehouse__label">Position</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
-                        </div>
-                        <div>
-                            <h3 className="edit-warehouse__label">Phone Number</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
-                        </div>
-                        <div>
-                            <h3 className="edit-warehouse__label">Email</h3>
-                            <input className="edit-warehouse__input" type="text"></input>
+                    <div className="edit-warehouse__contact-details">
+                        <div className="edit-warehouse__inner-container">
+                            <h2 className="edit-warehouse__warehouse-details-title">Contact Details</h2>
+                            <div>
+                                <h3 className="edit-warehouse__label">Contact Name</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
+                            <div>
+                                <h3 className="edit-warehouse__label">Position</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
+                            <div>
+                                <h3 className="edit-warehouse__label">Phone Number</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
+                            <div>
+                                <h3 className="edit-warehouse__label">Email</h3>
+                                <input className="edit-warehouse__input" type="text"></input>
+                            </div>
                         </div>
                     </div>
                 </div>
