@@ -1,7 +1,7 @@
 import "./WarehouseInputs.scss";
 import errorIcon from "../../assets/images/icons/error-24px.svg"
 
-function WarehouseInputs({title, inputFields, fieldNames, errorMessages, className}) {
+function WarehouseInputs({title, inputFields, fieldNames, errorMessages, fieldValues, className}) {
     return (
         <div className={"warehouse-inputs " + className}>
             <h2>{title}</h2>
@@ -13,6 +13,7 @@ function WarehouseInputs({title, inputFields, fieldNames, errorMessages, classNa
                             className="warehouse-inputs__input" 
                             placeholder={inputField} 
                             name={fieldNames[index]}
+                            value={fieldValues && fieldValues[index]}
                             ></input>
                         {errorMessages[index] &&
                             <p className="warehouse-inputs__error">
