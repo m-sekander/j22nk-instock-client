@@ -12,9 +12,9 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
     return (
         <>
             <li className="warehouse">
-                <div className="warehouse__container">
+                <div className="warehouse__container warehouse__container-warehouse">
                     <h4 className="warehouse__label">Warehouse</h4>
-                    <Link to={"/warehouse/" + id} className="warehouse__link">
+                    <Link to={"/warehouses/" + id} className="warehouse__link">
                         <p className="warehouse__name warehouse__info">
                             {name}
                             <img className="warehouse__chevron" src={chevronIcon} alt="Chevron icon"/>
@@ -25,18 +25,18 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <h4 className="warehouse__label">Contact Name</h4>
                     <p className="warehouse__contact-name warehouse__info">{contactName}</p>
                 </div>
-                <div className="warehouse__container">
+                <div className="warehouse__container warehouse__container-address">
                     <h4 className="warehouse__label">Address</h4>
                     <p className="warehouse__address warehouse__info">{address}, {city}, {country}</p>
                 </div>
-                <div className="warehouse__container">
+                <div className="warehouse__container warehouse__container-contact-info">
                     <h4 className="warehouse__label">Contact Information</h4>
                     <p className="warehouse__contact-phone warehouse__info">{contactPhone}</p>
                     <p className="warehouse__contact-email warehouse__info">{contactEmail}</p>
                 </div>
                 <div className="warehouse__container">
-                    <Link to="" className="warehouse__delete-link"><img className="warehouse__delete" src={deleteIcon} alt="Delete button" onClick={() => setDeleteActive(true)} /></Link>
-                    <Link to="" className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
+                    <img className="warehouse__delete" src={deleteIcon} alt="Delete button" onClick={() => setDeleteActive(true)} />
+                    <Link to={`/warehouses/${id}`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
                 </div>
             </li>
             {deleteActive && <Modal isWarehouse={true} name={name} id={id} setDeleteActive={setDeleteActive}/>}

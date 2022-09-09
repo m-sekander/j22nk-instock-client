@@ -1,14 +1,14 @@
-@use "../../styles/partials/breakpoints"as *;
 @use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles//partials/mixins" as *;
 
-.warehouse {
+.inventory-list-item {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-wrap: wrap;  
+    align-items: center; 
     justify-content: space-between;
-    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem 0 1.5rem;
     border-bottom: 1px solid $secondary-outline;
-    gap: 1rem;
 
     &:first-child {
         border-top: 1px solid $secondary-outline;
@@ -19,7 +19,7 @@
     }
 
     @include tablet {
-        padding: 1.5rem 2rem 1.5rem 2rem; 
+        padding: 1.5rem 2rem; 
 
         &:first-child {
             border-top: none;
@@ -27,9 +27,7 @@
     }
 
     @include desktop {
-        &:hover {
-            background-color: rgb(46, 102, 229, 0.07);
-        }
+        padding: 1.5rem 2.5rem;
     }
 
     &__label {
@@ -49,8 +47,9 @@
 
     &__container {
         display: flex;
-        width: 45%;
+        width: 50%;
         flex-direction: column;
+        padding-bottom: 1rem;
 
         &:last-child {
             width: 100%;
@@ -91,48 +90,39 @@
         }
     }
 
-    // &__container-address {
-    //     @include tablet {
-    //         width: 20%;
-    //     }
-    // }
-
-    &__link {
-        text-decoration: none;
-        display: inline-block;
-    }
-
     &__name {
         display: flex;
         align-items: center;
         color: $primary-element;
     }
 
-    &__chevron {
-        width: 1.25rem;
+    &__item-link {
+        @include link-reset;
+        display: inline-block;
     }
 
-    &__container-address {
+    &__status {
         @include tablet {
-            width: 18%;
-        }
-    }
-    &__container-contact-name {
-        @include tablet {
-            width: 18%;
+            width: 25%
         }
     }
 
-    &__container-contact-info {
-        @include tablet {
-            width: 23%;
-        }
+    &__in-stock {
+        text-transform: uppercase;
+        color: $support-stock-label;
+        padding: .25rem .5rem;
+        background-color: rgba(0, 255, 0, 0.07); 
+        border-radius: 1.25rem;
+        width: 4.5rem;
     }
 
-    &__address{
-        @include tablet {
-            width: 7rem;
-        }
+    &__out-of-stock {
+        text-transform: uppercase;
+        color: $support-no-stock-label;
+        padding: .25rem .5rem;
+        background-color: rgb(201, 69, 21, 0.07); 
+        border-radius: 1.25rem;
+        width: 6.5rem;
     }
 
     &__buttons {

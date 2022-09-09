@@ -18,6 +18,7 @@ function InventoryList() {
         console.error(error);
       });
   }, []);
+  
   return (
     <section className="inventory-list">
       <div className="inventory-list__header">
