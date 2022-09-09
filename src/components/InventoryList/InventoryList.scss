@@ -2,12 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 
-// .inventory {
-//     &-container {
-//         text-align: center;
-//     }
-// }
-
 .inventory-list {
     display: flex;
     flex-direction: column;
@@ -25,6 +19,7 @@
 
         @include desktop {
             margin: 0 2.5rem;
+            margin-right: 5.375rem;
         }
     }
 
@@ -117,7 +112,6 @@
         }
     }
 
-// aca
     &__label-strip {
         display: none;
 
@@ -129,12 +123,15 @@
             gap: 1rem;
             justify-content: space-between;
         }
+        @include desktop{
+            padding-left: 2.25rem;
+            padding-right: 1.875rem;
+        }
     }
 
     &__label-item {
         color: $secondary-table-header;
         @include tablet {
-            // padding-left: .875rem;
             padding-left: 0;
         }
     }
@@ -143,13 +140,11 @@
         @include tablet {
             display: flex;
             align-items: center;
-            // width: 16.6%;
             text-transform: uppercase;
             margin-right: .875rem;
 
             &:last-child {
                 width: 10%;
-                // justify-content: flex-end;
             }
         }
     }
@@ -186,4 +181,22 @@
 
 .warehouse-icon {
     margin-right: .75rem;
+}
+
+.warehouse-container {
+    @include tablet{
+        margin-right: 1rem;
+    }
+    @include desktop {
+        margin-right: 1.875rem;
+    }
+}
+
+.actions-container {
+    @include tablet{
+        padding-left: 1.25rem;
+    }
+    @include desktop {
+        padding-left: 0;
+    }
 }

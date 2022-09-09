@@ -8,8 +8,6 @@
 
 .inventory {
     &__list {
-        // display: flex;
-        // justify-content: space-between;
             flex-wrap: wrap;
             display: flex;
         @include tablet{
@@ -51,15 +49,18 @@
 
     &-main {
         border-top: 1px solid $secondary-outline;
-        padding: .375rem 1.5rem 1rem;
+        padding: .375rem 1rem 1rem;
             @include tablet {
                 display: flex;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                @include desktop{
+                    padding-left: 2.3125rem;
+                    padding-bottom: 0;
+                }
             }
     }
 
-    // &-qty {
-    //     padding-top: .2188rem;
-    // }
 
     &__container {
         width: 50%;
@@ -80,7 +81,6 @@
         }
 
         &-warehouse {
-            // align-content: right;
             display: flex;
             justify-content: flex-end;
 
@@ -93,13 +93,6 @@
             }
 
         }
-        // &-left {
-        //     width: 45%;
-        // }
-
-        // &-right {
-        //     width: 45%;
-        // }
     }
 
 
@@ -127,6 +120,9 @@
             @include tablet {
                 padding-left: 2.375rem;
             }
+            @include desktop {
+                padding-left: 2.375rem;
+            }
         }
 
         &-icon {
@@ -135,9 +131,11 @@
             justify-content: space-between;
             @include tablet {
                 flex-direction: column;
-                margin-left: 3.5rem;
+                margin-left: 4.375rem;
             }
-
+            @include desktop {
+                margin-left: 7.1875rem;
+            }
         }
 
         &-qty {
@@ -164,8 +162,11 @@
         padding-left: .5rem;
         padding-right: .5rem;
         border-radius: 1.25rem;
-        @include tablet {
+        @include tablet{
             margin-left: 2.25rem;
+        }
+        @include desktop{
+            margin-left: 2.1875rem;
         }
     }
 
@@ -181,6 +182,9 @@
         border-radius: 1.25rem;
         @include tablet {
             margin-left: 1.5rem;
+        }
+        @include desktop {
+            margin-left: 2.25rem;
         }
     }
 }

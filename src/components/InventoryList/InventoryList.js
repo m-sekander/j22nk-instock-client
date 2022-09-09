@@ -67,7 +67,7 @@ function InventoryList() {
             alt="Sort icon"
           />
         </div>
-        <div className="inventorylist__label-container">
+        <div className="inventorylist__label-container warehouse-container">
           <h4 className="inventorylist__label-item">Warehouse</h4>
           <img
             className="inventorylist__label-icon warehouse-icon"
@@ -75,7 +75,7 @@ function InventoryList() {
             alt="Sort icon"
           />
         </div>
-        <div className="inventorylist__label-container">
+        <div className="inventorylist__label-container actions-container">
           <h4 className="inventorylist__label-item">Actions</h4>
         </div>
       </div>
