@@ -46,11 +46,11 @@ function AddInventoryItem() {
                                 <h3 className="add-inventory__label">Status</h3>
                                 <div className="add-inventory__radio-buttons">
                                     <div className="add-inventory__radio-container"> 
-                                        <input className="add-inventory__radio" type="radio"></input>
+                                        <input className="add-inventory__radio" type="radio" name="stock"></input>
                                         <p className="add-inventory__stock">In stock</p>
                                     </div>
                                     <div className="add-inventory__radio-container">
-                                        <input className="add-inventory__radio" type="radio"></input>
+                                        <input className="add-inventory__radio" type="radio" name="stock"></input>
                                         <p className="add-inventory__stock">Out of stock</p>
                                     </div>
                                 </div>
