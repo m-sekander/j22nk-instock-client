@@ -23,7 +23,7 @@
     }
 
     &__title {
-        margin: 0 0 1rem 0;
+        margin: 1.5rem 0 1rem 0;
     }
 
     &__form {
@@ -34,6 +34,7 @@
         @include tablet {
             flex-direction: row;
             gap: 1rem;
+            margin: 0;
         }
     }
 
@@ -48,6 +49,7 @@
         border: 1px solid $secondary-outline;
         color: $primary-text;
         word-wrap: break-word;
+        font-family: "TitilliumWeb", sans-serif;
 
         &::placeholder {
             color: $secondary-placeholder-text;
