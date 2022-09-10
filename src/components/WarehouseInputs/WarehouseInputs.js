@@ -1,6 +1,5 @@
 import "./WarehouseInputs.scss";
 import errorIcon from "../../assets/images/icons/error-24px.svg"
-import { useState } from "react";
 
 function WarehouseInputs({title, inputFields, fieldNames, errorMessages, fieldValues, className}) {
 
