@@ -60,8 +60,6 @@ function AddInventoryItem() {
             quantity: quantity
         }
 
-        console.log(newInventoryItem);
-
         axios
             .post("http://localhost:8080/inventories", newInventoryItem)
             .then(() => {
@@ -72,7 +70,6 @@ function AddInventoryItem() {
                 setErrorMessages(new Array(6).fill(""));
             })
             .catch(error => {
-                console.log(error.response.data);
                 setErrorMessages(error.response.data);
             })
     }
