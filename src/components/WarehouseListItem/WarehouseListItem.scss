@@ -91,11 +91,11 @@
         }
     }
 
-    // &__container-address {
-    //     @include tablet {
-    //         width: 20%;
-    //     }
-    // }
+    &__container-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
 
     &__link {
         text-decoration: none;
