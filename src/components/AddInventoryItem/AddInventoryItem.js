@@ -34,18 +34,24 @@ function AddInventoryItem() {
         event.preventDefault();
 
         let quantity = 0;
+        let warehouseId = "";
+
+        if (event.target.status.value === "In Stock") {
+            quantity = Number(event.target.quantity.value);
+        }
 
         if (event.target.status.value === "Out of Stock") {
             quantity = 0;
         }
 
-        quantity = Number(event.target.quantity.value);
-
-
         const selectedWarehouse = warehouses.find((warehouse) => warehouse.name === event.target.warehouseName.value);
 
+        if (event.target.warehouseName.value) {
+            warehouseId = selectedWarehouse.id;
+        }
+
         const newInventoryItem = {
-            warehouseID: selectedWarehouse.id,
+            warehouseID: warehouseId,
             warehouseName: event.target.warehouseName.value,
             itemName: event.target.itemName.value,
             description: event.target.description.value,
@@ -63,9 +69,11 @@ function AddInventoryItem() {
                 setTimeout(() => navigate("/inventories"), 1500);
                 event.target.reset();
                 setQuantity(false);
+                setErrorMessages(new Array(6).fill(""));
             })
             .catch(error => {
-                setErrorMessages(true);
+                console.log(error.response.data);
+                setErrorMessages(error.response.data);
             })
     }
 
@@ -91,22 +99,20 @@ function AddInventoryItem() {
                             <div className="add-inventory__warehouse-name">
                                 <label className="add-inventory__label" htmlFor="itemName">Item Name</label>
                                 <input className="add-inventory__input" name="itemName" type="text" placeholder="Item Name"></input>
-                                {errorMessages === true ? 
+                                {errorMessages[0] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
                                     <p className="add-inventory__error">This field is required</p>
-                                </div>
-                                : ""}
+                                </div>}
                             </div>
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="description">Description</label>
                                 <textarea className="add-inventory__text-area" name="description" placeholder="Please enter a brief item description..."></textarea>
-                                {errorMessages === true ? 
-                                <div className="add-inventory__error-message">
+                                {errorMessages[1] &&
+                                <div className="add-inventory__error-message add-inventory__description-error">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
                                     <p className="add-inventory__error">This field is required</p>
-                                </div>
-                                : ""}
+                                </div>}
                             </div>
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="category">Category</label>
@@ -118,12 +124,11 @@ function AddInventoryItem() {
                                     <option className="add-inventory__option" value="Gear">Gear</option>
                                     <option className="add-inventory__option" value="Health">Health</option>
                                 </select>
-                                {errorMessages === true ? 
+                                {errorMessages[2] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
                                     <p className="add-inventory__error">This field is required</p>
-                                </div>
-                                : ""}
+                                </div>}
                             </div>
                         </div>
                     </div>
@@ -134,31 +139,29 @@ function AddInventoryItem() {
                                 <label className="add-inventory__label" htmlFor="status">Status</label>
                                 <div className="add-inventory__radio-buttons">
                                     <div className="add-inventory__radio-container"> 
-                                        <input className="add-inventory__radio" type="radio" name="status" value="In Stock" onClick={handleSelectInStock}></input>
-                                        <p className="add-inventory__stock">In stock</p>
+                                        <input className="add-inventory__radio" id="in-stock"type="radio" name="status" value="In Stock" onClick={handleSelectInStock}></input>
+                                        <label htmlFor="in-stock" className="add-inventory__stock">In stock</label>
                                     </div>
                                     <div className="add-inventory__radio-container">
-                                        <input className="add-inventory__radio" type="radio" name="status" value="Out of Stock"onClick={handleSelectNoStock}></input>
-                                        <p className="add-inventory__stock">Out of stock</p>
+                                        <input className="add-inventory__radio" id="out-of-stock"type="radio" name="status" value="Out of Stock"onClick={handleSelectNoStock}></input>
+                                        <label htmlFor="out-of-stock" className="add-inventory__stock">Out of stock</label>
                                     </div>
                                 </div>
-                                {errorMessages === true ? 
+                                {errorMessages[3] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
                                     <p className="add-inventory__error">This field is required</p>
-                                </div>
-                                : ""}
+                                </div>}
                             </div>
                             {quantity === true ? <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="quantity">Quantity</label>
                                 <input className="add-inventory__input" name="quantity" type="text" placeholder="0"></input>
                             </div> : ""}
-                            {errorMessages === true ? 
+                            {quantity === true && errorMessages[4] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
                                     <p className="add-inventory__error">This field is required</p>
-                                </div>
-                                : ""}
+                                </div>}
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="warehouseName">Warehouse</label>
                                 <select className="add-inventory__select" name="warehouseName">
@@ -167,12 +170,11 @@ function AddInventoryItem() {
                                         <option className="add-inventory__option" value={warehouse.name} key={warehouse.name}>{warehouse.name}</option>
                                     ))}
                                 </select>
-                                {errorMessages === true ? 
+                                {errorMessages[5] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
                                     <p className="add-inventory__error">This field is required</p>
-                                </div>
-                                : ""}
+                                </div>}
                             </div>
                         </div>
                     </div>

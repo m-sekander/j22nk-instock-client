@@ -127,9 +127,14 @@
         color: $primary-text;
     }
 
+    &__description-error {
+        margin-top: -.375rem;
+    }
+
     &__radio-buttons {
         display: flex;
         justify-content: space-between;
+        color: $secondary-placeholder-text;
 
         @include tablet {
             justify-content: flex-start;
@@ -141,13 +146,17 @@
         width: 8.6875rem;
 
         @include tablet {
-            width: 7rem;
+            width: 7.25rem;
         }
     }
 
     &__radio {
         margin: 0;
         width: 1rem;
+
+        &:checked ~ label {
+            color: $primary-text;
+        }
     }
 
     &__stock {
