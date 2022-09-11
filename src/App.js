@@ -8,6 +8,7 @@ import PageMain from "./components/PageMain/PageMain";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import NotFound from './components/NotFound/NotFound';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/inventories/:inventoryId" element=""/>
         <Route path="/inventories/:inventoryId/edit" element=""/>
         <Route path="/inventories/add" element=""/>
+        <Route path="*" element={<PageMain content={<NotFound />}/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
