@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import PageMain from "./components/PageMain/PageMain";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
 import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem';
 
@@ -17,8 +18,8 @@ function App() {
       <Routes>
         <Route path ="/" element={<Navigate  to="/warehouses" />} />
         <Route path="/warehouses" element={<PageMain content={<WarehouseList />}/>}/>
+        <Route path="/warehouses/:warehouseId/edit" element={<PageMain content={<EditWarehouse />}/>}/>
         <Route path="/warehouses/:warehouseId" element={<PageMain content={<WarehouseDetails />}/>}/>
-        <Route path="/warehouses/:warehouseId/edit" element=""/>
         <Route path="/warehouses/add" element={<PageMain content={<AddWarehouse />}/>}/>
         <Route path="/inventories" element={<PageMain content={<InventoryList />}/>}/>
         <Route path="/inventories/:inventoryId" element=""/>
