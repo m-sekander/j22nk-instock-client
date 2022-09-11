@@ -2,10 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 
-
-
-
-
 .inventory {
     &__list {
             flex-wrap: wrap;
@@ -22,13 +18,14 @@
         justify-content: space-between;
     }
 
-    &__deleteicon{
-        position: relative;
-        top: 4px;
+    &__editicon {
         @include tablet{
             margin-left: 1.125rem;
-            top: 2px;
         }
+    }
+
+    &__edit-img {
+        vertical-align: bottom;
     }
 
     &__action-label {
@@ -49,11 +46,16 @@
 
     &-main {
         border-top: 1px solid $secondary-outline;
+
+        &:nth-child(3) {
+            border-top: none;
+        }
+
+
         padding: .375rem 1rem 1rem;
             @include tablet {
                 display: flex;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+                padding: 0.25rem 1.5rem;
                 @include desktop{
                     padding-left: 2.3125rem;
                     padding-bottom: 0;
@@ -78,6 +80,8 @@
             &:nth-child(4){
                 order:4;
             }
+            display: flex;
+            align-items: center;
         }
 
         &-warehouse {
@@ -114,9 +118,11 @@
             color: $primary-element;
             margin-top: .0938rem;
             margin-bottom: 6px;
+            @include tablet {
+                margin: 0;
+            }
         }
         &-category {
-            margin-top: .1875rem;
             @include tablet {
                 padding-left: 2.375rem;
             }
@@ -131,7 +137,8 @@
             justify-content: space-between;
             @include tablet {
                 flex-direction: column;
-                margin-left: 4.375rem;
+                margin: 0.75rem 0 0.75rem 4.375rem;
+                padding-bottom: 0;
             }
             @include desktop {
                 margin-left: 7.1875rem;
@@ -139,14 +146,9 @@
         }
 
         &-qty {
-            margin-top: .375rem;
             @include tablet {
                 margin-left: 1.875rem
             }
-        }
-
-        &-warehouse {
-            margin-top: .375rem;
         }
     }
 }
@@ -157,10 +159,9 @@
         text-transform: uppercase;
         color: $support-stock-label;
         font-weight: bold;
-        font-size: .6875rem;
+        font-size: .75rem;
         background: rgba(0, 158463, 0, .07);
-        padding-left: .5rem;
-        padding-right: .5rem;
+        padding: 0.25rem 0.5rem;
         border-radius: 1.25rem;
         @include tablet{
             margin-left: 2.25rem;
@@ -177,8 +178,7 @@
         font-weight: bold;
         font-size: .6875rem;
         background: rgba(94515, 0, 0, .07);
-        padding-left: .5rem;
-        padding-right: .5rem;
+        padding: 0.25rem 0.5rem;
         border-radius: 1.25rem;
         @include tablet {
             margin-left: 1.5rem;

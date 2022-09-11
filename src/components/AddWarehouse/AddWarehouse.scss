@@ -16,10 +16,6 @@
         }
     }
 
-    &__title {
-        font-size: 1.5rem;
-    }
-
     &__icon {
         width: 1.25rem;
         vertical-align: bottom;
@@ -55,14 +51,6 @@
 
         @include tablet {
             padding: 1rem 2rem;
-        }
-    }
-
-    &__button {
-        width: 100%;
-
-        @include tablet {
-            width: auto;
         }
     }
 }
