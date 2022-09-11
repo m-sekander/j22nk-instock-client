@@ -19,7 +19,7 @@
     }
 
     @include tablet {
-        padding: 1.5rem 2rem 1.5rem 2rem; 
+        padding: 1.5rem 2rem; 
 
         &:first-child {
             border-top: none;
@@ -27,6 +27,7 @@
     }
 
     @include desktop {
+        padding: 1.5rem 2.5rem;
         &:hover {
             background-color: rgb(46, 102, 229, 0.07);
         }
