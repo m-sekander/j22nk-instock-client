@@ -6,6 +6,7 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {useState, useEffect} from "react";
 import Loading from "../Loading/Loading";
+import NotFound from "../NotFound/NotFound";
 
 function EditWarehouse() {
     // Set up error messages array of 8 and fill initial values to ""
@@ -13,6 +14,7 @@ function EditWarehouse() {
     const [errorMessages, setErrorMessages] = useState(new Array(8).fill(""));
     const [isSuccessful, setIsSuccessful] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [notFound, setNotFound] = useState(false);
 
     const {warehouseId} = useParams();
     const navigate = useNavigate();
@@ -65,10 +67,10 @@ function EditWarehouse() {
             .then(() => {
                 setIsLoading(false);
                 setIsSuccessful(true);
+
                 setTimeout(() => navigate("/warehouses"), 1500);
     
                 // Clear all fields after submitting
-                setWarehouseInfo([]);
                 setErrorMessages(new Array(8).fill(""));
             })
             .catch((error) => {
@@ -82,10 +84,14 @@ function EditWarehouse() {
             .then((response) => {
                 setWarehouseInfo(response.data);
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
+                setNotFound(true);
             })
     }, [warehouseId]);
+
+    if (notFound) {
+        return <NotFound />
+    }
 
     if (!warehouseInfo || isLoading) {
         return <Loading />
