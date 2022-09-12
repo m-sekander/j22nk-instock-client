@@ -71,6 +71,7 @@
 
         @include tablet {
             flex-direction: row;
+            height: 3.625rem;
         }
 
 
@@ -79,7 +80,7 @@
                 display: flex;
                 padding: 0.25rem 2rem;
                 @include desktop{
-                    padding: 0.25rem 2.5rem 0 2.5rem;
+                    padding: 0 2.5rem 0 2.5rem;
                 }
             }
     }
@@ -87,6 +88,8 @@
     &__container-warehouse {
         @include tablet {
             width: 15%;
+            display: flex;
+            align-items: center;
         }
     }
 
@@ -157,6 +160,7 @@
             justify-content: space-between;
             @include tablet {
                 flex-direction: column;
+                justify-content: center;
                 margin: 0.75rem 0 0.75rem 0;
                 padding-bottom: 0;
                 width: 12%;
