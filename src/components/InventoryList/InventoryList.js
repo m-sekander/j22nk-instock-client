@@ -4,9 +4,10 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 import Button from "../CTA/CTA";
 import { useEffect, useState } from "react";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
+import Loading from "../Loading/Loading";
 
 function InventoryList() {
-  const [inventoryList, setInventoryList] = useState([]);
+  const [inventoryList, setInventoryList] = useState(null);
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -23,6 +24,10 @@ function InventoryList() {
         console.error(error);
       });
   }, []);
+
+  if (!inventoryList) {
+    return <Loading />;
+  }
   
   return (
     <section className="inventory-list">
