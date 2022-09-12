@@ -21,12 +21,12 @@
             align-items: flex-start;
             justify-content: space-between;
             padding: 0 2rem;
-            max-width: 1020px;
             margin: 0 auto;
         }
         @include desktop {
             padding-left: 0;
             padding-right: 0;
+            max-width: 1020px;
         }
     }
 
@@ -38,7 +38,7 @@
         margin: 1.5rem 0;
 
         @include tablet {
-            margin: 1.5rem 0 1rem 0;
+            margin: 2rem 0 1rem 0;
         }
     }
 
@@ -58,27 +58,42 @@
     &__nav-item {
         padding: .5625rem 0;
         width: 100%;
-        text-align: center;
+        display:flex;
+        justify-content: center;
+        align-items: center;
         color: $primary-global;
 
         @include tablet {
-            margin: 1.5rem 1rem;
+            margin: 2rem 0;
             height: 2.375rem;
-            padding: .35rem 1rem;
+            padding: .35rem 0;
             width: auto;
         }
 
         &:last-child {
-            margin-left: 1rem;
-        }
-
-        &:active {
-            background-color: $primary-text;
-            border-radius: 5rem;
+            @include tablet {
+                margin-left: 1.5rem;
+            }
         }
     }
 
     &__nav-item-link {
         @include link-reset; 
+        color: $secondary-outline;
+        text-align: center;
+
+        &--active {
+            background-color: $primary-text;
+            border-radius: 20px;
+            padding: .5rem 2.25rem;
+            text-align: center;
+            width: 100%;
+            @include link-reset; 
+
+            @include tablet {
+                padding: .5rem 1.125rem;
+            }
+        }
     }
+
 }

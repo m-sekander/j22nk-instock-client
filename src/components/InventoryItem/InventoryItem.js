@@ -50,8 +50,8 @@ function InventoryItem({ item }) {
       <div className="inventory-list__label-icon">
         <h4 className="inventory-list__label inventory-list__action-label">ACTION</h4>
         <div className="inventory-list__actions">
-          <img src={deleteIcon} alt="Delete icon" onClick={() => setDeleteActive(true)} />
-          <Link to="/inventories/:inventoryId/edit"><img className="inventory-list__deleteicon" src={editIcon} alt="Edit icon" /></Link>
+          <img className="inventory-list__deleteicon" src={deleteIcon} alt="Delete icon" onClick={() => setDeleteActive(true)} />
+          <Link className="inventory-list__editicon" to="/inventories/:inventoryId/edit"><img className="inventory-list__edit-img" src={editIcon} alt="Edit icon" /></Link>
         </div>
       </div>
       {deleteActive && <Modal isWarehouse={false} name={item.itemName} id={item.id} setDeleteActive={setDeleteActive}/>}

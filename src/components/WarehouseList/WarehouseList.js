@@ -4,11 +4,18 @@ import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 import CTA from "../CTA/CTA";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
+import Loading from "../Loading/Loading";
 
 function WarehouseList() {
     const [warehouses, setWarehousesList] = useState([]);
 
     useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
+          
         axios
             .get("http://localhost:8080/warehouses")
             .then(response => {
@@ -17,7 +24,7 @@ function WarehouseList() {
     }, []);
 
     if (!warehouses) {
-        return <span>Loading...</span>
+        return <Loading />
     }
 
     return (

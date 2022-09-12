@@ -74,7 +74,7 @@ function EditWarehouse() {
             .catch((error) => {
                 console.log(error);
             })
-    }, []);
+    }, [warehouseId]);
 
     return (
         <>

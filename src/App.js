@@ -9,6 +9,8 @@ import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
 import ItemDetail from './components/ItemDetail/ItemDetail';
+import AddInventoryItem from './components/AddInventoryItem/AddInventoryItem';
+import NotFound from './components/NotFound/NotFound';
 
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
         <Route path="/inventories" element={<PageMain content={<InventoryList />}/>}/>
         <Route path="/inventories/:inventoryId" element={<PageMain content={<ItemDetail />}/>}/>
         <Route path="/inventories/:inventoryId/edit" element=""/>
+        <Route path="/inventories/add" element={<PageMain content={<AddInventoryItem/>}/>}/>
         <Route path="/inventories/add" element=""/>
+        <Route path="*" element={<PageMain content={<NotFound />}/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

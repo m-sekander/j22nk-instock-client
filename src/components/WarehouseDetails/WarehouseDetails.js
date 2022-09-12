@@ -7,6 +7,8 @@ import CTA from "../CTA/CTA";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseInventoryItem from "../WarehouseInventoryItem/WarehouseInventoryItem";
+import NotFound from "../NotFound/NotFound";
+import Loading from "../Loading/Loading";
 
 function WarehouseDetails() {
     const { warehouseId } = useParams();
@@ -16,6 +18,12 @@ function WarehouseDetails() {
 
     // GET single warehouse details
     useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
+
         axios
             .get("http://localhost:8080/warehouses/" + warehouseId)
             .then(response => {
@@ -34,7 +42,6 @@ function WarehouseDetails() {
                 const inventoriesList = response.data;
                 const warehouseInventory = inventoriesList.filter(singleInventoriesList => singleInventoriesList.warehouseID === warehouseId);
                 setWarehouseInventory(warehouseInventory);
-                console.log(warehouseInventory);
             })  
             .catch(error => {
                 <span>Warehouse inventories not found</span>
@@ -42,15 +49,15 @@ function WarehouseDetails() {
     }, [warehouseId])
 
     if (notFound) {
-        return <span>Warehouse not found</span>
+        return <NotFound />
     }
 
     if (!warehouseDetails) {
-        return <span>Loading...</span>
+        return <Loading />
     }
 
     if (!warehouseInventory) {
-        return <span>Loading...</span>
+        return <Loading />
     }
     
     return (
