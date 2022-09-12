@@ -109,7 +109,7 @@
             }
             &:nth-child(4){
                 order:4;
-                width: 12%;
+                width: 12%; 
             }
             display: flex;
             align-items: center;
@@ -186,7 +186,7 @@
         text-transform: uppercase;
         color: $support-no-stock-label;
         font-weight: bold;
-        font-size: .6875rem;
+        font-size: .75rem;
         background: rgba(94515, 0, 0, .07);
         padding: 0.25rem 0.5rem;
         border-radius: 1.25rem;
