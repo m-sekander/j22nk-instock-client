@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 import CTA from "../CTA/CTA";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
+import Loading from "../Loading/Loading";
 
 function WarehouseList() {
     const [warehouses, setWarehousesList] = useState([]);
@@ -17,7 +18,7 @@ function WarehouseList() {
     }, []);
 
     if (!warehouses) {
-        return <span>Loading...</span>
+        return <Loading />
     }
 
     return (

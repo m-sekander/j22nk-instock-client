@@ -19,7 +19,7 @@
     }
 
     @include tablet {
-        padding: 1.5rem 2rem 1.5rem 2rem; 
+        padding: 1.5rem 2rem; 
 
         &:first-child {
             border-top: none;
@@ -27,6 +27,7 @@
     }
 
     @include desktop {
+        padding: 1.5rem 2.5rem;
         &:hover {
             background-color: rgb(46, 102, 229, 0.07);
         }
@@ -91,11 +92,11 @@
         }
     }
 
-    // &__container-address {
-    //     @include tablet {
-    //         width: 20%;
-    //     }
-    // }
+    &__container-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
 
     &__link {
         text-decoration: none;

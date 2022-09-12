@@ -21,7 +21,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                         </p>
                     </Link>
                 </div>
-                <div className="warehouse__container">
+                <div className="warehouse__container warehouse__container-contact-name">
                     <h4 className="warehouse__label">Contact Name</h4>
                     <p className="warehouse__contact-name warehouse__info">{contactName}</p>
                 </div>
