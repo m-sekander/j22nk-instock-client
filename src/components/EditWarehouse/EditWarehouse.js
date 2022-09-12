@@ -123,7 +123,7 @@ function EditWarehouse() {
                 </div>
                 {isSuccessful 
                     && <div className="edit-warehouse__modal">
-                            Informaition is saved successfully.
+                            Information is saved successfully.
                         </div>
                 }
                 <div className="edit-warehouse__button-container">

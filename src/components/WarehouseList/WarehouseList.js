@@ -7,7 +7,7 @@ import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import Loading from "../Loading/Loading";
 
 function WarehouseList() {
-    const [warehouses, setWarehousesList] = useState([]);
+    const [warehouses, setWarehousesList] = useState(null);
 
     useEffect(() => {
         axios
