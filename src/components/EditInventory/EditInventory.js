@@ -5,6 +5,8 @@ import CTA from '../CTA/CTA';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Loading from '../Loading/Loading'
+import NotFound from '../NotFound/NotFound';
+import errorIcon from "../../assets/images/icons/error-24px.svg";
 
 function EditInventory() {
     const [warehouses, setWarehousesList] = useState(null);
@@ -14,6 +16,8 @@ function EditInventory() {
     const [status, setStatus] = useState(null);
     const [quantity, setQuantity] = useState(null);
     const [warehouse, setWarehouse] = useState("");
+    const [notFoundTrigger, setNotFoundTrigger] = useState(null);
+    const [errorMessages, setErrorMessages] = useState(false);
 
     const {inventoryId} = useParams();
     const navigate = useNavigate();
@@ -35,6 +39,7 @@ function EditInventory() {
             setWarehousesList(response.data);
         }).catch (error => {
             console.log("For devs:", error);
+            setNotFoundTrigger(error.response.data.message);
         })
     }, [inventoryId]);
 
@@ -74,16 +79,20 @@ function EditInventory() {
         .then((response) => {
             setIsSuccessful(true);
             setTimeout(() => navigate("/inventories"), 1500);
-
             document.querySelector(".edit-inventory__form").reset();
-            console.log(response)
+            setErrorMessages(new Array(6).fill(""));
+            console.log("For devs:", response);
         }).catch((error) => {
+            setErrorMessages(error.response.data);
             console.log("For devs:", error);
         })
     }
 
     // Don't render while the API is looking for the data
     if (!(warehouses && inventoryData)) {
+        if (notFoundTrigger === "Id is not found") {
+            return <NotFound />
+        }
         return <Loading />
     }
 
@@ -102,9 +111,19 @@ function EditInventory() {
                         <h2 className="edit-inventory__subtitle">Item Details</h2>
                         <label className="edit-inventory__label" htmlFor="name">Item Name
                             <input className="edit-inventory__item-name" type="text" id="name" name="name" defaultValue={inventoryData.itemName} />
+                            {errorMessages[0] &&
+                                <div className="edit-inventory__error">
+                                    <img className="edit-inventory__error-icon" src={errorIcon} alt="error icon" />
+                                    <h4 className="edit-inventory__error-message">{errorMessages[0]}</h4>
+                                </div>}
                         </label>
                         <label className="edit-inventory__label" htmlFor="description">Description
                             <textarea className="edit-inventory__description" name="description" id="description" defaultValue={inventoryData.description} />
+                            {errorMessages[1] &&
+                                <div className="edit-inventory__error">
+                                    <img className="edit-inventory__error-icon" src={errorIcon} alt="error icon" />
+                                    <h4 className="edit-inventory__error-message">{errorMessages[1]}</h4>
+                                </div>}
                         </label>
                         <label className="edit-inventory__label" htmlFor="category">Category
                             <select className="edit-inventory__select" name="category" id="category" value={category} onChange={changeHandler}>
@@ -114,6 +133,11 @@ function EditInventory() {
                                 <option className="edit-inventory__option" id="Gear" value="Gear">Gear</option>
                                 <option className="edit-inventory__option" id="Health" value="Health">Health</option>
                             </select>
+                            {errorMessages[2] &&
+                            <div className="edit-inventory__error">
+                                <img className="edit-inventory__error-icon" src={errorIcon} alt="error icon" />
+                                <h4 className="edit-inventory__error-message">{errorMessages[2]}</h4>
+                            </div>}
                         </label>
                     </div>
                     <div className="edit-inventory__availability">
@@ -129,9 +153,19 @@ function EditInventory() {
                                     <span className={`edit-inventory__radio-label ${status!=="Out of Stock" && "edit-inventory__radio-label--inactive"}`}>Out of stock</span>
                                 </div>
                             </div>
+                            {errorMessages[3] &&
+                            <div className="edit-inventory__error">
+                                <img className="edit-inventory__error-icon" src={errorIcon} alt="error icon" />
+                                <h4 className="edit-inventory__error-message">{errorMessages[3]}</h4>
+                            </div>}
                         </label>
                         {quantity!==null && <label className="edit-inventory__label" htmlFor="quantity">Quantity
                             <input className="edit-inventory__quantity" id="quantity" name="quantity" type="text" defaultValue={quantity}></input>
+                            {errorMessages[4] &&
+                            <div className="edit-inventory__error">
+                                <img className="edit-inventory__error-icon" src={errorIcon} alt="error icon" />
+                                <h4 className="edit-inventory__error-message">{errorMessages[4]}</h4>
+                            </div>}
                         </label>}
                         <label  className="edit-inventory__label" htmlFor="warehouseName">Warehouse
                             <select className="edit-inventory__select" name="warehouseName" id="warehouseName" value={warehouse} onChange={changeHandler}>
@@ -139,6 +173,11 @@ function EditInventory() {
                                     <option className="edit-inventory__option" id={warehouse.name} value={warehouse.name} key={warehouse.name}>{warehouse.name}</option>
                                 ))}
                             </select>
+                            {errorMessages[5] &&
+                            <div className="edit-inventory__error">
+                                <img className="edit-inventory__error-icon" src={errorIcon} alt="error icon" />
+                                <h4 className="edit-inventory__error-message">{errorMessages[5]}</h4>
+                            </div>}
                         </label>
                     </div>
                 </div>
