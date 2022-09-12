@@ -53,7 +53,7 @@
     &__label {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
     }
     
     &__item-name {
@@ -64,7 +64,7 @@
         border-radius: 1.25rem;
         border: 1px solid $secondary-outline;
         font-family: inherit;
-        
+
         &:focus {
             border: 1px solid $primary-element;
         }
@@ -117,6 +117,10 @@
         &-input {
             margin: 0;
             margin-right: 0.5rem;
+
+            &--inactive {
+                accent-color: $secondary-placeholder-text;
+            }
         }
 
         &-label {
@@ -124,8 +128,22 @@
             color: $primary-text;
             
             &--inactive {
-                color: $secondary-outline;
+                color: $secondary-placeholder-text;
             }
+        }
+    }
+
+    &__quantity {
+        width: 42.5%;
+        margin-top: 0.25rem;
+        height: 2.25rem;
+        padding: 0 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid $secondary-outline;
+        font-family: inherit;
+
+        &:focus {
+            border: 1px solid $primary-element;
         }
     }
 

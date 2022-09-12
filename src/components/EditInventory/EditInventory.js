@@ -4,14 +4,16 @@ import arrowBack from '../../assets/images/icons/arrow_back-24px.svg';
 import CTA from '../CTA/CTA';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Loading from '../Loading/Loading'
 
 function EditInventory() {
-    const [warehouses, setWarehousesList] = useState([]);
-    const [inventoryData, setInventoryData] = useState([]);
+    const [warehouses, setWarehousesList] = useState(null);
+    const [inventoryData, setInventoryData] = useState(null);
     const [isSuccessful, setIsSuccessful] = useState(false);
-    const [category, setCategory] = useState(null);
+    const [category, setCategory] = useState("");
     const [status, setStatus] = useState(null);
-    const [warehouse, setWarehouse] = useState(null);
+    const [quantity, setQuantity] = useState(null);
+    const [warehouse, setWarehouse] = useState("");
 
     const {inventoryId} = useParams();
     const navigate = useNavigate();
@@ -23,7 +25,10 @@ function EditInventory() {
             setInventoryData(response.data);
             setCategory(response.data.category);
             setStatus(response.data.status);
-            setWarehouse(response.data.warehouse);
+            if (response.data.status === "In Stock") {
+                setQuantity(response.data.quantity);
+            }
+            setWarehouse(response.data.warehouseName);
             return axios.get("http://localhost:8080/warehouses")
         })
         .then(response => {
@@ -36,25 +41,36 @@ function EditInventory() {
     function changeHandler(event) {
         if (event.target.name === "category") {
             setCategory(event.target.value);
-        } else if (event.target.name === "warehouse") {
+        } else if (event.target.name === "warehouseName") {
             setWarehouse(event.target.value);
         } else if (event.target.name === "status") {
             setStatus(event.target.value);
+            if (event.target.value === "Out of Stock") {
+                setQuantity(null);
+            }
+            if (event.target.value === "In Stock") {
+                setQuantity(0);
+            }
         }
     }
     
     function handleSubmit(event) {
         event.preventDefault();
 
+        const selectedWarehouseId = warehouses.find((warehouse) => warehouse.name === event.target.warehouseName.value).id;
+
         const editedInventory = {
+            id: inventoryData.id,
+            warehouseId: selectedWarehouseId,
+            warehouseName: event.target.warehouseName.value,
             itemName: event.target.name.value,
             description: event.target.description.value,
             category: event.target.category.value,
             status: event.target.status.value,
-            warehouseName: event.target.warehouseName.value
+            quantity: (event.target.status.value==="In Stock" ? event.target.quantity.value : 0)
         }
         
-        axios.put("http://localhost:8080/inventories/" + inventoryId, editedInventory)
+        axios.put(`http://localhost:8080/inventories/${inventoryId}`, editedInventory)
         .then((response) => {
             setIsSuccessful(true);
             setTimeout(() => navigate("/inventories"), 1500);
@@ -68,7 +84,7 @@ function EditInventory() {
 
     // Don't render while the API is looking for the data
     if (!(warehouses && inventoryData)) {
-        return <main></main>
+        return <Loading />
     }
 
 
@@ -105,19 +121,22 @@ function EditInventory() {
                         <label className="edit-inventory__label">Status
                             <div className="edit-inventory__radios">
                                 <div className="edit-inventory__radio">
-                                    <input className="edit-inventory__radio-input" checked={status==="In Stock"} type="radio" name="status" id="status1" value="In Stock" onChange={changeHandler} />
-                                    <span className="edit-inventory__radio-label">In stock</span>
+                                    <input className={`edit-inventory__radio-input ${status!=="In Stock" && "edit-inventory__radio-input--inactive"}`} checked={status==="In Stock"} type="radio" name="status" id="status1" value="In Stock" onChange={changeHandler} />
+                                    <span className={`edit-inventory__radio-label ${status!=="In Stock" && "edit-inventory__radio-label--inactive"}`}>In stock</span>
                                 </div>
                                 <div className="edit-inventory__radio">
-                                    <input className="edit-inventory__radio-input" checked={status==="Out of Stock"} type="radio" name="status" id="status2" value="Out of Stock" onChange={changeHandler} />
-                                    <span className="edit-inventory__radio-label">Out of stock</span>
+                                    <input className={`edit-inventory__radio-input ${status!=="Out of Stock" && "edit-inventory__radio-input--inactive"}`} checked={status==="Out of Stock"} type="radio" name="status" id="status2" value="Out of Stock" onChange={changeHandler} />
+                                    <span className={`edit-inventory__radio-label ${status!=="Out of Stock" && "edit-inventory__radio-label--inactive"}`}>Out of stock</span>
                                 </div>
                             </div>
                         </label>
+                        {quantity!==null && <label className="edit-inventory__label" htmlFor="quantity">Quantity
+                            <input className="edit-inventory__quantity" id="quantity" name="quantity" type="text" defaultValue={quantity}></input>
+                        </label>}
                         <label  className="edit-inventory__label" htmlFor="warehouseName">Warehouse
                             <select className="edit-inventory__select" name="warehouseName" id="warehouseName" value={warehouse} onChange={changeHandler}>
                                 {warehouses.map(warehouse => (
-                                    <option className="edit-inventory__option" value={warehouse.name} key={warehouse.name} selected={inventoryData.warehouseName===warehouse.name ? "selected" : ""}>{warehouse.name}</option>
+                                    <option className="edit-inventory__option" id={warehouse.name} value={warehouse.name} key={warehouse.name}>{warehouse.name}</option>
                                 ))}
                             </select>
                         </label>

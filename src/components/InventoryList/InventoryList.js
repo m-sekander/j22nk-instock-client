@@ -8,6 +8,11 @@ import sortIcon from "../../assets/images/icons/sort-24px.svg";
 function InventoryList() {
   const [inventoryList, setInventoryList] = useState([]);
   useEffect(() => {
+    window.scroll({
+      top: 0,
+      right: 0,
+      behavior: "smooth"
+    });
     axios
       .get("http://localhost:8080/inventories")
       .then((response) => {
