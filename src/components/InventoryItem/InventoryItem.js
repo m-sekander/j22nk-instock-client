@@ -24,8 +24,10 @@ function InventoryItem({ item }) {
         <div className="inventory-list__container">
           <h4 className="inventory-list__label">INVENTORY ITEM</h4>
           <div className="inventory-list__label-container">
-            <p className="inventory-list__label-item">{item.itemName}</p>
-            <img className="inventory-list__label-iconarrow" src={rightIcon} alt="" />
+            <Link to={"/inventories/" + item.id} className="inventory-list__item-name-link">
+              <p className="inventory-list__label-item">{item.itemName}</p>
+              <img className="inventory-list__label-iconarrow" src={rightIcon} alt="" />
+            </Link>
           </div>
         </div>
         <div className="inventory-list__container">
