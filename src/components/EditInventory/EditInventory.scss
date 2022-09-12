@@ -63,7 +63,8 @@
         padding: 0 1rem;
         border-radius: 1.25rem;
         border: 1px solid $secondary-outline;
-
+        font-family: inherit;
+        
         &:focus {
             border: 1px solid $primary-element;
         }
@@ -93,9 +94,6 @@
         background-image: url("../../assets/images/icons/arrow_drop_down-24px.svg");
         background-repeat: no-repeat;
         background-position: calc(100% - .75rem) 50%;
-    }
-
-    &__option {
         color: $primary-text;
     }
 
@@ -123,12 +121,19 @@
 
         &-label {
             font-weight: 400;
-            color: $secondary-outline;
-
-            &--active {
-                color: $primary-text;
+            color: $primary-text;
+            
+            &--inactive {
+                color: $secondary-outline;
             }
         }
+    }
+
+    &__modal {
+        border: 1px solid green;
+        border-radius: 4px;
+        background-color: lightgreen;
+        padding: 2rem;
     }
 
     &__actions {
@@ -141,5 +146,4 @@
             padding: 1.125rem 2rem;
         }
     }
-
 }

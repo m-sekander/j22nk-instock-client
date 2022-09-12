@@ -1,5 +1,5 @@
 import './EditInventory.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import arrowBack from '../../assets/images/icons/arrow_back-24px.svg';
 import CTA from '../CTA/CTA';
 import axios from 'axios';
@@ -7,20 +7,70 @@ import { useState, useEffect } from 'react';
 
 function EditInventory() {
     const [warehouses, setWarehousesList] = useState([]);
-    
+    const [inventoryData, setInventoryData] = useState([]);
+    const [isSuccessful, setIsSuccessful] = useState(false);
+    const [category, setCategory] = useState(null);
+    const [status, setStatus] = useState(null);
+    const [warehouse, setWarehouse] = useState(null);
+
+    const {inventoryId} = useParams();
+    const navigate = useNavigate();
+
     useEffect(() => {
         axios
-        .get("http://localhost:8080/warehouses")
+        .get(`http://localhost:8080/inventories/${inventoryId}`)
+        .then((response) => {
+            setInventoryData(response.data);
+            setCategory(response.data.category);
+            setStatus(response.data.status);
+            setWarehouse(response.data.warehouse);
+            return axios.get("http://localhost:8080/warehouses")
+        })
         .then(response => {
             setWarehousesList(response.data);
         }).catch (error => {
-            console.log("For devs:", error)
+            console.log("For devs:", error);
         })
-    }, []);
+    }, [inventoryId]);
+
+    function changeHandler(event) {
+        if (event.target.name === "category") {
+            setCategory(event.target.value);
+        } else if (event.target.name === "warehouse") {
+            setWarehouse(event.target.value);
+        } else if (event.target.name === "status") {
+            setStatus(event.target.value);
+        }
+    }
     
     function handleSubmit(event) {
         event.preventDefault();
+
+        const editedInventory = {
+            itemName: event.target.name.value,
+            description: event.target.description.value,
+            category: event.target.category.value,
+            status: event.target.status.value,
+            warehouseName: event.target.warehouseName.value
+        }
+        
+        axios.put("http://localhost:8080/inventories/" + inventoryId, editedInventory)
+        .then((response) => {
+            setIsSuccessful(true);
+            setTimeout(() => navigate("/inventories"), 1500);
+
+            document.querySelector(".edit-inventory__form").reset();
+            console.log(response)
+        }).catch((error) => {
+            console.log("For devs:", error);
+        })
     }
+
+    // Don't render while the API is looking for the data
+    if (!(warehouses && inventoryData)) {
+        return <main></main>
+    }
+
 
     return (
         <div className="edit-inventory">
@@ -35,19 +85,18 @@ function EditInventory() {
                     <div className="edit-inventory__details">
                         <h2 className="edit-inventory__subtitle">Item Details</h2>
                         <label className="edit-inventory__label" htmlFor="name">Item Name
-                            <input className="edit-inventory__item-name" type="text" id="name" name="name" />
+                            <input className="edit-inventory__item-name" type="text" id="name" name="name" defaultValue={inventoryData.itemName} />
                         </label>
                         <label className="edit-inventory__label" htmlFor="description">Description
-                            <textarea className="edit-inventory__description" name="description" id="description" />
+                            <textarea className="edit-inventory__description" name="description" id="description" defaultValue={inventoryData.description} />
                         </label>
                         <label className="edit-inventory__label" htmlFor="category">Category
-                            <select className="edit-inventory__select" name="category" id="category">
-                                <option className="edit-inventory__option" value="">Please Select</option>
-                                <option className="edit-inventory__option" value="Accessories">Accessories</option>
-                                <option className="edit-inventory__option" value="Apparel">Apparel</option>
-                                <option className="edit-inventory__option" value="Electronics">Electronics</option>
-                                <option className="edit-inventory__option" value="Gear">Gear</option>
-                                <option className="edit-inventory__option" value="Health">Health</option>
+                            <select className="edit-inventory__select" name="category" id="category" value={category} onChange={changeHandler}>
+                                <option className="edit-inventory__option" id="Accessories" value="Accessories">Accessories</option>
+                                <option className="edit-inventory__option" id="Apparel" value="Apparel">Apparel</option>
+                                <option className="edit-inventory__option" id="Electronics" value="Electronics">Electronics</option>
+                                <option className="edit-inventory__option" id="Gear" value="Gear">Gear</option>
+                                <option className="edit-inventory__option" id="Health" value="Health">Health</option>
                             </select>
                         </label>
                     </div>
@@ -56,29 +105,29 @@ function EditInventory() {
                         <label className="edit-inventory__label">Status
                             <div className="edit-inventory__radios">
                                 <div className="edit-inventory__radio">
-                                    <input className="edit-inventory__radio-input" type="radio" name="status" id="status1" value="In Stock" />
+                                    <input className="edit-inventory__radio-input" checked={status==="In Stock"} type="radio" name="status" id="status1" value="In Stock" onChange={changeHandler} />
                                     <span className="edit-inventory__radio-label">In stock</span>
                                 </div>
                                 <div className="edit-inventory__radio">
-                                    <input className="edit-inventory__radio-input" type="radio" name="status" id="status2" value="Out of Stock" />
+                                    <input className="edit-inventory__radio-input" checked={status==="Out of Stock"} type="radio" name="status" id="status2" value="Out of Stock" onChange={changeHandler} />
                                     <span className="edit-inventory__radio-label">Out of stock</span>
                                 </div>
                             </div>
                         </label>
-                        <label  className="edit-inventory__label" htmlFor="Warehouse">Warehouse
-                            <select className="edit-inventory__select" name="category" id="category">
+                        <label  className="edit-inventory__label" htmlFor="warehouseName">Warehouse
+                            <select className="edit-inventory__select" name="warehouseName" id="warehouseName" value={warehouse} onChange={changeHandler}>
                                 {warehouses.map(warehouse => (
-                                    <option className="edit-inventory__option" value={warehouse.name} key={warehouse.name}>{warehouse.name}</option>
+                                    <option className="edit-inventory__option" value={warehouse.name} key={warehouse.name} selected={inventoryData.warehouseName===warehouse.name ? "selected" : ""}>{warehouse.name}</option>
                                 ))}
                             </select>
                         </label>
                     </div>
-                    {/* {isSuccessful 
-                        && <div className="edit-inventory__modal">
-                                Warehouse is successfully added.
-                            </div>
-                    } */}
                 </div>
+                    {isSuccessful 
+                        && <div className="edit-inventory__modal">
+                                Warehouse was edited successfully.
+                            </div>
+                    }
                 <div className="edit-inventory__actions">
                     <CTA text="Cancel" link="/inventories" type="secondary" />
                     <CTA text="Save" isButton={true} />
