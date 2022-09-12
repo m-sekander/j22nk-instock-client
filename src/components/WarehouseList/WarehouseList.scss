@@ -47,6 +47,7 @@
         border: 1px solid $secondary-outline;
         color: $primary-text;
         word-wrap: break-word;
+        font-family: inherit;
 
         &::placeholder {
             color: $secondary-placeholder-text;

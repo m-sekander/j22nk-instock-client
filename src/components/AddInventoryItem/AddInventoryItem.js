@@ -99,7 +99,7 @@ function AddInventoryItem() {
                                 {errorMessages[0] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
-                                    <p className="add-inventory__error">This field is required</p>
+                                    <p className="add-inventory__error">{errorMessages[0]}</p>
                                 </div>}
                             </div>
                             <div className="add-inventory__label-container">
@@ -108,7 +108,7 @@ function AddInventoryItem() {
                                 {errorMessages[1] &&
                                 <div className="add-inventory__error-message add-inventory__description-error">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
-                                    <p className="add-inventory__error">This field is required</p>
+                                    <p className="add-inventory__error">{errorMessages[1]}</p>
                                 </div>}
                             </div>
                             <div className="add-inventory__label-container">
@@ -124,7 +124,7 @@ function AddInventoryItem() {
                                 {errorMessages[2] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
-                                    <p className="add-inventory__error">This field is required</p>
+                                    <p className="add-inventory__error">{errorMessages[2]}</p>
                                 </div>}
                             </div>
                         </div>
@@ -147,7 +147,7 @@ function AddInventoryItem() {
                                 {errorMessages[3] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
-                                    <p className="add-inventory__error">This field is required</p>
+                                    <p className="add-inventory__error">{errorMessages[3]}</p>
                                 </div>}
                             </div>
                             {quantity === true ? <div className="add-inventory__label-container">
@@ -157,7 +157,7 @@ function AddInventoryItem() {
                             {quantity === true && errorMessages[4] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
-                                    <p className="add-inventory__error">This field is required</p>
+                                    <p className="add-inventory__error">{errorMessages[4]}</p>
                                 </div>}
                             <div className="add-inventory__label-container">
                                 <label className="add-inventory__label" htmlFor="warehouseName">Warehouse</label>
@@ -170,7 +170,7 @@ function AddInventoryItem() {
                                 {errorMessages[5] &&
                                 <div className="add-inventory__error-message">
                                     <img className="add-inventory__error-icon" src={errorIcon} alt="Error icon" />
-                                    <p className="add-inventory__error">This field is required</p>
+                                    <p className="add-inventory__error">{errorMessages[5]}</p>
                                 </div>}
                             </div>
                         </div>

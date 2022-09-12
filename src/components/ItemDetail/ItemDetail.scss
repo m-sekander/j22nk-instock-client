@@ -1,12 +1,15 @@
-@use "../../styles/partials/colors" as *;
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
 
-.warehouse-details {
+.itemdetail-details {
     display: flex;
     flex-direction: column;
     padding: 2rem 0 0 0 ;
 
+    &__container {
+        border-top: 1px black;
+    }
     &__header {
         display: flex;
         width: 100%;
@@ -14,7 +17,7 @@
         padding: 0 1.5rem 1.5rem 1.5rem;
 
         @include tablet {
-            padding: 0 2rem 1.35rem 2rem;
+            padding: 0 2rem 1.5rem 2rem;
         }
 
         @include desktop {

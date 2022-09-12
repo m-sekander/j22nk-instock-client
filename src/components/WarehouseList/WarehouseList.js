@@ -10,6 +10,12 @@ function WarehouseList() {
     const [warehouses, setWarehousesList] = useState(null);
 
     useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
+          
         axios
             .get("http://localhost:8080/warehouses")
             .then(response => {
