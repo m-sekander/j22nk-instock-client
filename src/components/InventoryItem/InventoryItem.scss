@@ -85,6 +85,9 @@
                 padding: 0.25rem 2rem;
                 @include desktop{
                     padding: 0 2.5rem 0 2.5rem;
+                    &:hover {
+                        background-color: rgb(46, 102, 229, 0.07);
+                    }
                 }
             }
     }
