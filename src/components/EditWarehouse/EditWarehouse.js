@@ -5,12 +5,16 @@ import CTA from "../CTA/CTA";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {useState, useEffect} from "react";
+import Loading from "../Loading/Loading";
+import NotFound from "../NotFound/NotFound";
 
 function EditWarehouse() {
     // Set up error messages array of 8 and fill initial values to ""
     const [warehouseInfo, setWarehouseInfo] = useState(null);
     const [errorMessages, setErrorMessages] = useState(new Array(8).fill(""));
     const [isSuccessful, setIsSuccessful] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [notFound, setNotFound] = useState(false);
 
     const {warehouseId} = useParams();
     const navigate = useNavigate();
@@ -25,15 +29,24 @@ function EditWarehouse() {
     const contactErrorMessages = errorMessages.slice(4);
 
     // Arrays of warehouse info received through axios call
-    // Convert object into array if warehouseInfo has values
-    const warehouseDetailArray = warehouseInfo ? Object.values(warehouseInfo) : [];
-    // Pop out last elemtent in the array (contact object), convert that into array
-    const contactDetailArray = warehouseDetailArray.length > 0 ? Object.values(warehouseDetailArray.pop()) : [];
-    // Remove first elemtent (ID which we don't need)
-    warehouseDetailArray.shift();
+    const warehouseDetailArray = !warehouseInfo ? [] : [
+        warehouseInfo.name,
+        warehouseInfo.address,
+        warehouseInfo.city,
+        warehouseInfo.country
+    ];
+
+    const contactDetailArray = !warehouseInfo ? [] : [
+        warehouseInfo.contact.name,
+        warehouseInfo.contact.position,
+        warehouseInfo.contact.phone,
+        warehouseInfo.contact.email,
+    ];
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setIsLoading(true);
+
         const editedWarehouse = {
             name: event.target.warehouseName.value,
             address: event.target.address.value,
@@ -47,21 +60,21 @@ function EditWarehouse() {
             }
         }
 
+        // Set warehouseInfo to current values user typed in to keep them in the fields
+        setWarehouseInfo(editedWarehouse);
+
         axios.put("http://localhost:8080/warehouses/" + warehouseId, editedWarehouse)
             .then(() => {
+                setIsLoading(false);
                 setIsSuccessful(true);
+
                 setTimeout(() => navigate("/warehouses"), 1500);
     
                 // Clear all fields after submitting
-                warehouseInputFieldNames.forEach((fieldName) => {
-                    event.target[fieldName].value = "";
-                })
-                contactInputFieldNames.forEach((fieldName) => {
-                    event.target[fieldName].value = "";
-                })
                 setErrorMessages(new Array(8).fill(""));
             })
             .catch((error) => {
+                setIsLoading(false);
                 setErrorMessages(error.response.data);
             })
     }
@@ -76,10 +89,18 @@ function EditWarehouse() {
             .then((response) => {
                 setWarehouseInfo(response.data);
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
+                setNotFound(true);
             })
     }, [warehouseId]);
+
+    if (notFound) {
+        return <NotFound />
+    }
+
+    if (!warehouseInfo || isLoading) {
+        return <Loading />
+    }
 
     return (
         <>
@@ -107,7 +128,7 @@ function EditWarehouse() {
                 </div>
                 {isSuccessful 
                     && <div className="edit-warehouse__modal">
-                            Informaition is saved successfully.
+                            Information is saved successfully.
                         </div>
                 }
                 <div className="edit-warehouse__button-container">

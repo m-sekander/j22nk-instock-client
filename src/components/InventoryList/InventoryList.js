@@ -4,9 +4,10 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 import Button from "../CTA/CTA";
 import { useEffect, useState } from "react";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
+import Loading from "../Loading/Loading";
 
 function InventoryList() {
-  const [inventoryList, setInventoryList] = useState([]);
+  const [inventoryList, setInventoryList] = useState(null);
   const [sortedInventoriesList, setSortedInventoriesList] = useState(null);
   const [reverse, setReverse] = useState(false);
 
@@ -49,33 +50,37 @@ function InventoryList() {
         setSortedInventoriesList(sortedCategories);
         setReverse(false);
     }
-}
-
-const handleSortQuantity = () => {
-  if (!reverse) {
-      const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
-      setSortedInventoriesList(sortedQuantity);
-      setReverse(true);
-  } else {
-      const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
-      setSortedInventoriesList(sortedQuantity);
-      setReverse(false);
   }
-}
 
-const handleSortWarehouses = () => {
-  if (!reverse) {
-      const sortedWarehouses = inventoryList.sort((a,b) => ((a.warehouseName < b.warehouseName) ? -1 : (a.warehouseName > b.warehouseName) ? 1 : 0));
-      setSortedInventoriesList(sortedWarehouses);
-      setReverse(true)
-  } 
-  else {
-      const sortedWarehouses = inventoryList.sort((a,b) => ((a.warehouseName < b.warehouseName) ? 1 : (a.warehouseName > b.warehouseName) ? -1 : 0));
-      setSortedInventoriesList(sortedWarehouses);
-      setReverse(false);
+  const handleSortQuantity = () => {
+    if (!reverse) {
+        const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
+        setSortedInventoriesList(sortedQuantity);
+        setReverse(true);
+    } else {
+        const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
+        setSortedInventoriesList(sortedQuantity);
+        setReverse(false);
+    }
   }
-}
 
+  const handleSortWarehouses = () => {
+    if (!reverse) {
+        const sortedWarehouses = inventoryList.sort((a,b) => ((a.warehouseName < b.warehouseName) ? -1 : (a.warehouseName > b.warehouseName) ? 1 : 0));
+        setSortedInventoriesList(sortedWarehouses);
+        setReverse(true)
+    } 
+    else {
+        const sortedWarehouses = inventoryList.sort((a,b) => ((a.warehouseName < b.warehouseName) ? 1 : (a.warehouseName > b.warehouseName) ? -1 : 0));
+        setSortedInventoriesList(sortedWarehouses);
+        setReverse(false);
+    }
+  }
+
+
+  if (!inventoryList) {
+    return <Loading />;
+  }
   
   return (
     <section className="inventory-list">

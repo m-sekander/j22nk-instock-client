@@ -44,7 +44,7 @@
 
     &__mobile{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         @include tablet{
             padding-left: 0rem;
         }
