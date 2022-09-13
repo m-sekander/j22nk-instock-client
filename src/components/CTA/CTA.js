@@ -1,6 +1,11 @@
 import './CTA.scss';
 import { Link } from 'react-router-dom';
 
+// Reusable component that creates styled call-to-actions (CTAs)
+// Pass in your desired icon, text, link, onClick function as a props for this component (where necessary)
+// isButton is a bool that creates either a button (true) or link (false)
+// type is either primary, secondary or delete styles; refer to style guide for themes
+
 function CTA({icon, text, isButton, link, type, onClick}) {
     if (isButton) {
         return (
