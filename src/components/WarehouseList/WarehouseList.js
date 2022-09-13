@@ -27,6 +27,7 @@ function WarehouseList() {
   
     const handleSortWarehouses = () => {
         if (!reverse) {
+            console.log(warehouses)
             const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0));
             setSortedWarehousesList(sortedWarehouses);
             setReverse(true)
@@ -39,11 +40,11 @@ function WarehouseList() {
 
     const handleSortAddresses = () => {
         if (!reverse) {
-            const sortedAddresses = warehouses.sort((a,b) => ((a.address < b.address) ? -1 : (a.address < b.address) ? 1: 0))
+            const sortedAddresses = warehouses.sort((a,b) => ((a.address > b.address) ? -1 : (a.address > b.address) ? 1: 0))
             setSortedWarehousesList(sortedAddresses);
             setReverse(true);
         } else {
-            const sortedAddresses = warehouses.sort((a,b) => ((a.address < b.address) ? 1 : (a.address < b.address) ? -1: 0))
+            const sortedAddresses = warehouses.sort((a,b) => ((a.address > b.address) ? 1 : (a.address > b.address) ? -1: 0))
             setSortedWarehousesList(sortedAddresses);
             setReverse(false);
         }
