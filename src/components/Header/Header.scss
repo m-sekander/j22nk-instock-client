@@ -82,6 +82,11 @@
         color: $secondary-outline;
         text-align: center;
 
+        &:hover {
+            text-decoration: underline;
+            color: $primary-global;
+        }
+
         &--active {
             background-color: $primary-text;
             border-radius: 20px;
@@ -92,6 +97,10 @@
 
             @include tablet {
                 padding: .5rem 1.125rem;
+                &:hover {
+                    text-decoration: underline;
+                    color: $primary-global;
+                }
             }
         }
     }
