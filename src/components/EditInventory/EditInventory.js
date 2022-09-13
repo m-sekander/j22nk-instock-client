@@ -23,6 +23,11 @@ function EditInventory() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
         axios
         .get(`http://localhost:8080/inventories/${inventoryId}`)
         .then((response) => {

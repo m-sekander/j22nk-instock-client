@@ -67,6 +67,11 @@ function EditWarehouse() {
     }
 
     useEffect(()=>{
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+            });
         axios.get("http://localhost:8080/warehouses/" + warehouseId)
             .then((response) => {
                 setWarehouseInfo(response.data);
