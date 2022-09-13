@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import Modal from "../Modal/Modal";
 
-function WarehouseListItem({ id, name, address, city, country, contactName, contactPhone, contactEmail}) {
+function WarehouseListItem({ id, name, address, city, country, contactName, contactPhone, contactEmail, setWarehousesList}) {
     const [deleteActive, setDeleteActive] = useState(false);
 
     return (
@@ -39,7 +39,7 @@ function WarehouseListItem({ id, name, address, city, country, contactName, cont
                     <Link to={`/warehouses/${id}/edit`} className="warehouse__edit-link"><img className="warehouse__edit" src={editIcon} alt="Edit button" /></Link>
                 </div>
             </li>
-            {deleteActive && <Modal isWarehouse={true} name={name} id={id} setDeleteActive={setDeleteActive}/>}
+            {deleteActive && <Modal isWarehouse={true} name={name} id={id} setWarehousesList={setWarehousesList} setDeleteActive={setDeleteActive}/>}
         </>
     );
 }
