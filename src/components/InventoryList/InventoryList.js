@@ -40,37 +40,39 @@ function InventoryList() {
         </form>
       </div>
       <div className="inventorylist__label-strip">
-        <div className="inventorylist__label-container">
-          <h4 className="inventorylist__label-item">Inventory Item</h4>
-          <img
-            className="inventorylist__label-icon"
-            src={sortIcon}
-            alt="Sort icon"
-          />
-        </div>
-        <div className="inventorylist__label-container">
-          <h4 className="inventorylist__label-item">Category</h4>
-          <img
-            className="inventorylist__label-icon"
-            src={sortIcon}
-            alt="Sort icon"
-          />
-        </div>
-        <div className="inventorylist__label-container">
-          <h4 className="inventorylist__label-item">Status</h4>
-          <img
-            className="inventorylist__label-icon"
-            src={sortIcon}
-            alt="Sort icon"
-          />
-        </div>
-        <div className="inventorylist__label-container">
-          <h4 className="inventorylist__label-item">Qty</h4>
-          <img
-            className="inventorylist__label-icon"
-            src={sortIcon}
-            alt="Sort icon"
-          />
+        <div className="inventorylist__label-four">
+          <div className="inventorylist__label-container">
+            <h4 className="inventorylist__label-item">Inventory Item</h4>
+            <img
+              className="inventorylist__label-icon"
+              src={sortIcon}
+              alt="Sort icon"
+            />
+          </div>
+          <div className="inventorylist__label-container">
+            <h4 className="inventorylist__label-item">Category</h4>
+            <img
+              className="inventorylist__label-icon"
+              src={sortIcon}
+              alt="Sort icon"
+            />
+          </div>
+          <div className="inventorylist__label-container">
+            <h4 className="inventorylist__label-item">Status</h4>
+            <img
+              className="inventorylist__label-icon"
+              src={sortIcon}
+              alt="Sort icon"
+            />
+          </div>
+          <div className="inventorylist__label-container">
+            <h4 className="inventorylist__label-item">Qty</h4>
+            <img
+              className="inventorylist__label-icon"
+              src={sortIcon}
+              alt="Sort icon"
+            />
+          </div>
         </div>
         <div className="inventorylist__label-container warehouse-container">
           <h4 className="inventorylist__label-item">Warehouse</h4>
