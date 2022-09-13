@@ -7,6 +7,9 @@ import sortIcon from "../../assets/images/icons/sort-24px.svg";
 
 function InventoryList() {
   const [inventoryList, setInventoryList] = useState([]);
+  const [sortedInventoriesList, setSortedInventoriesList] = useState(null);
+  const [reverse, setReverse] = useState(false);
+
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -22,7 +25,20 @@ function InventoryList() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [sortedInventoriesList, reverse]);
+
+  const handleSortInventories = () => {
+    console.log(inventoryList)
+    if (!reverse) {
+        const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? -1 : (a.itemName > b.itemName) ? 1 : 0));
+        setSortedInventoriesList(sortedInventories);
+        setReverse(true)
+    } else {
+        const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? 1 : (a.itemName > b.itemName) ? -1 : 0));
+        setSortedInventoriesList(sortedInventories);
+        setReverse(false);
+    }
+}
   
   return (
     <section className="inventory-list">
@@ -40,7 +56,7 @@ function InventoryList() {
         </form>
       </div>
       <div className="inventorylist__label-strip">
-        <div className="inventorylist__label-container">
+        <div className="inventorylist__label-container" onClick={handleSortInventories}>
           <h4 className="inventorylist__label-item">Inventory Item</h4>
           <img
             className="inventorylist__label-icon"
