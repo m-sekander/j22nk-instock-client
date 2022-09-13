@@ -8,6 +8,8 @@ import Loading from "../Loading/Loading";
 
 function WarehouseList() {
     const [warehouses, setWarehousesList] = useState([]);
+    const [sortedWarehouses, setSortedWarehousesList] = useState(null);
+    const [reverse, setReverse] = useState(false);
 
     useEffect(() => {
         window.scroll({
@@ -22,6 +24,43 @@ function WarehouseList() {
                 setWarehousesList(response.data)
             })
     }, []);
+  
+    const handleSortWarehouses = () => {
+        if (!reverse) {
+            const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0));
+            setSortedWarehousesList(sortedWarehouses);
+            setReverse(true)
+        } 
+        else {
+            const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? 1 : (a.name > b.name) ? -1 : 0));
+            setSortedWarehousesList(sortedWarehouses);
+            setReverse(false);
+        }
+    }
+
+    const handleSortAddresses = () => {
+        if (!reverse) {
+            const sortedAddresses = warehouses.sort((a,b) => ((a.address > b.address) ? -1 : (a.address > b.address) ? 1: 0))
+            setSortedWarehousesList(sortedAddresses);
+            setReverse(true);
+        } else {
+            const sortedAddresses = warehouses.sort((a,b) => ((a.address < b.address) ? -1 : (a.address < b.address) ? 1: 0))
+            setSortedWarehousesList(sortedAddresses);
+            setReverse(false);
+        }
+    }
+
+    const handleSortContact = () => {
+        if (!reverse) {
+            const sortedContactName = warehouses.sort((a,b) => ((a.contact.name < b.contact.name) ? -1 : (a.contact.name < b.contact.name) ? 1: 0))
+            setSortedWarehousesList(sortedContactName);
+            setReverse(true);
+        } else {
+            const sortedContactName = warehouses.sort((a,b) => ((a.contact.name > b.contact.name) ? -1 : (a.contact.name > b.contact.name) ? 1: 0))
+            setSortedWarehousesList(sortedContactName);
+            setReverse(false);
+        }
+    }
 
     if (!warehouses) {
         return <Loading />
@@ -41,26 +80,26 @@ function WarehouseList() {
             <div className="warehouse-list__label-strip">
                 <div className="warehouse-list__label-container">
                     <h4 className="warehouse-list__label-item">Warehouse</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortWarehouses}/>
                 </div>
                 <div className="warehouse-list__label-container warehouse-list__label-address">
                     <h4 className="warehouse-list__label-item">Address</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortAddresses}/>
                 </div>
                 <div className="warehouse-list__label-container warehouse-list__label-contact-name">
                     <h4 className="warehouse-list__label-item">Contact Name</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortContact}/>
                 </div>
                 <div className="warehouse-list__label-container warehouse-list__label-contact-info">
                     <h4 className="warehouse-list__label-item">Contact Information</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortContact}/>
                 </div>
                 <div className="warehouse-list__label-container">
                     <h4 className="warehouse-list__label-item">Actions</h4>
                 </div>
             </div>
             <ul className="warehouse-list__warehouses">
-                {warehouses.map(warehouse => (
+                {(!sortedWarehouses ? warehouses : sortedWarehouses).map(warehouse => (
                     <WarehouseListItem
                         key={warehouse.id}
                         id={warehouse.id}
