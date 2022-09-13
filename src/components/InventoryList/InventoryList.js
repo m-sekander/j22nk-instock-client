@@ -28,17 +28,66 @@ function InventoryList() {
   }, [sortedInventoriesList, reverse]);
 
   const handleSortInventories = () => {
-    console.log(inventoryList)
     if (!reverse) {
         const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? -1 : (a.itemName > b.itemName) ? 1 : 0));
         setSortedInventoriesList(sortedInventories);
-        setReverse(true)
+        setReverse(true);
     } else {
         const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? 1 : (a.itemName > b.itemName) ? -1 : 0));
         setSortedInventoriesList(sortedInventories);
         setReverse(false);
     }
+  }
+
+  const handleSortCategories = () => {
+    if (!reverse) {
+        const sortedCategories = inventoryList.sort((a,b) => ((a.category < b.category) ? -1 : (a.category > b.category) ? 1 : 0));
+        setSortedInventoriesList(sortedCategories);
+        setReverse(true);
+    } else {
+        const sortedCategories = inventoryList.sort((a,b) => ((a.category < b.category) ? 1 : (a.category > b.category) ? -1 : 0));
+        setSortedInventoriesList(sortedCategories);
+        setReverse(false);
+    }
 }
+
+const handleSortStatus = () => {
+  if (!reverse) {
+      const sortedStatus = inventoryList.sort((a,b) => ((a.status < b.status) ? -1 : (a.status > b.status) ? 1 : 0));
+      setSortedInventoriesList(sortedStatus);
+      setReverse(true);
+  } else {
+      const sortedStatus = inventoryList.sort((a,b) => ((a.status < b.status) ? 1 : (a.status > b.status) ? -1 : 0));
+      setSortedInventoriesList(sortedStatus);
+      setReverse(false);
+  }
+}
+
+const handleSortQuantity = () => {
+  if (!reverse) {
+      const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
+      setSortedInventoriesList(sortedQuantity);
+      setReverse(true);
+  } else {
+      const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
+      setSortedInventoriesList(sortedQuantity);
+      setReverse(false);
+  }
+}
+
+const handleSortWarehouses = () => {
+  if (!reverse) {
+      const sortedWarehouses = inventoryList.sort((a,b) => ((a.warehouseName < b.warehouseName) ? -1 : (a.warehouseName > b.warehouseName) ? 1 : 0));
+      setSortedInventoriesList(sortedWarehouses);
+      setReverse(true)
+  } 
+  else {
+      const sortedWarehouses = inventoryList.sort((a,b) => ((a.warehouseName < b.warehouseName) ? 1 : (a.warehouseName > b.warehouseName) ? -1 : 0));
+      setSortedInventoriesList(sortedWarehouses);
+      setReverse(false);
+  }
+}
+
   
   return (
     <section className="inventory-list">
@@ -64,7 +113,7 @@ function InventoryList() {
             alt="Sort icon"
           />
         </div>
-        <div className="inventorylist__label-container">
+        <div className="inventorylist__label-container" onClick={handleSortCategories}>
           <h4 className="inventorylist__label-item">Category</h4>
           <img
             className="inventorylist__label-icon"
@@ -72,7 +121,7 @@ function InventoryList() {
             alt="Sort icon"
           />
         </div>
-        <div className="inventorylist__label-container">
+        <div className="inventorylist__label-container" onClick={handleSortStatus}>
           <h4 className="inventorylist__label-item">Status</h4>
           <img
             className="inventorylist__label-icon"
@@ -80,7 +129,7 @@ function InventoryList() {
             alt="Sort icon"
           />
         </div>
-        <div className="inventorylist__label-container">
+        <div className="inventorylist__label-container" onClick={handleSortQuantity}>
           <h4 className="inventorylist__label-item">Qty</h4>
           <img
             className="inventorylist__label-icon"
@@ -88,7 +137,7 @@ function InventoryList() {
             alt="Sort icon"
           />
         </div>
-        <div className="inventorylist__label-container warehouse-container">
+        <div className="inventorylist__label-container warehouse-container" onClick={handleSortWarehouses}>
           <h4 className="inventorylist__label-item">Warehouse</h4>
           <img
             className="inventorylist__label-icon warehouse-icon"
@@ -100,7 +149,7 @@ function InventoryList() {
           <h4 className="inventorylist__label-item">Actions</h4>
         </div>
       </div>
-      {inventoryList.map((inventory) => (
+      {(!sortedInventoriesList ? inventoryList : sortedInventoriesList).map((inventory) => (
         <InventoryItem key={inventory.id} item={inventory}/>
       ))}
     </section>
