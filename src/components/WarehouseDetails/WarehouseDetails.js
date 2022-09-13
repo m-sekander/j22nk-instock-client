@@ -127,6 +127,8 @@ function WarehouseDetails() {
                         category={inventoryItem.category}
                         status={inventoryItem.status}
                         quantity={inventoryItem.quantity}
+                        setWarehouseInventory={setWarehouseInventory}
+                        warehouseId={warehouseId}
                         />
                 ))}
             </ul>

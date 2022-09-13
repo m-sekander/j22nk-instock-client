@@ -6,7 +6,7 @@ import Modal from "../Modal/Modal";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 
-function InventoryItem({ item }) {
+function InventoryItem({ item, setInventoryList }) {
   const [deleteActive, setDeleteActive] = useState(false);
 
   const getStatusClass = () => {
@@ -54,7 +54,7 @@ function InventoryItem({ item }) {
           <Link className="inventory-list__editicon" to={`/inventories/${item.id}/edit`}><img className="inventory-list__edit-img" src={editIcon} alt="Edit icon" /></Link>
         </div>
       </div>
-      {deleteActive && <Modal isWarehouse={false} name={item.itemName} id={item.id} setDeleteActive={setDeleteActive}/>}
+      {deleteActive && <Modal isWarehouse={false} name={item.itemName} id={item.id} setDeleteActive={setDeleteActive} setInventoryList={setInventoryList}/>}
     </div> 
   );
 }

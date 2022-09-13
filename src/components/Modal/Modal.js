@@ -4,8 +4,7 @@ import closeIcon from '../../assets/images/icons/close-24px.svg'
 import CTA from '../CTA/CTA'
 import axios from 'axios'
 
-
-function Modal({isWarehouse, name, id, setDeleteActive}) {
+function Modal({isWarehouse, name, id, setDeleteActive, setWarehousesList, setInventoryList, setWarehouseInventory, warehouseId}) {
     function handleReturn(event) {
         setDeleteActive(false);
     }
@@ -16,17 +15,36 @@ function Modal({isWarehouse, name, id, setDeleteActive}) {
         if (isWarehouse) {
             axios.delete(`http://localhost:8080/${page}/${id}`)
             .then((response) => {
-                console.log("For devs:", response)
+                console.log("For devs:", response);
+                return axios.get(`http://localhost:8080/${page}`)
+            }).then(response => {
+                setWarehousesList(response.data);
             }).catch((error) => {
-                console.log("For devs:", error)
+                console.log("For devs:", error);
+            });
+            setDeleteActive(false);
+        } else if (!warehouseId) {
+            axios.delete(`http://localhost:8080/${page}/${id}`)
+            .then((response) => {
+                console.log("For devs:", response);
+                return axios.get(`http://localhost:8080/${page}`)
+            }).then(response => {
+                setInventoryList(response.data);
+            }).catch((error) => {
+                console.log("For devs:", error);
             });
             setDeleteActive(false);
         } else {
             axios.delete(`http://localhost:8080/${page}/${id}`)
             .then((response) => {
-                console.log("For devs:", response)
+                console.log("For devs:", response);
+                return axios.get(`http://localhost:8080/${page}`)
+            }).then(response => {
+                const inventoriesList = response.data;
+                const warehouseInventory = inventoriesList.filter(singleInventoriesList => singleInventoriesList.warehouseID === warehouseId);
+                setWarehouseInventory(warehouseInventory);
             }).catch((error) => {
-                console.log("For devs:", error)
+                console.log("For devs:", error);
             });
             setDeleteActive(false);
         }
@@ -36,7 +54,7 @@ function Modal({isWarehouse, name, id, setDeleteActive}) {
         <div className="modal">
             <div className="modal__container">
                 <div className="modal__top">
-                    <Link className="modal__close" to={`/${page}`}><img className="modal__close" src={closeIcon} alt="close icon" onClick={handleReturn} /></Link>
+                    <Link className="modal__close" to={warehouseId ? `/warehouses/${warehouseId}` : `/${page}`}><img className="modal__close" src={closeIcon} alt="close icon" onClick={handleReturn} /></Link>
                     {isWarehouse 
                         ?<h1 className="modal__title">Delete {name} warehouse?</h1>
                         :<h1 className="modal__title">Delete {name} inventory item?</h1>
@@ -47,7 +65,7 @@ function Modal({isWarehouse, name, id, setDeleteActive}) {
                     }
                 </div>
                 <div className="modal__bottom">
-                    <CTA text="Cancel" link={`/${page}`} type="secondary" onClick={handleReturn} />
+                    <CTA text="Cancel" link={warehouseId ? `/warehouses/${warehouseId}` : `/${page}`} type="secondary" onClick={handleReturn} />
                     <div className="modal__spacing"></div>
                     <CTA text="Delete" isButton={true} type="delete" onClick={handleDelete} />
                 </div>
