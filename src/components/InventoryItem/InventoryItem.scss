@@ -22,6 +22,10 @@
         }
     }
 
+    &__deleteicon {
+        cursor: pointer;
+    }
+
     &__editicon {
         @include tablet{
             margin-left: 1.125rem;
@@ -172,7 +176,7 @@
     }
 }
 
-.inventory__item{
+.inventory__item {
     &-greenstatus{
         display: inline;
         text-transform: uppercase;

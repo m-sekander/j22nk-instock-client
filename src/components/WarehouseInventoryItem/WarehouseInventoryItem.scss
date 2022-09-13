@@ -139,7 +139,10 @@
         }
     } 
 
-    &__delete-link,
+    &__delete {
+        cursor: pointer;
+    }
+
     &__edit-link {
         height:1.5rem;
     }
