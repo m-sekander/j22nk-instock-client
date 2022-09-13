@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
 import Loading from "../Loading/Loading";
+import { useEffect } from "react";
 
 
 function AddWarehouse() {
@@ -80,6 +81,14 @@ function AddWarehouse() {
                 setErrorMessages(error.response.data);
             })
     }
+
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
+    }, [])
 
     if (isLoading) {
         return <Loading />;

@@ -17,6 +17,11 @@ function ItemDetail() {
     const params = useParams();
 
     useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
         axios.get(`${BASE_URL}/inventories/${params.inventoryId}`)
           .then(response => {
             const data = response.data;
