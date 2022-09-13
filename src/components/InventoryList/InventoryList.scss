@@ -18,7 +18,6 @@
 
         @include desktop {
             margin: 0 2.5rem;
-            margin-right: 5.375rem;
         }
     }
 
@@ -120,14 +119,18 @@
             display: flex;
             height: 2.5rem;
             background-color: $background-table-header;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
             gap: 1rem;
             justify-content: space-between;
         }
         @include desktop{
-            padding-left: 2.25rem;
-            padding-right: 1.875rem;
+            padding: 0 2.5rem;
         }
+    }
+
+    &__label-four {
+        display: flex;
+        width: 66.7%;
     }
 
     &__label-item {
@@ -142,10 +145,14 @@
             display: flex;
             align-items: center;
             text-transform: uppercase;
-            margin-right: .875rem;
+            // margin-right: .875rem;
+            width: 25%;
 
+            &:first-child {
+                width:30%;
+            }
             &:last-child {
-                width: 10%;
+                width: 12%;
             }
         }
     }
@@ -186,16 +193,15 @@
 
 .warehouse-container {
     @include tablet{
-        margin-right: 1rem;
-    }
-    @include desktop {
-        margin-right: 1.875rem;
+        width: 15%;
     }
 }
 
 .actions-container {
     @include tablet{
-        padding-left: 1.25rem;
+        width: 10%;
+        display: flex;
+        justify-content: flex-end;
     }
     @include desktop {
         padding-left: 0;
