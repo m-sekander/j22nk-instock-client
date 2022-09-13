@@ -79,7 +79,6 @@ function EditInventory() {
         .then((response) => {
             setIsSuccessful(true);
             setTimeout(() => navigate("/inventories"), 1500);
-            document.querySelector(".edit-inventory__form").reset();
             setErrorMessages(new Array(6).fill(""));
             console.log("For devs:", response);
         }).catch((error) => {
