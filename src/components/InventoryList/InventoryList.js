@@ -53,11 +53,11 @@ function InventoryList() {
 
 const handleSortStatus = () => {
   if (!reverse) {
-      const sortedStatus = inventoryList.sort((a,b) => ((a.status < b.status) ? -1 : (a.status > b.status) ? 1 : 0));
+      const sortedStatus = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
       setSortedInventoriesList(sortedStatus);
       setReverse(true);
   } else {
-      const sortedStatus = inventoryList.sort((a,b) => ((a.status < b.status) ? 1 : (a.status > b.status) ? -1 : 0));
+      const sortedStatus = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
       setSortedInventoriesList(sortedStatus);
       setReverse(false);
   }
