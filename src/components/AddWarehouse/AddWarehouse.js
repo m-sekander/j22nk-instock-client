@@ -5,6 +5,7 @@ import CTA from "../CTA/CTA";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
+import { useEffect } from "react";
 
 
 function AddWarehouse() {
@@ -56,6 +57,14 @@ function AddWarehouse() {
                 setErrorMessages(error.response.data);
             })
     }
+
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            right: 0,
+            behavior: "smooth"
+          });
+    }, [])
 
     return (
         <>
