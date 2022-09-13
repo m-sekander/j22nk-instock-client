@@ -71,6 +71,7 @@ function WarehouseList() {
                         contactName={warehouse.contact.name}
                         contactPhone={warehouse.contact.phone}
                         contactEmail={warehouse.contact.email}
+                        setWarehousesList={setWarehousesList}
                     />
                 ))}
             </ul>

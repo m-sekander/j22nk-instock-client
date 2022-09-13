@@ -90,7 +90,7 @@ function InventoryList() {
         </div>
       </div>
       {inventoryList.map((inventory) => (
-        <InventoryItem key={inventory.id} item={inventory}/>
+        <InventoryItem key={inventory.id} item={inventory} setInventoryList={setInventoryList}/>
       ))}
     </section>
   );
