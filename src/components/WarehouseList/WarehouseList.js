@@ -8,6 +8,7 @@ import Loading from "../Loading/Loading";
 
 function WarehouseList() {
     const [warehouses, setWarehousesList] = useState([]);
+    const [sortedWarehouses, setSortedWarehousesList] = useState(null);
 
     useEffect(() => {
         window.scroll({
@@ -21,7 +22,22 @@ function WarehouseList() {
             .then(response => {
                 setWarehousesList(response.data)
             })
-    }, []);
+    }, [sortedWarehouses]);
+
+    const handleSortWarehouses = () => {
+        const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0))
+        setSortedWarehousesList(sortedWarehouses);
+    }
+
+    const handleSortAddresses = () => {
+        const sortedAddresses = warehouses.sort((a,b) => ((a.address < b.address) ? -1 : (a.address < b.address) ? 1: 0))
+        setSortedWarehousesList(sortedAddresses)
+    }
+
+    const handleSortContactName = () => {
+        const sortedContactName = warehouses.sort((a,b) => ((a.contact.name < b.contact.name) ? -1 : (a.contact.name < b.contact.name) ? 1: 0))
+        setSortedWarehousesList(sortedContactName)
+    }
 
     if (!warehouses) {
         return <Loading />
@@ -39,15 +55,15 @@ function WarehouseList() {
                 </form>
             </div>
             <div className="warehouse-list__label-strip">
-                <div className="warehouse-list__label-container">
+                <div className="warehouse-list__label-container" onClick={handleSortWarehouses}>
                     <h4 className="warehouse-list__label-item">Warehouse</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>
-                <div className="warehouse-list__label-container warehouse-list__label-address">
+                <div className="warehouse-list__label-container warehouse-list__label-address" onClick={handleSortAddresses}>
                     <h4 className="warehouse-list__label-item">Address</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>
-                <div className="warehouse-list__label-container warehouse-list__label-contact-name">
+                <div className="warehouse-list__label-container warehouse-list__label-contact-name" onClick={handleSortContactName}>
                     <h4 className="warehouse-list__label-item">Contact Name</h4>
                     <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" />
                 </div>
@@ -60,7 +76,7 @@ function WarehouseList() {
                 </div>
             </div>
             <ul className="warehouse-list__warehouses">
-                {warehouses.map(warehouse => (
+                {(!sortedWarehouses ? warehouses : sortedWarehouses).map(warehouse => (
                     <WarehouseListItem
                         key={warehouse.id}
                         id={warehouse.id}
