@@ -51,18 +51,6 @@ function InventoryList() {
     }
 }
 
-const handleSortStatus = () => {
-  if (!reverse) {
-      const sortedStatus = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
-      setSortedInventoriesList(sortedStatus);
-      setReverse(true);
-  } else {
-      const sortedStatus = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
-      setSortedInventoriesList(sortedStatus);
-      setReverse(false);
-  }
-}
-
 const handleSortQuantity = () => {
   if (!reverse) {
       const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
@@ -129,7 +117,7 @@ const handleSortWarehouses = () => {
             className="inventorylist__label-icon"
             src={sortIcon}
             alt="Sort icon"
-            onClick={handleSortStatus}
+            onClick={handleSortQuantity}
           />
         </div>
         <div className="inventorylist__label-container">
