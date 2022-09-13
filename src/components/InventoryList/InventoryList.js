@@ -90,7 +90,6 @@ function InventoryList() {
         <InventoryItem 
           key={inventory.id} 
           item={inventory}
-
         />
       ))}
     </section>
