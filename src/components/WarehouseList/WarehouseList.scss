@@ -125,6 +125,11 @@
         @include tablet {
             height: .75rem;
             width: .75rem;
+            
+            &:hover {
+                scale: 1.2;
+                cursor: pointer;
+            }
         }
     }
 

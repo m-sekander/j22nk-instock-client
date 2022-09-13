@@ -15,6 +15,8 @@ function WarehouseDetails() {
     const [warehouseDetails, setWarehouseDetails] = useState(null);
     const [warehouseInventory, setWarehouseInventory] = useState(null);
     const [notFound, setNotFound] = useState(false);
+    const [sortedInventoriesList, setSortedInventoriesList] = useState(null);
+    const [reverse, setReverse] = useState(false);
 
     // GET single warehouse details
     useEffect(() => {
@@ -47,6 +49,42 @@ function WarehouseDetails() {
                 <span>Warehouse inventories not found</span>
             })
     }, [warehouseId])
+
+    const handleSortInventories = () => {
+        if (!reverse) {
+            const sortedInventories = warehouseInventory.sort((a,b) => ((a.itemName < b.itemName) ? -1 : (a.itemName > b.itemName) ? 1 : 0));
+            setSortedInventoriesList(sortedInventories);
+            setReverse(true);
+        } else {
+            const sortedInventories = warehouseInventory.sort((a,b) => ((a.itemName < b.itemName) ? 1 : (a.itemName > b.itemName) ? -1 : 0));
+            setSortedInventoriesList(sortedInventories);
+            setReverse(false);
+        }
+      }
+
+      const handleSortCategories = () => {
+        if (!reverse) {
+            const sortedCategories = warehouseInventory.sort((a,b) => ((a.category < b.category) ? -1 : (a.category > b.category) ? 1 : 0));
+            setSortedInventoriesList(sortedCategories);
+            setReverse(true);
+        } else {
+            const sortedCategories = warehouseInventory.sort((a,b) => ((a.category < b.category) ? 1 : (a.category > b.category) ? -1 : 0));
+            setSortedInventoriesList(sortedCategories);
+            setReverse(false);
+        }
+    }
+
+    const handleSortQuantity = () => {
+        if (!reverse) {
+            const sortedQuantity = warehouseInventory.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
+            setSortedInventoriesList(sortedQuantity);
+            setReverse(true);
+        } else {
+            const sortedQuantity = warehouseInventory.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
+            setSortedInventoriesList(sortedQuantity);
+            setReverse(false);
+        }
+      }
 
     if (notFound) {
         return <NotFound />
@@ -100,26 +138,26 @@ function WarehouseDetails() {
             <div className="warehouse-details__label-strip">
                 <div className="warehouse-details__label-container">
                     <h4 className="warehouse-details__label-item">Inventory Item</h4>
-                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortInventories}/>
                 </div>
                 <div className="warehouse-details__label-container">
                     <h4 className="warehouse-details__label-item">Category</h4>
-                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortCategories}/>
                 </div>
                 <div className="warehouse-details__label-container warehouse-details__label-status">
                     <h4 className="warehouse-details__label-item">Status</h4>
-                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortQuantity}/>
                 </div>
                 <div className="warehouse-details__label-container">
                     <h4 className="warehouse-details__label-item">Quantity</h4>
-                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" />
+                    <img className="warehouse-details__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortQuantity}/>
                 </div>
                 <div className="warehouse-details__label-container">
                     <h4 className="warehouse-details__label-item">Actions</h4>
                 </div>
             </div>
             <ul className="warehouse-details__inventory-list">
-                {warehouseInventory.map(inventoryItem => (
+                {(!sortedInventoriesList ? warehouseInventory : sortedInventoriesList).map(inventoryItem => (
                     <WarehouseInventoryItem 
                         key={inventoryItem.id}
                         id={inventoryItem.id}
