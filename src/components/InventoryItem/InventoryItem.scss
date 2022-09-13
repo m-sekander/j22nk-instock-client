@@ -16,12 +16,27 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
     }
 
     &__editicon {
         @include tablet{
             margin-left: 1.125rem;
         }
+    }
+
+    &__item-name-link {
+        display: flex;
+        @include link-reset;
+    }
+
+    &__label-iconarrow {
+        margin-top: 0.0938rem;
+        width: 1.25rem;
+        height: 1.25rem;
     }
 
     &__edit-img {
@@ -46,23 +61,37 @@
 
     &-main {
         border-top: 1px solid $secondary-outline;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         &:nth-child(3) {
             border-top: none;
         }
 
+        @include tablet {
+            flex-direction: row;
+            height: 3.625rem;
+        }
 
-        padding: .375rem 1rem 1rem;
+
+        padding: .375rem 1.5rem 1.5rem;
             @include tablet {
                 display: flex;
-                padding: 0.25rem 1.5rem;
+                padding: 0.25rem 2rem;
                 @include desktop{
-                    padding-left: 2.3125rem;
-                    padding-bottom: 0;
+                    padding: 0 2.5rem 0 2.5rem;
                 }
             }
     }
 
+    &__container-warehouse {
+        @include tablet {
+            width: 15%;
+            display: flex;
+            align-items: center;
+        }
+    }
 
     &__container {
         width: 50%;
@@ -70,6 +99,7 @@
             width: 25%;
             &:nth-child(1){
                 order:1;
+                width:30%;
             }
             &:nth-child(2){
                 order:3;
@@ -79,6 +109,7 @@
             }
             &:nth-child(4){
                 order:4;
+                width: 12%; 
             }
             display: flex;
             align-items: center;
@@ -122,14 +153,6 @@
                 margin: 0;
             }
         }
-        &-category {
-            @include tablet {
-                padding-left: 2.375rem;
-            }
-            @include desktop {
-                padding-left: 2.375rem;
-            }
-        }
 
         &-icon {
             padding-bottom: .3125rem;
@@ -137,17 +160,10 @@
             justify-content: space-between;
             @include tablet {
                 flex-direction: column;
-                margin: 0.75rem 0 0.75rem 4.375rem;
+                justify-content: center;
+                margin: 0.75rem 0 0.75rem 0;
                 padding-bottom: 0;
-            }
-            @include desktop {
-                margin-left: 7.1875rem;
-            }
-        }
-
-        &-qty {
-            @include tablet {
-                margin-left: 1.875rem
+                width: 12%;
             }
         }
     }
@@ -163,12 +179,6 @@
         background: rgba(0, 158463, 0, .07);
         padding: 0.25rem 0.5rem;
         border-radius: 1.25rem;
-        @include tablet{
-            margin-left: 2.25rem;
-        }
-        @include desktop{
-            margin-left: 2.1875rem;
-        }
     }
 
     &-redstatus {
@@ -176,16 +186,10 @@
         text-transform: uppercase;
         color: $support-no-stock-label;
         font-weight: bold;
-        font-size: .6875rem;
+        font-size: .75rem;
         background: rgba(94515, 0, 0, .07);
         padding: 0.25rem 0.5rem;
         border-radius: 1.25rem;
-        @include tablet {
-            margin-left: 1.5rem;
-        }
-        @include desktop {
-            margin-left: 2.25rem;
-        }
     }
 }
 
