@@ -105,36 +105,40 @@ const handleSortWarehouses = () => {
         </form>
       </div>
       <div className="inventorylist__label-strip">
-        <div className="inventorylist__label-container" onClick={handleSortInventories}>
+        <div className="inventorylist__label-container">
           <h4 className="inventorylist__label-item">Inventory Item</h4>
           <img
             className="inventorylist__label-icon"
             src={sortIcon}
             alt="Sort icon"
+            onClick={handleSortInventories}
           />
         </div>
-        <div className="inventorylist__label-container" onClick={handleSortCategories}>
+        <div className="inventorylist__label-container">
           <h4 className="inventorylist__label-item">Category</h4>
           <img
             className="inventorylist__label-icon"
             src={sortIcon}
             alt="Sort icon"
+            onClick={handleSortCategories}
           />
         </div>
-        <div className="inventorylist__label-container" onClick={handleSortStatus}>
+        <div className="inventorylist__label-container">
           <h4 className="inventorylist__label-item">Status</h4>
           <img
             className="inventorylist__label-icon"
             src={sortIcon}
             alt="Sort icon"
+            onClick={handleSortStatus}
           />
         </div>
-        <div className="inventorylist__label-container" onClick={handleSortQuantity}>
+        <div className="inventorylist__label-container">
           <h4 className="inventorylist__label-item">Qty</h4>
           <img
             className="inventorylist__label-icon"
             src={sortIcon}
             alt="Sort icon"
+            onClick={handleSortQuantity}
           />
         </div>
         <div className="inventorylist__label-container warehouse-container" onClick={handleSortWarehouses}>
