@@ -9,6 +9,14 @@ function Modal({isWarehouse, name, id, setDeleteActive, setWarehousesList, setIn
         setDeleteActive(false);
     }
 
+    function clickHandler(event) {
+        setDeleteActive(false);
+    }
+
+    function preventClickHandler(event) {
+        event.stopPropagation();
+    }
+
     const page = isWarehouse ? "warehouses" : "inventories";
     
     function handleDelete() {
@@ -51,8 +59,8 @@ function Modal({isWarehouse, name, id, setDeleteActive, setWarehousesList, setIn
     }
 
     return (
-        <div className="modal">
-            <div className="modal__container">
+        <div className="modal" onClick={clickHandler}>
+            <div className="modal__container" onClick={preventClickHandler}>
                 <div className="modal__top">
                     <Link className="modal__close" to={warehouseId ? `/warehouses/${warehouseId}` : `/${page}`}><img className="modal__close" src={closeIcon} alt="close icon" onClick={handleReturn} /></Link>
                     {isWarehouse 
