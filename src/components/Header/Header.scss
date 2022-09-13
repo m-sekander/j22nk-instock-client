@@ -1,0 +1,108 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles//partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+    background-color: $background-nav-header;
+    height: 12.5rem;
+
+    @include tablet {
+        height: 11.625rem;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 1rem;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0 2rem;
+            margin: 0 auto;
+        }
+        @include desktop {
+            padding-left: 0;
+            padding-right: 0;
+            max-width: 1020px;
+        }
+    }
+
+    &__logo {
+        width: 8.0369rem;
+    }
+
+    &__logo-link {
+        margin: 1.5rem 0;
+
+        @include tablet {
+            margin: 2rem 0 1rem 0;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include tablet {
+            width: auto;
+        }
+    }
+
+    &__nav-item {
+        padding: .5625rem 0;
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        color: $primary-global;
+
+        @include tablet {
+            margin: 2rem 0;
+            height: 2.375rem;
+            padding: .35rem 0;
+            width: auto;
+        }
+
+        &:last-child {
+            @include tablet {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+
+    &__nav-item-link {
+        @include link-reset; 
+        color: $secondary-outline;
+        text-align: center;
+
+        &:hover {
+            text-decoration: underline;
+            color: $primary-global;
+        }
+
+        &--active {
+            background-color: $primary-text;
+            border-radius: 20px;
+            padding: .5rem 2.25rem;
+            text-align: center;
+            width: 100%;
+            @include link-reset; 
+
+            @include tablet {
+                padding: .5rem 1.125rem;
+                &:hover {
+                    text-decoration: underline;
+                    color: $primary-global;
+                }
+            }
+        }
+    }
+
+}

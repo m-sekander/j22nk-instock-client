@@ -1,0 +1,160 @@
+@use "../../styles/partials/breakpoints"as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    border-bottom: 1px solid $secondary-outline;
+    gap: 1rem;
+
+    &:first-child {
+        border-top: 1px solid $secondary-outline;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    @include tablet {
+        padding: 1.5rem 2rem; 
+
+        &:first-child {
+            border-top: none;
+        }
+    }
+
+    @include desktop {
+        padding: 1.5rem 2.5rem;
+        &:hover {
+            background-color: rgb(46, 102, 229, 0.07);
+        }
+    }
+
+    &__label {
+        color: $secondary-table-header;
+        margin: 0.25rem 0 0.25rem 0;
+        text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__info {
+        margin: 0;
+        color: $primary-text;
+    }
+
+    &__container {
+        display: flex;
+        width: 45%;
+        flex-direction: column;
+
+        &:last-child {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @include tablet {
+            padding: 0;
+            width: 20%;
+
+            &:last-child {
+                width: 10%;
+                flex-direction: row;
+                justify-content: flex-end;
+                gap: 1rem;
+            }
+
+            &:nth-child(1) {
+                order: 1;
+            }
+
+            &:nth-child(2) {
+                order: 3;
+            }
+
+            &:nth-child(3) {
+                order: 2;
+            }
+
+            &:nth-child(4) {
+                order: 4;
+            }
+
+            &:nth-child(5) {
+                order: 5;
+            }
+        }
+    }
+
+    &__container-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    &__name {
+        display: flex;
+        align-items: center;
+        color: $primary-element;
+    }
+
+    &__chevron {
+        width: 1.25rem;
+    }
+
+    &__container-address {
+        @include tablet {
+            width: 18%;
+        }
+    }
+    &__container-contact-name {
+        @include tablet {
+            width: 18%;
+        }
+    }
+
+    &__container-contact-info {
+        @include tablet {
+            width: 21%;
+        }
+    }
+
+    &__address{
+        @include tablet {
+            width: 7rem;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            width: auto;
+            gap: 1rem;
+            padding-left: 2rem;
+        }
+    } 
+
+    &__delete {
+        cursor: pointer;
+    }
+
+    &__edit-link {
+        height:1.5rem;
+    }
+}

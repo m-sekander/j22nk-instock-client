@@ -1,0 +1,56 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
+
+.add-warehouse {
+
+    &__title-container {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.7rem 1rem 0;
+
+        @include tablet {
+            padding: 0.7rem 2rem 0;
+            border-bottom: 1px solid $secondary-outline;
+        }
+    }
+
+    &__icon {
+        width: 1.25rem;
+        vertical-align: bottom;
+
+        @include tablet {
+            width: 1.5rem;
+        }
+    }
+
+    &__inputs-container {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__modal {
+        border: 1px solid green;
+        border-radius: 4px;
+        background-color: lightgreen;
+        padding: 2rem;
+    }
+
+    &__button-container {
+        background-color: $background-page;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0.75rem 1.25rem;
+        gap: 1rem;
+
+        @include tablet {
+            padding: 1rem 2rem;
+        }
+    }
+}

@@ -1,0 +1,285 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.itemdetail-details {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0 0 0 ;
+
+    &__tablet {
+        
+        @include tablet {
+            width: 71%;
+        }
+
+        @include desktop{
+            width: 50%;
+        }
+    }
+
+    &__tablet-right{
+        @include tablet {
+            border-left: 1px solid $secondary-outline;
+            padding-left: 1.5rem;
+            width: 65%;
+        }
+        @include desktop{
+            width: 30%;
+            padding-left: 2.125rem;
+        }
+    }
+   
+    &__category-container{
+        margin-bottom: .5rem;
+    }
+    
+    &__status-container{
+        margin-bottom: .5rem;
+    }
+
+    &__qty-container{
+        margin-left: 6.25rem;
+    }
+
+    &__mobile{
+        display: flex;
+        justify-content: flex-start;
+        @include tablet{
+            padding-left: 0rem;
+        }
+    }
+
+    &__CTA{
+        margin-right: 0;
+    }
+
+    &__itemdescription{
+        padding-bottom: 1rem;
+        @include tablet {
+            width: 75%;
+        }
+    }
+
+    &__container {
+       padding: 1rem;
+
+       @include tablet{
+        display: flex;
+        padding: 1.5rem;
+    }
+      @include desktop{
+        padding-right: 1.5rem;
+      }
+    }
+
+
+    &-greenstatus{
+        display: inline;
+        text-transform: uppercase;
+        color: $support-stock-label;
+        font-weight: bold;
+        font-size: .75rem;
+        background: rgba(0, 158463, 0, .07);
+        padding: 0 0.25rem;
+        border-radius: 1.25rem;
+    }
+
+    &-redstatus {
+        display: inline;
+        text-transform: uppercase;
+        color: $support-no-stock-label;
+        font-weight: bold;
+        font-size: .6875rem;
+        background: rgba(94515, 0, 0, .07);
+        padding: 0.25rem 0.5rem;
+        border-radius: 1.25rem;
+        @include tablet {
+            margin: 0rem;
+            padding: 0rem;
+        }
+        @include desktop {
+            margin: 0;
+        }
+    }
+
+
+
+
+
+    &__header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        border-bottom: 1px solid $secondary-outline;
+
+        @include tablet {
+            padding: 0 2rem 1.5rem 2rem;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem 1.5rem 2.5rem;
+        }
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__back {
+        height: 1.5rem;
+        padding-right: .5rem;
+    }
+
+    &__name {
+        margin: 0;
+        color: $primary-text;
+    }
+
+    &__edit-mobile {
+        width: 2.25rem;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__edit-tablet-desktop {
+        display: none;
+
+        @include tablet {
+            display: inline-block;
+        }
+    }
+
+    &__label-strip {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 2.5rem;
+            background-color: $background-table-header;
+            padding: 0 2rem;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
+    }
+
+    &__label-item {
+        color: $secondary-table-header;
+        text-transform: uppercase;
+    }
+
+    &__label-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            width: 20%;
+
+            &:last-child {
+                width: 10%;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__label-status {
+        @include tablet {
+            width: 25%;
+        }
+    }
+
+    &__label-icon {
+        @include tablet {
+            height: .75rem;
+            width: .75rem;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__details {
+        border-top: 1px solid $secondary-outline;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    &__label {
+        text-transform: uppercase;
+        margin: 0.25rem 0 0.25rem 0;
+        color: $secondary-table-header;
+    }
+
+    &__info {
+        margin: 0;
+        @include desktop {
+            width: 110%;
+        }
+    }
+
+    &__address-container {
+        padding: 1rem 1.5rem 0 1.5rem;
+
+        @include tablet {
+            padding: 0 7rem 0 0;
+            margin: 1.5rem 0 1rem 2rem;
+            width: 15rem;
+        }
+
+        @include desktop {
+            margin: 1.5rem 8rem 1rem 2.5rem;
+        }
+    }
+
+    &__contact-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 2.25rem 1.5rem 1rem 1.5rem;
+
+        @include tablet {
+            padding: 0 0 0 2.5rem;
+            margin: 1.5rem 1.5rem 1rem 0;
+            justify-content: space-between;
+            width: 21rem;
+            border-left: 1px solid $secondary-outline;
+        }
+
+        @include desktop {
+            width: 28rem;
+        }
+    }
+
+    &__contact-name-container {
+        width: 50%;
+    }
+
+    &__contact-info-container {
+        width: 50%;
+    }
+
+    &__inventory-list {
+        @include ul-reset;
+        margin: 0;
+    }
+
+}
+
+.status-label{
+    margin-bottom: 0;
+}

@@ -1,0 +1,203 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.inventory {
+    &__list {
+            flex-wrap: wrap;
+            display: flex;
+        @include tablet{
+            width: 66.7%
+        }
+    }
+}
+.inventory-list{
+    &__actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__deleteicon {
+        cursor: pointer;
+    }
+
+    &__editicon {
+        @include tablet{
+            margin-left: 1.125rem;
+        }
+    }
+
+    &__item-name-link {
+        display: flex;
+        @include link-reset;
+    }
+
+    &__label-iconarrow {
+        margin-top: 0.0938rem;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    &__edit-img {
+        vertical-align: bottom;
+    }
+
+    &__action-label {
+        display: none;
+        @include tablet{
+            display: initial;
+        }
+    }
+
+    &__content {
+        &-warehouse{
+            width: 50%;
+            @include tablet {
+                width: 100%
+            }
+        }
+    }
+
+    &-main {
+        border-top: 1px solid $secondary-outline;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &:nth-child(3) {
+            border-top: none;
+        }
+
+        @include tablet {
+            flex-direction: row;
+            height: 3.625rem;
+        }
+
+
+        padding: .375rem 1.5rem 1.5rem;
+            @include tablet {
+                display: flex;
+                padding: 0.25rem 2rem;
+                @include desktop{
+                    padding: 0 2.5rem 0 2.5rem;
+                    &:hover {
+                        background-color: rgb(46, 102, 229, 0.07);
+                    }
+                }
+            }
+    }
+
+    &__container-warehouse {
+        @include tablet {
+            width: 15%;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__container {
+        width: 50%;
+        @include tablet {
+            width: 25%;
+            &:nth-child(1){
+                order:1;
+                width:30%;
+            }
+            &:nth-child(2){
+                order:3;
+            }
+            &:nth-child(3){
+                order:2;
+            }
+            &:nth-child(4){
+                order:4;
+                width: 12%; 
+            }
+            display: flex;
+            align-items: center;
+        }
+
+        &-warehouse {
+            display: flex;
+            justify-content: flex-end;
+
+            @include tablet{
+                min-width: 70px;
+            }
+            
+            @include desktop {
+                min-width: 70px;
+            }
+
+        }
+    }
+
+
+    &__label {
+        color: $secondary-table-header;
+        margin-bottom: 0;
+        margin-top: .7813rem;
+        @include tablet {
+            display: none;
+        }
+
+        &-container {
+            display: flex;
+        }
+
+        &-item {
+            font-weight: bold;
+            font-size: .8125rem;
+            color: $primary-element;
+            margin-top: .0938rem;
+            margin-bottom: 6px;
+            @include tablet {
+                margin: 0;
+            }
+        }
+
+        &-icon {
+            padding-bottom: .3125rem;
+            display: flex;
+            justify-content: space-between;
+            @include tablet {
+                flex-direction: column;
+                justify-content: center;
+                margin: 0.75rem 0 0.75rem 0;
+                padding-bottom: 0;
+                width: 12%;
+            }
+        }
+    }
+}
+
+.inventory__item {
+    &-greenstatus{
+        display: inline;
+        text-transform: uppercase;
+        color: $support-stock-label;
+        font-weight: bold;
+        font-size: .75rem;
+        background: rgba(0, 158463, 0, .07);
+        padding: 0.25rem 0.5rem;
+        border-radius: 1.25rem;
+    }
+
+    &-redstatus {
+        display: inline;
+        text-transform: uppercase;
+        color: $support-no-stock-label;
+        font-weight: bold;
+        font-size: .75rem;
+        background: rgba(94515, 0, 0, .07);
+        padding: 0.25rem 0.5rem;
+        border-radius: 1.25rem;
+    }
+}
+
+

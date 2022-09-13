@@ -1,0 +1,213 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
+
+.add-inventory {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        border-bottom: 1px solid $secondary-outline;
+    }
+
+    &__back-link {
+        @include link-reset;
+    }
+
+    &__title {
+        padding: .25rem 1.5rem 0 .25rem;
+
+        @include tablet {
+            padding: .65rem 0 0 .5rem; 
+        }
+    }
+
+    &__link-container  {
+        margin: 1.7rem 0 0 1.5rem;
+
+        @include tablet {
+            margin: 2.5rem 0 0 2rem; 
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            padding: 1.5rem 0;
+            flex-direction: row;
+        }
+    }
+
+    &__warehouse-details {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid $secondary-outline;
+
+        @include tablet {
+            width: 50%;
+            border-bottom: none;
+            border-right: 1px solid $secondary-outline;
+            padding-bottom:.5rem;
+        }
+    }
+
+    &__warehouse-details-title {
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+
+    &__contact-details {
+        padding-bottom: 1.5rem;
+
+        @include tablet {
+            width: 50%;
+            padding-bottom:.5rem;
+        }
+    }
+
+    &__inner-container {
+        padding: 0 1.5rem;
+
+        @include tablet {
+            padding: 0 2rem;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
+    }
+
+    &__label-container {
+        margin-top: .5rem;
+    }
+
+    &__input {
+        width: 100%;
+        margin-top: 0.25rem;
+        height: 2.25rem;
+        padding: 0 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid $secondary-outline;
+
+        &:focus {
+            border: 1px solid $primary-element;
+        }
+    }
+
+    &__text-area {
+        margin-top: 0.25rem;
+        height: 7.5rem;
+        border-radius: 1.25rem;
+        border: 1px solid $secondary-outline;
+        width: 100%;
+        resize: none;
+        padding: .5rem 1rem;
+        font-family: inherit;
+    } 
+
+    &__select {
+        color: $secondary-placeholder-text;
+        margin-top: 0.25rem;
+        font-family: inherit;
+        width: 100%;
+        height: 2.25rem;
+        padding: 0 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid $secondary-outline;
+        appearance: none;
+        background-image: url("../../assets/images/icons/arrow_drop_down-24px.svg");
+        background-repeat: no-repeat;
+        background-position: calc(100% - .75rem) 50%;
+    }
+
+    &__option {
+        color: $primary-text;
+    }
+
+    &__description-error {
+        margin-top: -.375rem;
+    }
+
+    &__radio-buttons {
+        display: flex;
+        justify-content: space-between;
+        color: $secondary-placeholder-text;
+
+        @include tablet {
+            justify-content: flex-start;
+        }
+    }
+
+    &__radio-container {
+        display: flex;
+        width: 8.6875rem;
+
+        @include tablet {
+            width: 7.25rem;
+        }
+    }
+
+    &__radio {
+        margin: 0;
+        width: 1rem;
+
+        &:checked ~ label {
+            color: $primary-text;
+        }
+    }
+
+    &__stock {
+        margin: 0 .5rem;
+        font-weight: normal;
+    }
+
+    &__error-message {
+        display: flex;
+    }
+
+    &__error-icon {
+        width: 1rem;
+    }
+
+    &__error {
+        color: $support-no-stock-label;
+        margin: .25rem .125rem;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    &__modal {
+        border: 1px solid green;
+        border-radius: 4px;
+        background-color: lightgreen;
+        padding: 2rem;
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        background-color: $background-cta;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__button {
+        width: 8.6875rem;
+
+        @include tablet {
+            width: 4.5rem;
+
+            &:last-child {
+                display: flex;
+                justify-content: flex-end;
+                width: 7.5rem;
+            }
+        }
+    }
+}
