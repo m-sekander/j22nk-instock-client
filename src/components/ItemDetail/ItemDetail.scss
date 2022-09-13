@@ -7,14 +7,112 @@
     flex-direction: column;
     padding: 2rem 0 0 0 ;
 
-    &__container {
-        border-top: 1px black;
+    &__tablet {
+        
+        @include tablet {
+            width: 71%;
+        }
+
+        @include desktop{
+            width: 50%;
+        }
     }
+
+    &__tablet-right{
+        @include tablet {
+            border-left: 1px solid $secondary-outline;
+            padding-left: 1.5rem;
+            width: 65%;
+        }
+        @include desktop{
+            width: 30%;
+            padding-left: 2.125rem;
+        }
+    }
+   
+    &__category-container{
+        margin-bottom: .5rem;
+    }
+    
+    &__status-container{
+        margin-bottom: .5rem;
+    }
+
+    &__qty-container{
+        margin-left: 6.25rem;
+    }
+
+    &__mobile{
+        display: flex;
+        justify-content: start;
+        @include tablet{
+            padding-left: 0rem;
+        }
+    }
+
+    &__CTA{
+        margin-right: 0;
+    }
+
+    &__itemdescription{
+        padding-bottom: 1rem;
+        @include tablet {
+            width: 75%;
+        }
+    }
+
+    &__container {
+       padding: 1rem;
+
+       @include tablet{
+        display: flex;
+        padding: 1.5rem;
+    }
+      @include desktop{
+        padding-right: 1.5rem;
+      }
+    }
+
+
+    &-greenstatus{
+        display: inline;
+        text-transform: uppercase;
+        color: $support-stock-label;
+        font-weight: bold;
+        font-size: .75rem;
+        background: rgba(0, 158463, 0, .07);
+        padding: 0 0.25rem;
+        border-radius: 1.25rem;
+    }
+
+    &-redstatus {
+        display: inline;
+        text-transform: uppercase;
+        color: $support-no-stock-label;
+        font-weight: bold;
+        font-size: .6875rem;
+        background: rgba(94515, 0, 0, .07);
+        padding: 0.25rem 0.5rem;
+        border-radius: 1.25rem;
+        @include tablet {
+            margin: 0rem;
+            padding: 0rem;
+        }
+        @include desktop {
+            margin: 0;
+        }
+    }
+
+
+
+
+
     &__header {
         display: flex;
         width: 100%;
         justify-content: space-between;
         padding: 0 1.5rem 1.5rem 1.5rem;
+        border-bottom: 1px solid $secondary-outline;
 
         @include tablet {
             padding: 0 2rem 1.5rem 2rem;
@@ -129,6 +227,9 @@
 
     &__info {
         margin: 0;
+        @include desktop {
+            width: 110%;
+        }
     }
 
     &__address-container {
@@ -177,4 +278,8 @@
         margin: 0;
     }
 
+}
+
+.status-label{
+    margin-bottom: 0;
 }

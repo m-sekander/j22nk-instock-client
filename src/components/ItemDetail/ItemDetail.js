@@ -33,6 +33,16 @@ function ItemDetail() {
         return
     }
 
+    const getStatusClass = () => {
+      if (itemDetail.status === "In Stock") {
+          return "itemdetail-details-greenstatus";
+      }
+      if (itemDetail.status === "Out of Stock") {
+          return "itemdetail-details-redstatus";
+      }    
+  }
+
+
   return (
 
 <section className="itemdetail-details">
@@ -47,19 +57,36 @@ function ItemDetail() {
             <CTA icon={editIcon} link="/inventories/:inventoryId/edit"/>
         </div>
         <div className="itemdetail-details__edit-tablet-desktop">
-            <CTA icon={editIcon} text="Edit" link={`/inventories/${inventoryId}/edit`}/>
+            <CTA className="itemdetail-details__CTA" icon={editIcon} text="Edit" link={`/inventories/${inventoryId}/edit`}/>
         </div>
     </div>
     <div className="itemdetail-details__container">
-        <h4>Item Description</h4>
-        <p>{itemDetail.description}</p>
-        <h4>Category</h4>
-        <p>{itemDetail.category}</p>
-        <p>{itemDetail.status}</p>
-        <h4>Quantity</h4>
-        <p>{itemDetail.quantity}</p>
-        <h4>Warehouse</h4>
-        <p>{itemDetail.warehouseName}</p>
+      <div className="itemdetail-details__tablet">
+        <div className="itemdetail-details__itemdescription">
+          <h4 className="itemdetail-details__label">Item Description</h4>
+          <p className="itemdetail-details__info">{itemDetail.description}</p>
+        </div>
+        <div className="itemdetail-details__category-container">
+          <h4 className="itemdetail-details__label">Category</h4>
+          <p className="itemdetail-details__info">{itemDetail.category}</p>
+        </div>  
+     </div>
+        <div className="itemdetail-details__tablet-right"> 
+          <div className="itemdetail-details__mobile"> 
+            <div className="itemdetail-details__status-container">
+              <h4 className="itemdetail-details__label status-label">Status</h4>
+              <p className={getStatusClass()}>{itemDetail.status}</p>
+            </div>
+            <div className="itemdetail-details__qty-container">
+              <h4 className="itemdetail-details__label">Quantity</h4>
+              <p className="itemdetail-details__info">{itemDetail.quantity}</p>
+            </div>
+          </div>
+            <div className="itemdetail-details__warehouse-container">
+              <h4 className="itemdetail-details__label">Warehouse</h4>
+              <p className="itemdetail-details__info">{itemDetail.warehouseName}</p>
+          </div>
+        </div>  
     </div>
 
 
