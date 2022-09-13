@@ -48,7 +48,7 @@ function WarehouseDetails() {
             .catch(error => {
                 <span>Warehouse inventories not found</span>
             })
-    }, [warehouseId, sortedInventoriesList, reverse])
+    }, [warehouseId])
 
     const handleSortInventories = () => {
         if (!reverse) {

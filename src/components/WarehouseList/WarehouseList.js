@@ -23,7 +23,7 @@ function WarehouseList() {
             .then(response => {
                 setWarehousesList(response.data)
             })
-    }, [sortedWarehouses, reverse]);
+    }, []);
   
     const handleSortWarehouses = () => {
         if (!reverse) {

@@ -25,7 +25,7 @@ function InventoryList() {
       .catch((error) => {
         console.error(error);
       });
-  }, [sortedInventoriesList, reverse]);
+  }, []);
 
   const handleSortInventories = () => {
     if (!reverse) {
