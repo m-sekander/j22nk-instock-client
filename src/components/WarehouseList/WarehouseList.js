@@ -71,7 +71,7 @@ function WarehouseList() {
             <div className="warehouse-list__header">
                 <h1 className="warehouse-list__title">Warehouses</h1>
                 <form className="warehouse-list__form">
-                    <input className="warehouse-list__search" type="text" placeholder="Search..."></input>
+                    {/* <input className="warehouse-list__search" type="text" placeholder="Search..."></input> */}
                     <div className="warehouse-list__button">
                         <CTA text="+ Add New Warehouse" link="/warehouses/add"/>
                     </div>
@@ -80,19 +80,19 @@ function WarehouseList() {
             <div className="warehouse-list__label-strip">
                 <div className="warehouse-list__label-container">
                     <h4 className="warehouse-list__label-item">Warehouse</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortWarehouses}/>
+                    {/* <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortWarehouses}/> */}
                 </div>
                 <div className="warehouse-list__label-container warehouse-list__label-address">
                     <h4 className="warehouse-list__label-item">Address</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortAddresses}/>
+                    {/* <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortAddresses}/> */}
                 </div>
                 <div className="warehouse-list__label-container warehouse-list__label-contact-name">
                     <h4 className="warehouse-list__label-item">Contact Name</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortContact}/>
+                    {/* <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortContact}/> */}
                 </div>
                 <div className="warehouse-list__label-container warehouse-list__label-contact-info">
                     <h4 className="warehouse-list__label-item">Contact Information</h4>
-                    <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortContact}/>
+                    {/* <img className="warehouse-list__label-icon" src={sortIcon} alt="Sort icon" onClick={handleSortContact}/> */}
                 </div>
                 <div className="warehouse-list__label-container">
                     <h4 className="warehouse-list__label-item">Actions</h4>
