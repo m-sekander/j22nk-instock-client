@@ -21,10 +21,10 @@ function Modal({isWarehouse, name, id, setDeleteActive, setWarehousesList, setIn
     
     function handleDelete() {
         if (isWarehouse) {
-            axios.delete(`http://localhost:8080/${page}/${id}`)
+            axios.delete(`${process.env.REACT_APP_SERVER}/${page}/${id}`)
             .then((response) => {
                 console.log("For devs:", response);
-                return axios.get(`http://localhost:8080/${page}`)
+                return axios.get(`${process.env.REACT_APP_SERVER}/${page}`)
             }).then(response => {
                 setWarehousesList(response.data);
             }).catch((error) => {
@@ -32,10 +32,10 @@ function Modal({isWarehouse, name, id, setDeleteActive, setWarehousesList, setIn
             });
             setDeleteActive(false);
         } else if (!warehouseId) {
-            axios.delete(`http://localhost:8080/${page}/${id}`)
+            axios.delete(`${process.env.REACT_APP_SERVER}/${page}/${id}`)
             .then((response) => {
                 console.log("For devs:", response);
-                return axios.get(`http://localhost:8080/${page}`)
+                return axios.get(`${process.env.REACT_APP_SERVER}/${page}`)
             }).then(response => {
                 setInventoryList(response.data);
             }).catch((error) => {
@@ -43,10 +43,10 @@ function Modal({isWarehouse, name, id, setDeleteActive, setWarehousesList, setIn
             });
             setDeleteActive(false);
         } else {
-            axios.delete(`http://localhost:8080/${page}/${id}`)
+            axios.delete(`${process.env.REACT_APP_SERVER}/${page}/${id}`)
             .then((response) => {
                 console.log("For devs:", response);
-                return axios.get(`http://localhost:8080/${page}`)
+                return axios.get(`${process.env.REACT_APP_SERVER}/${page}`)
             }).then(response => {
                 const inventoriesList = response.data;
                 const warehouseInventory = inventoriesList.filter(singleInventoriesList => singleInventoriesList.warehouseID === warehouseId);

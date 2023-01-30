@@ -61,7 +61,7 @@ function AddWarehouse() {
 
         setWarehouseInfo(newWarehouse);
         
-        axios.post("http://localhost:8080/warehouses", newWarehouse)
+        axios.post(`${process.env.REACT_APP_SERVER}/warehouses`, newWarehouse)
             .then(() => {
                 setIsLoading(false);
                 setIsSuccessful(true);

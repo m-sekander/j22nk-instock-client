@@ -29,7 +29,7 @@ function EditInventory() {
             behavior: "smooth"
           });
         axios
-        .get(`http://localhost:8080/inventories/${inventoryId}`)
+        .get(`${process.env.REACT_APP_SERVER}/inventories/${inventoryId}`)
         .then((response) => {
             setInventoryData(response.data);
             setCategory(response.data.category);
@@ -38,7 +38,7 @@ function EditInventory() {
                 setQuantity(response.data.quantity);
             }
             setWarehouse(response.data.warehouseName);
-            return axios.get("http://localhost:8080/warehouses")
+            return axios.get(`${process.env.REACT_APP_SERVER}/warehouses`)
         })
         .then(response => {
             setWarehousesList(response.data);
@@ -80,7 +80,7 @@ function EditInventory() {
             quantity: (event.target.status.value==="In Stock" ? event.target.quantity.value : 0)
         }
         
-        axios.put(`http://localhost:8080/inventories/${inventoryId}`, editedInventory)
+        axios.put(`${process.env.REACT_APP_SERVER}/inventories/${inventoryId}`, editedInventory)
         .then((response) => {
             setIsSuccessful(true);
             setTimeout(() => navigate("/inventories"), 1500);

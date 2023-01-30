@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 import CTA from "../CTA/CTA";
-import sortIcon from "../../assets/images/icons/sort-24px.svg";
+// import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import Loading from "../Loading/Loading";
 
 function WarehouseList() {
     const [warehouses, setWarehousesList] = useState(null);
-    const [sortedWarehouses, setSortedWarehousesList] = useState(null);
-    const [reverse, setReverse] = useState(false);
+    const [sortedWarehouses] = useState(null);
+    // const [reverse, setReverse] = useState(false);
 
     useEffect(() => {
         window.scroll({
@@ -19,48 +19,48 @@ function WarehouseList() {
           });
           
         axios
-            .get("http://localhost:8080/warehouses")
+            .get(`${process.env.REACT_APP_SERVER}/warehouses`)
             .then(response => {
                 setWarehousesList(response.data)
             })
     }, []);
   
-    const handleSortWarehouses = () => {
-        if (!reverse) {
-            const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0));
-            setSortedWarehousesList(sortedWarehouses);
-            setReverse(true)
-        } 
-        else {
-            const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? 1 : (a.name > b.name) ? -1 : 0));
-            setSortedWarehousesList(sortedWarehouses);
-            setReverse(false);
-        }
-    }
+    // const handleSortWarehouses = () => {
+    //     if (!reverse) {
+    //         const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0));
+    //         setSortedWarehousesList(sortedWarehouses);
+    //         setReverse(true)
+    //     } 
+    //     else {
+    //         const sortedWarehouses = warehouses.sort((a,b) => ((a.name < b.name) ? 1 : (a.name > b.name) ? -1 : 0));
+    //         setSortedWarehousesList(sortedWarehouses);
+    //         setReverse(false);
+    //     }
+    // }
 
-    const handleSortAddresses = () => {
-        if (!reverse) {
-            const sortedAddresses = warehouses.sort((a,b) => ((a.address > b.address) ? -1 : (a.address > b.address) ? 1: 0))
-            setSortedWarehousesList(sortedAddresses);
-            setReverse(true);
-        } else {
-            const sortedAddresses = warehouses.sort((a,b) => ((a.address < b.address) ? -1 : (a.address < b.address) ? 1: 0))
-            setSortedWarehousesList(sortedAddresses);
-            setReverse(false);
-        }
-    }
+    // const handleSortAddresses = () => {
+    //     if (!reverse) {
+    //         const sortedAddresses = warehouses.sort((a,b) => ((a.address > b.address) ? -1 : (a.address > b.address) ? 1: 0))
+    //         setSortedWarehousesList(sortedAddresses);
+    //         setReverse(true);
+    //     } else {
+    //         const sortedAddresses = warehouses.sort((a,b) => ((a.address < b.address) ? -1 : (a.address < b.address) ? 1: 0))
+    //         setSortedWarehousesList(sortedAddresses);
+    //         setReverse(false);
+    //     }
+    // }
 
-    const handleSortContact = () => {
-        if (!reverse) {
-            const sortedContactName = warehouses.sort((a,b) => ((a.contact.name < b.contact.name) ? -1 : (a.contact.name < b.contact.name) ? 1: 0))
-            setSortedWarehousesList(sortedContactName);
-            setReverse(true);
-        } else {
-            const sortedContactName = warehouses.sort((a,b) => ((a.contact.name > b.contact.name) ? -1 : (a.contact.name > b.contact.name) ? 1: 0))
-            setSortedWarehousesList(sortedContactName);
-            setReverse(false);
-        }
-    }
+    // const handleSortContact = () => {
+    //     if (!reverse) {
+    //         const sortedContactName = warehouses.sort((a,b) => ((a.contact.name < b.contact.name) ? -1 : (a.contact.name < b.contact.name) ? 1: 0))
+    //         setSortedWarehousesList(sortedContactName);
+    //         setReverse(true);
+    //     } else {
+    //         const sortedContactName = warehouses.sort((a,b) => ((a.contact.name > b.contact.name) ? -1 : (a.contact.name > b.contact.name) ? 1: 0))
+    //         setSortedWarehousesList(sortedContactName);
+    //         setReverse(false);
+    //     }
+    // }
 
     if (!warehouses) {
         return <Loading />

@@ -21,7 +21,7 @@ function AddInventoryItem() {
             behavior: "smooth"
           });
         axios
-            .get("http://localhost:8080/warehouses")
+            .get(`${process.env.REACT_APP_SERVER}/warehouses`)
             .then(response => {
                 setWarehousesList(response.data)
             })
@@ -66,7 +66,7 @@ function AddInventoryItem() {
         }
 
         axios
-            .post("http://localhost:8080/inventories", newInventoryItem)
+            .post(`${process.env.REACT_APP_SERVER}/inventories`, newInventoryItem)
             .then(() => {
                 setIsSuccessful(true);
                 setTimeout(() => navigate("/inventories"), 1500);

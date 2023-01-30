@@ -8,7 +8,7 @@ import { useParams, Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_SERVER;
 
 function ItemDetail() {
     const { inventoryId } =useParams();

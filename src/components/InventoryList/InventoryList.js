@@ -3,7 +3,7 @@ import axios from "axios";
 import InventoryItem from "../InventoryItem/InventoryItem";
 import Button from "../CTA/CTA";
 import { useEffect, useState } from "react";
-import sortIcon from "../../assets/images/icons/sort-24px.svg";
+// import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import Loading from "../Loading/Loading";
 
 function InventoryList() {
@@ -18,7 +18,7 @@ function InventoryList() {
       behavior: "smooth"
     });
     axios
-      .get("http://localhost:8080/inventories")
+      .get(`${process.env.REACT_APP_SERVER}/inventories`)
       .then((response) => {
         const data = response.data;
         setInventoryList(data);
@@ -28,41 +28,41 @@ function InventoryList() {
       });
   }, []);
 
-  const handleSortInventories = () => {
-    if (!reverse) {
-        const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? -1 : (a.itemName > b.itemName) ? 1 : 0));
-        setSortedInventoriesList(sortedInventories);
-        setReverse(true);
-    } else {
-        const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? 1 : (a.itemName > b.itemName) ? -1 : 0));
-        setSortedInventoriesList(sortedInventories);
-        setReverse(false);
-    }
-  }
+  // const handleSortInventories = () => {
+  //   if (!reverse) {
+  //       const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? -1 : (a.itemName > b.itemName) ? 1 : 0));
+  //       setSortedInventoriesList(sortedInventories);
+  //       setReverse(true);
+  //   } else {
+  //       const sortedInventories = inventoryList.sort((a,b) => ((a.itemName < b.itemName) ? 1 : (a.itemName > b.itemName) ? -1 : 0));
+  //       setSortedInventoriesList(sortedInventories);
+  //       setReverse(false);
+  //   }
+  // }
 
-  const handleSortCategories = () => {
-    if (!reverse) {
-        const sortedCategories = inventoryList.sort((a,b) => ((a.category < b.category) ? -1 : (a.category > b.category) ? 1 : 0));
-        setSortedInventoriesList(sortedCategories);
-        setReverse(true);
-    } else {
-        const sortedCategories = inventoryList.sort((a,b) => ((a.category < b.category) ? 1 : (a.category > b.category) ? -1 : 0));
-        setSortedInventoriesList(sortedCategories);
-        setReverse(false);
-    }
-  }
+  // const handleSortCategories = () => {
+  //   if (!reverse) {
+  //       const sortedCategories = inventoryList.sort((a,b) => ((a.category < b.category) ? -1 : (a.category > b.category) ? 1 : 0));
+  //       setSortedInventoriesList(sortedCategories);
+  //       setReverse(true);
+  //   } else {
+  //       const sortedCategories = inventoryList.sort((a,b) => ((a.category < b.category) ? 1 : (a.category > b.category) ? -1 : 0));
+  //       setSortedInventoriesList(sortedCategories);
+  //       setReverse(false);
+  //   }
+  // }
 
-  const handleSortQuantity = () => {
-    if (!reverse) {
-        const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
-        setSortedInventoriesList(sortedQuantity);
-        setReverse(true);
-    } else {
-        const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
-        setSortedInventoriesList(sortedQuantity);
-        setReverse(false);
-    }
-  }
+  // const handleSortQuantity = () => {
+  //   if (!reverse) {
+  //       const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? -1 : (a.quantity > b.quantity) ? 1 : 0));
+  //       setSortedInventoriesList(sortedQuantity);
+  //       setReverse(true);
+  //   } else {
+  //       const sortedQuantity = inventoryList.sort((a,b) => ((a.quantity < b.quantity) ? 1 : (a.quantity > b.quantity) ? -1 : 0));
+  //       setSortedInventoriesList(sortedQuantity);
+  //       setReverse(false);
+  //   }
+  // }
 
   const handleSortWarehouses = () => {
     if (!reverse) {

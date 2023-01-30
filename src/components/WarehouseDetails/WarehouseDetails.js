@@ -27,7 +27,7 @@ function WarehouseDetails() {
           });
 
         axios
-            .get("http://localhost:8080/warehouses/" + warehouseId)
+            .get(`${process.env.REACT_APP_SERVER}/warehouses/` + warehouseId)
             .then(response => {
                 setWarehouseDetails(response.data);
             })
@@ -39,7 +39,7 @@ function WarehouseDetails() {
     // GET single warehouse inventory list 
     useEffect(() => {
         axios
-            .get("http://localhost:8080/inventories/")
+            .get(`${process.env.REACT_APP_SERVER}/inventories/`)
             .then(response => {
                 const inventoriesList = response.data;
                 const warehouseInventory = inventoriesList.filter(singleInventoriesList => singleInventoriesList.warehouseID === warehouseId);

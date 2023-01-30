@@ -63,7 +63,7 @@ function EditWarehouse() {
         // Set warehouseInfo to current values user typed in to keep them in the fields
         setWarehouseInfo(editedWarehouse);
 
-        axios.put("http://localhost:8080/warehouses/" + warehouseId, editedWarehouse)
+        axios.put(`${process.env.REACT_APP_SERVER}/warehouses/` + warehouseId, editedWarehouse)
             .then(() => {
                 setIsLoading(false);
                 setIsSuccessful(true);
@@ -85,7 +85,7 @@ function EditWarehouse() {
             right: 0,
             behavior: "smooth"
             });
-        axios.get("http://localhost:8080/warehouses/" + warehouseId)
+        axios.get(`${process.env.REACT_APP_SERVER}/warehouses/` + warehouseId)
             .then((response) => {
                 setWarehouseInfo(response.data);
             })
